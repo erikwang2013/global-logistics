@@ -1,0 +1,14 @@
+{
+    "success": true,
+    "code": "200",
+    "message": "成功",
+    "data": [
+        {
+            "tracking_number": "JT1234567890",
+            "traces": [
+                {"track_time": "2026-08-14 12:00:00", "track_desc": "【成都市】快件已从【成都转运中心】发出", "station_name": "成都转运中心", "status": "运输中"},
+                {"track_time": "2026-08-16 09:30:00", "track_desc": "【重庆市】已签收，签收人：赵六", "station_name": "重庆网点", "status": "已签收"}
+            ]
+        }
+    ]
+}
