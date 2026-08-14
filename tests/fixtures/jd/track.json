@@ -1,0 +1,9 @@
+{
+    "code": "0",
+    "data": {
+        "traces": [
+            {"operateTime": "2026-08-14 10:00:00", "operateDesc": "快件已到达【上海转运中心】", "stationName": "上海市"},
+            {"operateTime": "2026-08-15 18:30:00", "operateDesc": "已签收", "stationName": "杭州市"}
+        ]
+    }
+}
