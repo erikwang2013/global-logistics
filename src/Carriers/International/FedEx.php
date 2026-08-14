@@ -31,8 +31,8 @@ final class FedEx implements CarrierInterface
 
     /** 事件描述关键词 => 统一状态（顺序敏感：先长后短，避免 'DELIVERED' 被 'PICKUP' 等短词干扰） */
     private const STATUS_MAP = [
-        'PICKUP' => TrackStatus::PENDING,
         'PICKED UP' => TrackStatus::PENDING,
+        'PICKUP' => TrackStatus::PENDING,
         'IN TRANSIT' => TrackStatus::IN_TRANSIT,
         'OUT FOR DELIVERY' => TrackStatus::OUT_FOR_DELIVERY,
         'EXCEPTION' => TrackStatus::EXCEPTION,
@@ -156,18 +156,20 @@ final class FedEx implements CarrierInterface
         if (!is_string($date) || $date === '') {
             return null;
         }
-
-        // FedEx 将日期和时间拆成两个字段，尝试先拼完整时间，失败再回退纯日期
-        $raw = $date . ($time !== null && $time !== '' ? ' ' . $time : '');
-        $occurredAt = \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $raw);
-        if ($occurredAt === false) {
-            $occurredAt = \DateTimeImmutable::createFromFormat('Y-m-d', $raw);
-            if ($occurredAt === false) {
-                return null;
+        // 真实 FedEx Track v1 时间戳形态：
+        // 1) date="2019-09-03" + time="16:30:00-05:00"（time 带 ±HH:MM 时区偏移）
+        // 2) 单字段完整 ISO-8601 "date": "2014-01-06T10:18:00-05:00"（无独立 time 字段）
+        // 3) 裸时间 "2026-08-14 09:15:00"（fixture 旧形态）
+        // 'P' 匹配 ±HH:MM 时区偏移；顺序敏感，回退时只用 $date 本身解析纯日期
+        $raw = is_string($time) && $time !== '' ? $date . ' ' . $time : $date;
+        foreach (['Y-m-d H:i:sP', 'Y-m-d\TH:i:sP', 'Y-m-d H:i:s'] as $format) {
+            $dt = \DateTimeImmutable::createFromFormat($format, $raw);
+            if ($dt !== false) {
+                return $dt;
             }
         }
 
-        return $occurredAt;
+        return \DateTimeImmutable::createFromFormat('Y-m-d', $date) ?: null;
     }
 
     private function mapStatus(string $description): TrackStatus

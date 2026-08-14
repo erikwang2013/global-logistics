@@ -57,13 +57,18 @@ final class FedExTest extends TestCase
         $this->assertSame('fedex', $tracking->carrierCode);
         $this->assertSame(TrackStatus::DELIVERED, $tracking->status);
         $this->assertCount(2, $tracking->events);
-        $this->assertSame('Shanghai', $tracking->events[0]->location);
+        $this->assertSame('Memphis', $tracking->events[0]->location);
         $this->assertSame('Picked up', $tracking->events[0]->description);
-        $this->assertSame('2026-08-14T09:15:00', $tracking->events[0]->occurredAt?->format('Y-m-d\TH:i:s'));
+        $this->assertInstanceOf(\DateTimeImmutable::class, $tracking->events[0]->occurredAt);
+        $this->assertSame('2026-08-14T10:00:00', $tracking->events[0]->occurredAt?->format('Y-m-d\TH:i:s'));
         $this->assertSame(TrackStatus::PENDING, $tracking->events[0]->status);
         $this->assertSame('Delivered', $tracking->latestDescription);
+        $this->assertSame('Berlin', $tracking->events[1]->location);
+        $this->assertInstanceOf(\DateTimeImmutable::class, $tracking->events[1]->occurredAt);
+        $this->assertSame('2026-08-15T18:30:00', $tracking->events[1]->occurredAt?->format('Y-m-d\TH:i:s'));
         $this->assertSame(TrackStatus::DELIVERED, $tracking->events[1]->status);
-        $this->assertNotNull($tracking->deliveredAt);
+        $this->assertInstanceOf(\DateTimeImmutable::class, $tracking->deliveredAt);
+        $this->assertSame('2026-08-15T18:30:00', $tracking->deliveredAt?->format('Y-m-d\TH:i:s'));
         $this->assertSame('DELIVERED', $tracking->rawStatus);
     }
 

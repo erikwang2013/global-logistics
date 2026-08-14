@@ -13,14 +13,13 @@
                         "scanEvents": [
                             {
                                 "date": "2026-08-14",
-                                "time": "09:15:00",
-                                "scanLocation": {"city": "Shanghai"},
+                                "time": "10:00:00-05:00",
+                                "scanLocation": {"city": "Memphis"},
                                 "scanDescription": "Picked up"
                             },
                             {
-                                "date": "2026-08-15",
-                                "time": "18:30:00",
-                                "scanLocation": {"city": "Los Angeles"},
+                                "date": "2026-08-15T18:30:00-05:00",
+                                "scanLocation": {"city": "Berlin"},
                                 "scanDescription": "Delivered"
                             }
                         ]
