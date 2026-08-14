@@ -9,6 +9,8 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
+use GlobalLogistics\Models\Order;
+use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -89,6 +91,36 @@ final class StoTest extends TestCase
         $this->expectExceptionMessage('响应解析失败');
 
         $adapter->queryTrack('773001234567890');
+    }
+
+    public function testUnsupportedMethodsThrow(): void
+    {
+        $http = new FakeHttpClient();
+        $adapter = new Sto(
+            new Config(['sto' => ['customer_id' => 'test']]),
+            $http,
+        );
+
+        try {
+            $adapter->createOrder(new OrderRequest(['name' => 's'], ['name' => 'r']));
+            $this->fail('createOrder should throw');
+        } catch (LogisticsException $e) {
+            $this->assertStringContainsString('待实现', $e->getMessage());
+        }
+
+        try {
+            $adapter->createLabel(new Order('SF1234567890'));
+            $this->fail('createLabel should throw');
+        } catch (LogisticsException $e) {
+            $this->assertStringContainsString('待实现', $e->getMessage());
+        }
+
+        try {
+            $adapter->subscribe('https://example.com/callback');
+            $this->fail('subscribe should throw');
+        } catch (LogisticsException $e) {
+            $this->assertStringContainsString('待实现', $e->getMessage());
+        }
     }
 
     public function testExceptionKeywordWinsOverDelivered(): void

@@ -32,11 +32,9 @@ final class Sto implements CarrierInterface
     ];
 
     public function __construct(
-        private readonly Config $config,
+        Config $config, // kept for uniform constructor shape (factory passes config + http); Sto has no request signature
         private readonly ClientInterface $http,
     ) {
-        // 请求无需签名，customer_id 暂未用于请求体，保留以维持类形状统一
-        $this->config->get('sto.customer_id');
     }
 
     public function queryTrack(string $trackingNo, array $options = []): Tracking
