@@ -1,0 +1,44 @@
+{
+    "trackResponse": {
+        "shipment": [
+            {
+                "trackingNumber": "1Z9999999999999999",
+                "package": [
+                    {
+                        "trackingNumber": "1Z9999999999999999",
+                        "activity": [
+                            {
+                                "date": "20260814",
+                                "time": "100000",
+                                "status": {
+                                    "type": "I",
+                                    "description": "In Transit"
+                                },
+                                "location": {
+                                    "address": {
+                                        "city": "Shenzhen",
+                                        "countryCode": "CN"
+                                    }
+                                }
+                            },
+                            {
+                                "date": "20260815",
+                                "time": "183000",
+                                "status": {
+                                    "type": "D",
+                                    "description": "Delivered"
+                                },
+                                "location": {
+                                    "address": {
+                                        "city": "Shanghai",
+                                        "countryCode": "CN"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
