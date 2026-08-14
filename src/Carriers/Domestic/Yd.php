@@ -70,12 +70,21 @@ final class Yd implements CarrierInterface
         }
 
         $traces = $result['data'] ?? [];
-        if ($traces === []) {
+        if (!is_array($traces) || $traces === []) {
             throw new TrackingNotFoundException($trackingNo);
         }
 
         // 轨迹按时间升序返回，末条为最新（不同承运商顺序可能不同，复制模板时需核对）
-        $events = array_map(fn (array $row): TrackingEvent => $this->mapEvent($row), $traces);
+        $events = [];
+        foreach ($traces as $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+            $events[] = $this->mapEvent($row);
+        }
+        if ($events === []) {
+            throw new TrackingNotFoundException($trackingNo);
+        }
         $latest = $events[count($events) - 1];
 
         return new Tracking(

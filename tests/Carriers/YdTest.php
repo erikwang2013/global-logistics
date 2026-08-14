@@ -24,11 +24,11 @@ final class YdTest extends TestCase
         $http = new FakeHttpClient();
         $http->handler = function (Request $request) {
             $query = \GuzzleHttp\Psr7\Query::parse($request->getUri()->getQuery());
-            assert($query['app_key'] === 'test-app-key');
-            assert($query['sign'] === md5('app_key' . 'test-app-key' . 'timestamp' . $query['timestamp'] . 'test-app-secret'));
+            $this->assertSame('test-app-key', $query['app_key'] ?? null);
+            $this->assertSame(md5('app_key' . 'test-app-key' . 'timestamp' . $query['timestamp'] . 'test-app-secret'), $query['sign'] ?? null);
             $body = json_decode((string) $request->getBody(), true);
-            assert($body['trackingNumber'] === 'YD1234567890');
-            assert($body['format'] === 'json');
+            $this->assertSame('YD1234567890', $body['trackingNumber'] ?? null);
+            $this->assertSame('json', $body['format'] ?? null);
 
             return new Response(200, ['Content-Type' => 'application/json'],
                 file_get_contents(__DIR__ . '/../fixtures/yd/track.json'));
@@ -125,5 +125,26 @@ final class YdTest extends TestCase
         } catch (LogisticsException $e) {
             $this->assertStringContainsString('待实现', $e->getMessage());
         }
+    }
+
+    public function testExceptionKeywordWinsOverDelivered(): void
+    {
+        $http = new FakeHttpClient();
+        $http->handler = fn (Request $request) => new Response(200, ['Content-Type' => 'application/json'],
+            json_encode([
+                'status' => '1',
+                'data' => [
+                    ['trackTime' => '2026-08-15 18:30:00', 'stationName' => '杭州市', 'trackDesc' => '签收异常-收件人拒收'],
+                ],
+            ], JSON_UNESCAPED_UNICODE));
+
+        $adapter = new Yd(
+            new Config(['yd' => ['app_key' => 'test-app-key', 'app_secret' => 'test-app-secret']]),
+            $http,
+        );
+
+        $tracking = $adapter->queryTrack('YT1234567890');
+
+        $this->assertSame(TrackStatus::EXCEPTION, $tracking->status);
     }
 }
