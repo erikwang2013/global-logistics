@@ -49,8 +49,8 @@ final class Sf implements CarrierInterface
         $response = $this->post('EXP_RECE_SEARCH', $msgData);
         $data = json_decode((string) $response->getBody(), true);
 
-        if (($data['success'] ?? false) !== true) {
-            $this->throwForApiError($data);
+        if (!is_array($data) || ($data['success'] ?? false) !== true) {
+            $this->throwForApiError(is_array($data) ? $data : []);
         }
 
         $routeList = $data['msgData']['waybillRouteInfoList'][0]['waybillRouteInfo'] ?? [];
@@ -58,6 +58,7 @@ final class Sf implements CarrierInterface
             throw new TrackingNotFoundException($trackingNo);
         }
 
+        // 路由轨迹按时间升序返回，末条为最新（不同承运商顺序可能不同，复制模板时需核对）
         $events = array_map(fn (array $row): TrackingEvent => $this->mapEvent($row), $routeList);
         $latest = $events[count($events) - 1];
         $lastRaw = $routeList[count($routeList) - 1];
@@ -91,7 +92,12 @@ final class Sf implements CarrierInterface
             'trackingNumber' => $options['tracking_no'] ?? '',
             'callbackUrl' => $callbackUrl,
         ];
-        $this->post('EXP_RECE_SUBSCRIBE', $msgData);
+        $response = $this->post('EXP_RECE_SUBSCRIBE', $msgData);
+        $data = json_decode((string) $response->getBody(), true);
+
+        if (!is_array($data) || ($data['success'] ?? false) !== true) {
+            $this->throwForApiError(is_array($data) ? $data : []);
+        }
     }
 
     public function verifyCallbackSignature(string $payload, string $digest): bool

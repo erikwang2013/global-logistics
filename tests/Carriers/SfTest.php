@@ -7,6 +7,7 @@ namespace GlobalLogistics\Tests\Carriers;
 use GlobalLogistics\Carriers\Domestic\Sf;
 use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
+use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -73,5 +74,45 @@ final class SfTest extends TestCase
 
         $this->assertTrue($sf->verifyCallbackSignature($payload, $digest));
         $this->assertFalse($sf->verifyCallbackSignature($payload, 'wrong'));
+    }
+
+    public function testNonJsonBodyThrowsLogisticsException(): void
+    {
+        $http = new FakeHttpClient();
+        $http->handler = fn (Request $request): Response => new Response(200, [], '<html>gateway error</html>');
+
+        $sf = new Sf(
+            new Config(['sf' => ['partner_id' => 'test-partner', 'checkword' => 'test-checkword']]),
+            $http,
+        );
+
+        $this->expectException(LogisticsException::class);
+        $sf->queryTrack('SF1234567890');
+    }
+
+    public function testSubscribeRejectsErrorResponse(): void
+    {
+        $http = new FakeHttpClient();
+        $http->handler = function (Request $request) {
+            $body = json_decode((string) $request->getBody(), true);
+
+            assert(isset($body['partnerID']) && $body['partnerID'] === 'test-partner');
+            assert(isset($body['msgDigest']) && is_string($body['msgDigest']) && $body['msgDigest'] !== '');
+            assert(isset($body['serviceCode']) && $body['serviceCode'] === 'EXP_RECE_SUBSCRIBE');
+            $msg = json_decode($body['msgData'], true);
+            assert($msg['trackingNumber'] === 'SF1234567890');
+
+            $content = file_get_contents(__DIR__ . '/../fixtures/sf/error-invalid-key.json');
+
+            return new Response(200, ['Content-Type' => 'application/json'], $content);
+        };
+
+        $sf = new Sf(
+            new Config(['sf' => ['partner_id' => 'test-partner', 'checkword' => 'test-checkword']]),
+            $http,
+        );
+
+        $this->expectException(AuthException::class);
+        $sf->subscribe('https://example.com/callback', ['tracking_no' => 'SF1234567890']);
     }
 }
