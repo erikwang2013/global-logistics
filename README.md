@@ -25,7 +25,8 @@ $tracking = Logistics::track('SF1234567890');
 
 // 显式指定
 $tracking = Logistics::domestic('sf')->queryTrack('SF1234567890');
-$tracking = Logistics::international('dhl')->queryTrack('DHL1234567890');
+// 国际承运商接入后可用（国际批次规划中）
+// $tracking = Logistics::international('dhl')->queryTrack('DHL1234567890');
 
 echo $tracking->status->name;      // DELIVERED
 echo $tracking->latestDescription; // 快件已签收
