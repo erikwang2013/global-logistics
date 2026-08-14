@@ -60,6 +60,7 @@ final class FedExTest extends TestCase
         $this->assertSame('Shanghai', $tracking->events[0]->location);
         $this->assertSame('Picked up', $tracking->events[0]->description);
         $this->assertSame('2026-08-14T09:15:00', $tracking->events[0]->occurredAt?->format('Y-m-d\TH:i:s'));
+        $this->assertSame(TrackStatus::PENDING, $tracking->events[0]->status);
         $this->assertSame('Delivered', $tracking->latestDescription);
         $this->assertSame(TrackStatus::DELIVERED, $tracking->events[1]->status);
         $this->assertNotNull($tracking->deliveredAt);

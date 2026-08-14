@@ -32,6 +32,7 @@ final class FedEx implements CarrierInterface
     /** 事件描述关键词 => 统一状态（顺序敏感：先长后短，避免 'DELIVERED' 被 'PICKUP' 等短词干扰） */
     private const STATUS_MAP = [
         'PICKUP' => TrackStatus::PENDING,
+        'PICKED UP' => TrackStatus::PENDING,
         'IN TRANSIT' => TrackStatus::IN_TRANSIT,
         'OUT FOR DELIVERY' => TrackStatus::OUT_FOR_DELIVERY,
         'EXCEPTION' => TrackStatus::EXCEPTION,
