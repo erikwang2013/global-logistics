@@ -13,15 +13,15 @@ final class CarrierFactory
      * @param array<string, array<string, class-string<CarrierInterface>>> $registry
      */
     public function __construct(
-        private readonly array $registry = [],
         private readonly Config $config,
         private readonly ClientInterface $http,
+        private readonly array $registry = [],
     ) {
     }
 
     public static function withDefaults(Config $config, ClientInterface $http): self
     {
-        return new self(require __DIR__ . '/Resources/carrier-registry.php', $config, $http);
+        return new self($config, $http, require __DIR__ . '/Resources/carrier-registry.php');
     }
 
     public function create(Channel $channel, string $carrierCode): CarrierInterface

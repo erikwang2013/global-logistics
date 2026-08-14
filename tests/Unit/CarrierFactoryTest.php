@@ -17,14 +17,14 @@ final class CarrierFactoryTest extends TestCase
     public function testCreateReturnsRegisteredCarrier(): void
     {
         $registry = ['domestic' => ['fake' => FakeCarrier::class]];
-        $factory = new CarrierFactory($registry, new Config([]), new FakeHttpClient());
+        $factory = new CarrierFactory(new Config([]), new FakeHttpClient(), $registry);
 
         $this->assertInstanceOf(FakeCarrier::class, $factory->create(Channel::Domestic, 'fake'));
     }
 
     public function testUnknownCarrierThrows(): void
     {
-        $factory = new CarrierFactory([], new Config([]), new FakeHttpClient());
+        $factory = new CarrierFactory(new Config([]), new FakeHttpClient());
 
         $this->expectException(CarrierNotFoundException::class);
         $factory->create(Channel::Domestic, 'nope');
@@ -33,7 +33,7 @@ final class CarrierFactoryTest extends TestCase
     public function testWrongChannelThrows(): void
     {
         $registry = ['domestic' => ['fake' => FakeCarrier::class]];
-        $factory = new CarrierFactory($registry, new Config([]), new FakeHttpClient());
+        $factory = new CarrierFactory(new Config([]), new FakeHttpClient(), $registry);
 
         $this->expectException(CarrierNotFoundException::class);
         $factory->create(Channel::International, 'fake');
