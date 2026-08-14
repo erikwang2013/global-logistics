@@ -1,0 +1,9 @@
+{
+    "status": "1",
+    "data": {
+        "traces": [
+            {"scanTime": "2026-08-14 10:00:00", "scanDesc": "快件已到达【上海转运中心】", "location": "上海市"},
+            {"scanTime": "2026-08-15 18:30:00", "scanDesc": "已签收", "location": "杭州市"}
+        ]
+    }
+}
