@@ -49,8 +49,8 @@ final class Usps implements CarrierInterface
     public function queryTrack(string $trackingNo, array $options = []): Tracking
     {
         $xml = '<?xml version="1.0" encoding="UTF-8"?>'
-            . '<TrackFieldRequest USERID="' . htmlspecialchars((string) $this->config->get('usps.user_id'), ENT_XML1) . '">'
-            . '<TrackID ID="' . htmlspecialchars($trackingNo, ENT_XML1) . '"/>'
+            . '<TrackFieldRequest USERID="' . htmlspecialchars((string) $this->config->get('usps.user_id'), ENT_XML1 | ENT_QUOTES) . '">'
+            . '<TrackID ID="' . htmlspecialchars($trackingNo, ENT_XML1 | ENT_QUOTES) . '"/>'
             . '</TrackFieldRequest>';
 
         $request = new \GuzzleHttp\Psr7\Request('GET', self::ENDPOINT . '?' . http_build_query([
@@ -121,7 +121,7 @@ final class Usps implements CarrierInterface
         }
 
         // 形如 "August 14, 2026, 10:00 am, Picked up, MEMPHIS"
-        if (!preg_match('/^([A-Za-z]+ \d{1,2}, \d{4}, \d{1,2}:\d{2} [ap]m), (.*)$/', $text, $m)) {
+        if (!preg_match('/^([A-Za-z]+ \d{1,2}, \d{4}, \d{1,2}:\d{2} [APap]m), (.*)$/', $text, $m)) {
             return null;
         }
 

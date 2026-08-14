@@ -53,6 +53,30 @@ final class UspsTest extends TestCase
         $this->assertNotNull($tracking->deliveredAt);
     }
 
+    public function testQueryTrackEscapesQuotesInXmlAttributes(): void
+    {
+        $http = new FakeHttpClient();
+        $http->handler = function (Request $request) {
+            $query = Query::parse((string) $request->getUri()->getQuery());
+            $root = simplexml_load_string($query['XML'] ?? '');
+            $this->assertNotFalse($root);
+            $this->assertSame('test-user', (string) $root['USERID']);
+            $this->assertSame('9400111899223197448523"', (string) $root->TrackID['ID']);
+
+            return new Response(200, ['Content-Type' => 'application/xml'],
+                file_get_contents(__DIR__ . '/../fixtures/usps/track.xml'));
+        };
+
+        $adapter = new Usps(
+            new Config(['usps' => ['user_id' => 'test-user']]),
+            $http,
+        );
+
+        $tracking = $adapter->queryTrack('9400111899223197448523"');
+
+        $this->assertSame(TrackStatus::DELIVERED, $tracking->status);
+    }
+
     public function testQueryTrackThrowsWhenNoTrace(): void
     {
         $http = new FakeHttpClient();
