@@ -166,16 +166,25 @@ final class FedExTest extends TestCase
     {
         $adapter = $this->makeAdapter($this->makeHttp());
 
-        $this->expectException(LogisticsException::class);
-        $this->expectExceptionMessage('FEDEX createOrder 待实现');
-        $adapter->createOrder(new OrderRequest(['name' => 's'], ['name' => 'r']));
+        try {
+            $adapter->createOrder(new OrderRequest(['name' => 's'], ['name' => 'r']));
+            $this->fail('createOrder should throw');
+        } catch (LogisticsException $e) {
+            $this->assertStringContainsString('待实现', $e->getMessage());
+        }
 
-        $this->expectException(LogisticsException::class);
-        $this->expectExceptionMessage('FEDEX createLabel 待实现');
-        $adapter->createLabel(new Order('FEDEX1234567890'));
+        try {
+            $adapter->createLabel(new Order('FEDEX1234567890'));
+            $this->fail('createLabel should throw');
+        } catch (LogisticsException $e) {
+            $this->assertStringContainsString('待实现', $e->getMessage());
+        }
 
-        $this->expectException(LogisticsException::class);
-        $this->expectExceptionMessage('FEDEX subscribe 待实现');
-        $adapter->subscribe('https://example.com/hook');
+        try {
+            $adapter->subscribe('https://example.com/hook');
+            $this->fail('subscribe should throw');
+        } catch (LogisticsException $e) {
+            $this->assertStringContainsString('待实现', $e->getMessage());
+        }
     }
 }
