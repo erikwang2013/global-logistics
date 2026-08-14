@@ -66,7 +66,12 @@ final class Logistics
     {
         self::requireInitialized();
 
-        return self::domestic(self::$detector->detect($trackingNo)->carrierCode)->queryTrack($trackingNo);
+        $detection = self::$detector->detect($trackingNo);
+        $carrier = $detection->channel === Channel::Domestic
+            ? self::$factory->create(Channel::Domestic, $detection->carrierCode)
+            : self::$factory->create(Channel::International, $detection->carrierCode);
+
+        return $carrier->queryTrack($trackingNo);
     }
 
     public static function detect(string $trackingNo): Detection
