@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrackResponse>
+    <Error>
+        <Number>80040B1A</Number>
+        <Description>Authorization failure.</Description>
+        <Source>USPS.com</Source>
+    </Error>
+</TrackResponse>

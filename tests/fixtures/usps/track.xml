@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrackResponse>
+    <TrackInfo ID="9400111899223197448523">
+        <TrackSummary>Your item was delivered at 6:30 pm on August 15, 2026 in BERLIN.</TrackSummary>
+        <TrackDetail>August 14, 2026, 10:00 am, Picked up, MEMPHIS</TrackDetail>
+        <TrackDetail>August 15, 2026, 6:30 pm, Delivered, BERLIN</TrackDetail>
+    </TrackInfo>
+</TrackResponse>
