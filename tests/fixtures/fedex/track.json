@@ -1,0 +1,32 @@
+{
+    "output": {
+        "completeTrackResults": [
+            {
+                "trackingNumber": "FEDEX1234567890",
+                "trackResults": [
+                    {
+                        "trackingNumber": "FEDEX1234567890",
+                        "statusByTrack": {
+                            "state": "DELIVERED",
+                            "description": "Delivered"
+                        },
+                        "scanEvents": [
+                            {
+                                "date": "2026-08-14",
+                                "time": "09:15:00",
+                                "scanLocation": {"city": "Shanghai"},
+                                "scanDescription": "Picked up"
+                            },
+                            {
+                                "date": "2026-08-15",
+                                "time": "18:30:00",
+                                "scanLocation": {"city": "Los Angeles"},
+                                "scanDescription": "Delivered"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
