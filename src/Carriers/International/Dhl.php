@@ -29,7 +29,7 @@ final class Dhl implements CarrierInterface
 
     private const ENDPOINT = 'https://api.dhl.com/mydhlapi/shipments';
 
-    /** DHL statusCode => 统一状态（事件级未命中时回退到运单级 statusCode） */
+    /** DHL statusCode => 统一状态（事件级 statusCode 为空或未命中时回退到运单级 statusCode） */
     private const STATUS_MAP = [
         'delivered' => TrackStatus::DELIVERED,
         'pre-transit' => TrackStatus::PENDING,
@@ -146,7 +146,7 @@ final class Dhl implements CarrierInterface
         }
 
         $statusCode = (string) ($row['statusCode'] ?? '');
-        if ($statusCode === '') {
+        if (!isset(self::STATUS_MAP[$statusCode])) {
             $statusCode = $shipmentStatus;
         }
 

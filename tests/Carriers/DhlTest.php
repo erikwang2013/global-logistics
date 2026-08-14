@@ -93,6 +93,46 @@ final class DhlTest extends TestCase
         $adapter->queryTrack('DHL1234567890');
     }
 
+    public function testEventStatusCodeUnmappedFallsBackToShipmentStatus(): void
+    {
+        $http = new FakeHttpClient();
+        $http->handler = function (Request $request) {
+            if ($request->getUri()->getPath() === '/mydhlapi/auth') {
+                return new Response(200, ['Content-Type' => 'application/json'], '{"access_token":"tok-dhl","expires_in":3600}');
+            }
+
+            $body = json_encode([
+                'shipments' => [
+                    [
+                        'id' => 'SHIP-67890',
+                        'status' => ['statusCode' => 'transit'],
+                        'events' => [
+                            [
+                                'timestamp' => '2026-08-14T10:00:00',
+                                'location' => ['address' => ['city' => 'Frankfurt', 'countryCode' => 'DE']],
+                                'description' => 'Processed',
+                                'statusCode' => 'held',
+                            ],
+                        ],
+                    ],
+                ],
+            ], JSON_THROW_ON_ERROR);
+
+            return new Response(200, ['Content-Type' => 'application/json'], $body);
+        };
+
+        $adapter = new Dhl(
+            new Config(['dhl' => ['client_id' => 'test-dhl-client-id', 'client_secret' => 'test-dhl-client-secret']]),
+            $http,
+        );
+
+        $tracking = $adapter->queryTrack('DHL1234567890');
+
+        $this->assertSame(TrackStatus::IN_TRANSIT, $tracking->status);
+        $this->assertSame(TrackStatus::IN_TRANSIT, $tracking->events[0]->status);
+        $this->assertSame('transit', $tracking->rawStatus);
+    }
+
     public function testQueryTrackThrowsOnNonArrayBody(): void
     {
         $http = new FakeHttpClient();
