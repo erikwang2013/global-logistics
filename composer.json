@@ -1,0 +1,28 @@
+{
+    "name": "erikwang2013/global-logistics",
+    "description": "Unified facade for domestic (China) express and international logistics tracking APIs",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["logistics", "express", "tracking", "courier", "快递", "物流"],
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "GlobalLogistics\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GlobalLogistics\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "minimum-stability": "stable"
+}
