@@ -19,11 +19,6 @@ final class CarrierFactory
     ) {
     }
 
-    public static function withDefaults(Config $config, ClientInterface $http): self
-    {
-        return new self($config, $http, require __DIR__ . '/Resources/carrier-registry.php');
-    }
-
     public function create(Channel $channel, string $carrierCode): CarrierInterface
     {
         $class = $this->registry[$channel->value][$carrierCode] ?? null;

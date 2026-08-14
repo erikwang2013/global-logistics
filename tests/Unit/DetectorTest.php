@@ -111,4 +111,22 @@ final class DetectorTest extends TestCase
         $this->assertSame(Channel::International, $result->channel);
         $this->assertSame('usps', $result->carrierCode);
     }
+
+    public function testDetectsTenDigitDhl(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('1234567890');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('dhl', $result->carrierCode);
+    }
+
+    public function testTenDigitSeventySevenPrefixUnknown(): void
+    {
+        // 77 开头 10 位纯数字为国内旧式申通单号，不得误判为 DHL 国际
+        $detector = Detector::withDefaults();
+
+        $this->expectException(CarrierNotFoundException::class);
+        $detector->detect('7734567890');
+    }
 }

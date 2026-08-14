@@ -1,6 +1,6 @@
 # global-logistics
 
-统一门面的国内快递 / 国际物流轨迹查询 composer 包（PHP 8.1+，PSR-4，不绑定框架）。
+统一门面的国内快递 / 国际物流轨迹查询 composer 包（PHP 8.2+，PSR-4，不绑定框架）。
 
 ## 快速开始
 
