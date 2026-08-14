@@ -26,9 +26,9 @@ final class Yto implements CarrierInterface
         '已揽收' => TrackStatus::PENDING,
         '运输中' => TrackStatus::IN_TRANSIT,
         '派送中' => TrackStatus::OUT_FOR_DELIVERY,
-        '签收' => TrackStatus::DELIVERED,
         '异常' => TrackStatus::EXCEPTION,
         '退回' => TrackStatus::RETURNED,
+        '签收' => TrackStatus::DELIVERED,
     ];
 
     public function __construct(
