@@ -1,0 +1,18 @@
+{
+    "apiErrorMsg": "",
+    "apiResponseID": "R-20260814-0002",
+    "apiResultCode": "A1000",
+    "apiErrorCode": "",
+    "success": true,
+    "msgData": {
+        "waybillRouteInfoList": [
+            {
+                "waybillNo": "SF1234567890",
+                "waybillRouteInfo": [
+                    {"acceptTime": "2026-08-14 08:00:00", "acceptAddress": "深圳市南山区", "remark": "快件已揽收", "opcode": "50"},
+                    {"acceptTime": "2026-08-15 14:00:00", "acceptAddress": "北京市朝阳区", "remark": "快件已签收，签收人：李四", "opcode": "8000"}
+                ]
+            }
+        ]
+    }
+}
