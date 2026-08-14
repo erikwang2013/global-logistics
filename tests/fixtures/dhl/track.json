@@ -1,0 +1,22 @@
+{
+    "shipments": [
+        {
+            "id": "SHIP-12345",
+            "status": {"statusCode": "delivered"},
+            "events": [
+                {
+                    "timestamp": "2026-08-14T10:00:00",
+                    "location": {"address": {"city": "Frankfurt", "countryCode": "DE"}},
+                    "description": "Processed",
+                    "statusCode": "transit"
+                },
+                {
+                    "timestamp": "2026-08-15T18:30:00",
+                    "location": {"address": {"city": "Berlin", "countryCode": "DE"}},
+                    "description": "Delivered",
+                    "statusCode": "delivered"
+                }
+            ]
+        }
+    ]
+}
