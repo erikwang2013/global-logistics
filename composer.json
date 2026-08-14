@@ -5,7 +5,7 @@
     "license": "MIT",
     "keywords": ["logistics", "express", "tracking", "courier", "快递", "物流"],
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "guzzlehttp/guzzle": "^7.7"
     },
     "require-dev": {

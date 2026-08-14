@@ -89,9 +89,10 @@ final class RetryingClientTest extends TestCase
         // at the throw site, so the call-count assertion would never run.
         try {
             $client->sendRequest(new Request('GET', 'https://example.com'));
-            $this->fail('Expected ConnectException to be rethrown');
-        } catch (\GuzzleHttp\Exception\ConnectException $e) {
-            $this->assertSame('boom', $e->getMessage());
+            $this->fail('Expected GlobalLogistics NetworkException to be thrown');
+        } catch (\GlobalLogistics\Exceptions\NetworkException $e) {
+            $this->assertSame('网络请求失败：boom', $e->getMessage());
+            $this->assertInstanceOf(\GuzzleHttp\Exception\ConnectException::class, $e->getPrevious());
         }
 
         $this->assertSame(2, $calls);

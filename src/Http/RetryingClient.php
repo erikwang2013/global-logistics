@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace GlobalLogistics\Http;
 
+use GlobalLogistics\Exceptions\NetworkException;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Client\NetworkExceptionInterface;
 use Psr\Http\Message\RequestInterface;
@@ -27,7 +28,10 @@ final class RetryingClient implements ClientInterface
                 $attempts++;
 
                 if ($attempts > $this->maxRetries) {
-                    throw $e;
+                    throw new NetworkException(
+                        '网络请求失败：' . $e->getMessage(),
+                        previous: $e,
+                    );
                 }
 
                 usleep(200_000 * (2 ** ($attempts - 1))); // 指数退避：200ms, 400ms, ...
