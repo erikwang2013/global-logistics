@@ -1,0 +1,8 @@
+{
+    "status": "1",
+    "message": "成功",
+    "trace": [
+        {"acceptTime": "2026-08-14 10:00:00", "acceptAddress": "上海市", "remark": "快件已到达【上海转运中心】", "opCode": "2"},
+        {"acceptTime": "2026-08-15 18:30:00", "acceptAddress": "杭州市", "remark": "签收成功", "opCode": "2"}
+    ]
+}
