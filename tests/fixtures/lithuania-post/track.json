@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "data": {
+    "trackingNumber": "RR123456789LT",
+    "status": "Pristatyta",
+    "events": [
+      {
+        "dateTime": "2026-08-14T12:10:00+03:00",
+        "description": "Pristatyta",
+        "place": "Vilnius"
+      },
+      {
+        "dateTime": "2026-08-13T09:30:00+03:00",
+        "description": "Siunta pristatoma",
+        "place": "Vilnius"
+      },
+      {
+        "dateTime": "2026-08-11T08:00:00+03:00",
+        "description": "Siunta išsiųsta",
+        "place": "Kaunas"
+      }
+    ]
+  }
+}

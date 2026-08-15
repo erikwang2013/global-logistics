@@ -1,0 +1,15 @@
+{
+    "status": "ok",
+    "results": [
+        {
+            "status": "ok",
+            "number": "RA123456785SK",
+            "events": [
+                {"detailDescription": "Item posted at post office Bratislava 12", "detailCode": "PODOD", "stateCode": "received", "localDate": "2026-08-11T08:00:00"},
+                {"detailDescription": "Item accepted for delivery", "detailCode": "VDOOK", "stateCode": "transit", "localDate": "2026-08-12T09:00:00"},
+                {"detailDescription": "Item retained at post office Bratislava 32", "detailCode": "ZNP1", "stateCode": "notified", "localDate": "2026-08-13T10:00:00"},
+                {"detailDescription": "Item delivered to the Addressee at the post office Bratislava 32", "detailCode": "OKP", "stateCode": "delivered", "localDate": "2026-08-14T12:10:00", "postOffice": {"name": "Bratislava 32", "street": "Rovniankova 3", "city": "Bratislava", "postcode": "83232", "districtStamp": "BA"}}
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "EBusinessID": "1264783",
+    "Success": true,
+    "LogisticCode": "123456789012",
+    "ShipperCode": "QFKD",
+    "State": "3",
+    "Traces": [
+        {"AcceptTime": "2026-08-12 09:30:00", "AcceptStation": "全峰快递已揽收", "Remark": "全峰快递"},
+        {"AcceptTime": "2026-08-13 14:20:00", "AcceptStation": "快件已到达全峰快递转运中心", "Remark": ""},
+        {"AcceptTime": "2026-08-14 10:45:00", "AcceptStation": "快件正在派送途中", "Remark": ""},
+        {"AcceptTime": "2026-08-15 10:12:00", "AcceptStation": "快件已签收，签收人：本人", "Remark": "签收人：本人"}
+    ]
+}

@@ -13,7 +13,7 @@
 
 ## 功能说明
 
-### 已接入承运商（111 家）
+### 已接入承运商（132 家）
 
 | 通道 | 承运商 | 代码 | 轨迹查询 | 下单/面单/订阅 |
 |---|---|---|---|---|
@@ -56,6 +56,12 @@
 | 国内 | 全一快递 | `qy` | ✅ | 同上 |
 | 国内 | 速腾物流 | `suteng` | ✅ | 同上 |
 | 国内 | 中铁物流 | `zhongtie` | ✅ | 同上 |
+| 国内 | 中邮物流 | `zhongyou` | ✅ | 同上 |
+| 国内 | 增益速递 | `zengyi` | ✅ | 同上 |
+| 国内 | 全峰快递 | `quanfeng` | ✅ | 同上 |
+| 国内 | 国通快递 | `guotong` | ✅ | 同上 |
+| 国内 | 远成快运 | `yuancheng` | ✅ | 同上 |
+| 国内 | 新邦物流 | `xinbang` | ✅ | 同上 |
 | 国际 | DHL | `dhl` | ✅（OAuth2） | 同上 |
 | 国际 | FedEx | `fedex` | ✅（OAuth2） | 同上 |
 | 国际 | UPS | `ups` | ✅（OAuth2） | 同上 |
@@ -128,6 +134,21 @@
 | 国际 | Kazpost（哈萨克斯坦） | `kazpost` | ✅ | 同上 |
 | 国际 | Poșta Română（罗马尼亚） | `romania-post` | ✅ | 同上 |
 | 国际 | Hrvatska pošta（克罗地亚） | `croatia-post` | ✅ | 同上 |
+| 国际 | Slovak Post（斯洛伐克） | `slovak-post` | ✅ | 同上 |
+| 国际 | Pošta Slovenije（斯洛文尼亚） | `slovenia-post` | ✅ | 同上 |
+| 国际 | Pošta Srbije（塞尔维亚） | `serbia-post` | ✅ | 同上 |
+| 国际 | Bulgarian Posts（保加利亚） | `bulgaria-post` | ✅ | 同上 |
+| 国际 | Lietuvos paštas（立陶宛） | `lithuania-post` | ✅ | 同上 |
+| 国际 | Latvijas Pasts（拉脱维亚） | `latvia-post` | ✅ | 同上 |
+| 国际 | Íslandspóstur（冰岛） | `iceland-post` | ✅ | 同上 |
+| 国际 | MaltaPost（马耳他） | `malta-post` | ✅ | 同上 |
+| 国际 | POST Luxembourg（卢森堡） | `luxembourg-post` | ✅ | 同上 |
+| 国际 | Cyprus Post（塞浦路斯） | `cyprus-post` | ✅ | 同上 |
+| 国际 | Poșta Moldovei（摩尔多瓦） | `moldova-post` | ✅ | 同上 |
+| 国际 | Posta Shqiptare（阿尔巴尼亚） | `albania-post` | ✅ | 同上 |
+| 国际 | Belpochta（白俄罗斯） | `belarus-post` | ✅ | 同上 |
+| 国际 | Makedonska Pošta（北马其顿） | `macedonia-post` | ✅ | 同上 |
+| 国际 | BH Pošta（波黑） | `bosnia-post` | ✅ | 同上 |
 
 ### 统一状态枚举（`GlobalLogistics\Support\TrackStatus`）
 
@@ -135,7 +156,7 @@
 
 ### 核心能力
 
-- 单号自动检测（94 条正则规则，顺序敏感，优先命中国内规则）
+- 单号自动检测（109 条正则规则，顺序敏感，优先命中国内规则）
 - 统一轨迹查询（`Logistics::track()`）与显式通道调用（`domestic()` / `international()`）
 - 统一异常体系（认证失败 / 单号不存在 / 网络错误 / 承运商未注册 / 接口错误）
 - HTTP 基础设施：PSR-18 客户端、OAuth2 token 自动获取与缓存、失败自动重试

@@ -1,0 +1,13 @@
+{
+    "EBusinessID": "1264783",
+    "Success": true,
+    "LogisticCode": "1234567890",
+    "ShipperCode": "ZENY",
+    "State": "3",
+    "Traces": [
+        {"AcceptTime": "2026-08-12 09:30:00", "AcceptStation": "增益速递已揽收", "Remark": "增益速递"},
+        {"AcceptTime": "2026-08-13 14:20:00", "AcceptStation": "快件已到达增益速递分拨中心", "Remark": ""},
+        {"AcceptTime": "2026-08-14 10:45:00", "AcceptStation": "快件正在派送途中", "Remark": ""},
+        {"AcceptTime": "2026-08-15 10:12:00", "AcceptStation": "快件已签收，签收人：本人", "Remark": "签收人：本人"}
+    ]
+}

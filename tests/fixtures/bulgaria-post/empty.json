@@ -1,0 +1,11 @@
+{
+  "status": {
+    "code": 200,
+    "message": "OK"
+  },
+  "data": {
+    "barcode": "RR123456789BG",
+    "status": "",
+    "events": []
+  }
+}

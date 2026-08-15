@@ -41,6 +41,12 @@ use GlobalLogistics\Carriers\Domestic\Longbang;
 use GlobalLogistics\Carriers\Domestic\Qy;
 use GlobalLogistics\Carriers\Domestic\Suteng;
 use GlobalLogistics\Carriers\Domestic\Zhongtie;
+use GlobalLogistics\Carriers\Domestic\Guotong;
+use GlobalLogistics\Carriers\Domestic\Quanfeng;
+use GlobalLogistics\Carriers\Domestic\Xinbang;
+use GlobalLogistics\Carriers\Domestic\Yuancheng;
+use GlobalLogistics\Carriers\Domestic\Zengyi;
+use GlobalLogistics\Carriers\Domestic\Zhongyou;
 use GlobalLogistics\Carriers\International\Aramex;
 use GlobalLogistics\Carriers\International\AustraliaPost;
 use GlobalLogistics\Carriers\International\AustrianPost;
@@ -113,6 +119,21 @@ use GlobalLogistics\Carriers\International\SaudiPost;
 use GlobalLogistics\Carriers\International\SouthAfricanPost;
 use GlobalLogistics\Carriers\International\TurkeyPost;
 use GlobalLogistics\Carriers\International\Ukrposhta;
+use GlobalLogistics\Carriers\International\AlbaniaPost;
+use GlobalLogistics\Carriers\International\BelarusPost;
+use GlobalLogistics\Carriers\International\BosniaPost;
+use GlobalLogistics\Carriers\International\BulgariaPost;
+use GlobalLogistics\Carriers\International\CyprusPost;
+use GlobalLogistics\Carriers\International\IcelandPost;
+use GlobalLogistics\Carriers\International\LatviaPost;
+use GlobalLogistics\Carriers\International\LithuaniaPost;
+use GlobalLogistics\Carriers\International\LuxembourgPost;
+use GlobalLogistics\Carriers\International\MacedoniaPost;
+use GlobalLogistics\Carriers\International\MaltaPost;
+use GlobalLogistics\Carriers\International\MoldovaPost;
+use GlobalLogistics\Carriers\International\SerbiaPost;
+use GlobalLogistics\Carriers\International\SlovakPost;
+use GlobalLogistics\Carriers\International\SloveniaPost;
 
 // channel => code => adapter class
 return [
@@ -156,6 +177,12 @@ return [
         'qy' => Qy::class,
         'suteng' => Suteng::class,
         'zhongtie' => Zhongtie::class,
+        'zhongyou' => Zhongyou::class,
+        'zengyi' => Zengyi::class,
+        'quanfeng' => Quanfeng::class,
+        'guotong' => Guotong::class,
+        'yuancheng' => Yuancheng::class,
+        'xinbang' => Xinbang::class,
     ],
     'international' => [
         'dhl' => Dhl::class,
@@ -230,5 +257,20 @@ return [
         'kazpost' => Kazpost::class,
         'romania-post' => RomaniaPost::class,
         'croatia-post' => CroatiaPost::class,
+        'slovak-post' => SlovakPost::class,
+        'slovenia-post' => SloveniaPost::class,
+        'serbia-post' => SerbiaPost::class,
+        'bulgaria-post' => BulgariaPost::class,
+        'lithuania-post' => LithuaniaPost::class,
+        'latvia-post' => LatviaPost::class,
+        'iceland-post' => IcelandPost::class,
+        'malta-post' => MaltaPost::class,
+        'luxembourg-post' => LuxembourgPost::class,
+        'cyprus-post' => CyprusPost::class,
+        'moldova-post' => MoldovaPost::class,
+        'albania-post' => AlbaniaPost::class,
+        'belarus-post' => BelarusPost::class,
+        'macedonia-post' => MacedoniaPost::class,
+        'bosnia-post' => BosniaPost::class,
     ],
 ];

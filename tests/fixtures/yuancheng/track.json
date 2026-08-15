@@ -1,0 +1,13 @@
+{
+    "EBusinessID": "1264783",
+    "Success": true,
+    "LogisticCode": "YC1234567890",
+    "ShipperCode": "YCSY",
+    "State": "3",
+    "Traces": [
+        {"AcceptTime": "2026-08-12 09:30:00", "AcceptStation": "远成快运已揽收", "Remark": "远成快运"},
+        {"AcceptTime": "2026-08-13 14:20:00", "AcceptStation": "货物已到达远成快运分拨中心", "Remark": ""},
+        {"AcceptTime": "2026-08-14 10:45:00", "AcceptStation": "货物正在派送途中", "Remark": ""},
+        {"AcceptTime": "2026-08-15 10:12:00", "AcceptStation": "货物已签收，签收人：本人", "Remark": "签收人：本人"}
+    ]
+}

@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "data": {
+    "parcelNumber": "RR123456789RS",
+    "status": "Isporučena",
+    "events": [
+      {
+        "eventDate": "14-08-2026 12:10",
+        "eventDescription": "Pošiljka je uručena primaocu",
+        "eventPlace": "Beograd"
+      },
+      {
+        "eventDate": "13-08-2026 09:30",
+        "eventDescription": "Pošiljka je na dostavi",
+        "eventPlace": "Beograd"
+      },
+      {
+        "eventDate": "11-08-2026 08:00",
+        "eventDescription": "Pošiljka je u tranzitu",
+        "eventPlace": "Novi Sad"
+      }
+    ]
+  }
+}

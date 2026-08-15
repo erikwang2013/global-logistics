@@ -1,0 +1,23 @@
+{
+  "data": {
+    "parcelNumber": "RR123456789IS",
+    "status": "Afhent",
+    "events": [
+      {
+        "dateTime": "2026-08-14T12:10:00+00:00",
+        "event": "Afhent",
+        "place": "Reykjavík"
+      },
+      {
+        "dateTime": "2026-08-13T09:30:00+00:00",
+        "event": "Í afhendingu",
+        "place": "Reykjavík"
+      },
+      {
+        "dateTime": "2026-08-11T08:00:00+00:00",
+        "event": "Í flutningi",
+        "place": "Akureyri"
+      }
+    ]
+  }
+}

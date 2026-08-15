@@ -1,0 +1,40 @@
+{
+  "Data": [
+    {
+      "Parcels": [
+        {
+          "TrackingNumber": "RR123456789SI",
+          "PackageStatus": "Dostavljeno",
+          "IsDelivered": true,
+          "DeliveryDate": "2026-08-14T12:10:00+02:00",
+          "Events": [
+            {
+              "EventDateTime": "2026-08-14T12:10:00+02:00",
+              "EventCode": "DOST",
+              "EventText": "Dostavljeno",
+              "StatusText": "Delivered",
+              "City": "Ljubljana",
+              "Country": "SI"
+            },
+            {
+              "EventDateTime": "2026-08-13T09:30:00+02:00",
+              "EventCode": "OFD",
+              "EventText": "Izročitev na naslovu",
+              "StatusText": "Out for delivery",
+              "City": "Ljubljana",
+              "Country": "SI"
+            },
+            {
+              "EventDateTime": "2026-08-11T08:00:00+02:00",
+              "EventCode": "TRNZ",
+              "EventText": "V tranzitu",
+              "StatusText": "In transit",
+              "City": "Maribor",
+              "Country": "SI"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
