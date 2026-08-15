@@ -60,7 +60,7 @@ final class Usps implements CarrierInterface
 
         $response = $this->http->sendRequest($request);
 
-        $parsed = @simplexml_load_string((string) $response->getBody());
+        $parsed = @simplexml_load_string((string) $response->getBody(), options: LIBXML_NONET);
         if ($parsed === false) {
             throw new LogisticsException('[USPS] 响应解析失败');
         }

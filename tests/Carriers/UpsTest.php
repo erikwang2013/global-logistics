@@ -23,7 +23,7 @@ final class UpsTest extends TestCase
     {
         $http = new FakeHttpClient();
         $http->handler = function (Request $request) {
-            if (str_contains((string) $request->getUri(), '/security/v1/oauth/token')) {
+            if (str_contains((string) $request->getUri(), 'https://onlinetools.ups.com/security/v1/oauth/token')) {
                 // 钉住 basicAuth:true 接线：凭据走 Basic header，body 仅 grant_type
                 $this->assertStringStartsWith('Basic ', $request->getHeaderLine('Authorization'));
                 $this->assertStringContainsString('grant_type=client_credentials', (string) $request->getBody());
@@ -35,7 +35,7 @@ final class UpsTest extends TestCase
             $this->assertSame('GET', $request->getMethod());
             $this->assertNotSame('', $request->getHeaderLine('transId'));
             $this->assertSame('global-logistics', $request->getHeaderLine('transactionSrc'));
-            $this->assertStringContainsString('/track/v1/details/1Z9999999999999999', (string) $request->getUri());
+            $this->assertStringContainsString('https://onlinetools.ups.com/api/track/v1/details/1Z9999999999999999', (string) $request->getUri());
 
             return new Response(200, ['Content-Type' => 'application/json'],
                 file_get_contents(__DIR__ . '/../fixtures/ups/track.json'));
@@ -78,7 +78,7 @@ final class UpsTest extends TestCase
     {
         $http = new FakeHttpClient();
         $http->handler = function (Request $request) {
-            if (str_contains((string) $request->getUri(), '/security/v1/oauth/token')) {
+            if (str_contains((string) $request->getUri(), 'https://onlinetools.ups.com/security/v1/oauth/token')) {
                 return new Response(200, ['Content-Type' => 'application/json'], '{"access_token":"tok-ups","expires_in":3600}');
             }
 
@@ -95,7 +95,7 @@ final class UpsTest extends TestCase
     {
         $http = new FakeHttpClient();
         $http->handler = function (Request $request) {
-            if (str_contains((string) $request->getUri(), '/security/v1/oauth/token')) {
+            if (str_contains((string) $request->getUri(), 'https://onlinetools.ups.com/security/v1/oauth/token')) {
                 return new Response(200, ['Content-Type' => 'application/json'], '{"access_token":"tok-ups","expires_in":3600}');
             }
 
@@ -112,7 +112,7 @@ final class UpsTest extends TestCase
     {
         $http = new FakeHttpClient();
         $http->handler = function (Request $request) {
-            if (str_contains((string) $request->getUri(), '/security/v1/oauth/token')) {
+            if (str_contains((string) $request->getUri(), 'https://onlinetools.ups.com/security/v1/oauth/token')) {
                 return new Response(200, ['Content-Type' => 'application/json'], '{"access_token":"tok-ups","expires_in":3600}');
             }
 
@@ -129,7 +129,7 @@ final class UpsTest extends TestCase
     {
         $http = new FakeHttpClient();
         $http->handler = function (Request $request) {
-            if (str_contains((string) $request->getUri(), '/security/v1/oauth/token')) {
+            if (str_contains((string) $request->getUri(), 'https://onlinetools.ups.com/security/v1/oauth/token')) {
                 return new Response(200, ['Content-Type' => 'application/json'], '{"access_token":"tok-ups","expires_in":3600}');
             }
 

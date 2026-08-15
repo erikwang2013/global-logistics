@@ -30,6 +30,7 @@ final class RetryingClient implements ClientInterface
                 if ($attempts > $this->maxRetries) {
                     throw new NetworkException(
                         '网络请求失败：' . $e->getMessage(),
+                        request: $request,
                         previous: $e,
                     );
                 }

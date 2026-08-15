@@ -102,7 +102,13 @@ final class Sf implements CarrierInterface
 
     public function verifyCallbackSignature(string $payload, string $digest): bool
     {
-        $expected = base64_encode(md5($payload . $this->config->get('sf.checkword', ''), true));
+        $checkword = (string) $this->config->get('sf.checkword', '');
+        if ($checkword === '') {
+            // 缺失时若静默返回 false，回调会被误判为签名不符而拒收，改为显式报错
+            throw new LogisticsException('SF checkword 未配置');
+        }
+
+        $expected = base64_encode(md5($payload . $checkword, true));
 
         return hash_equals($expected, $digest);
     }

@@ -30,6 +30,20 @@ final class CarrierFactoryTest extends TestCase
         $factory->create(Channel::Domestic, 'nope');
     }
 
+    public function testDetectableButUnregisteredCarrierHasClearMessage(): void
+    {
+        $factory = new CarrierFactory(new Config([]), new FakeHttpClient(), []);
+
+        try {
+            $factory->create(Channel::International, 'ups');
+            $this->fail('Expected CarrierNotFoundException to be thrown');
+        } catch (CarrierNotFoundException $e) {
+            $this->assertStringContainsString('已检测到但未注册', $e->getMessage());
+            $this->assertStringContainsString('international', $e->getMessage());
+            $this->assertSame('ups', $e->getCarrierCode());
+        }
+    }
+
     public function testWrongChannelThrows(): void
     {
         $registry = ['domestic' => ['fake' => FakeCarrier::class]];

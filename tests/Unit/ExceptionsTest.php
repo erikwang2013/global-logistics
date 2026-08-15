@@ -33,4 +33,21 @@ final class ExceptionsTest extends TestCase
         $e = new CarrierNotFoundException('sf');
         $this->assertSame('sf', $e->getCarrierCode());
     }
+
+    public function testNetworkExceptionImplementsPsrInterface(): void
+    {
+        $request = new \GuzzleHttp\Psr7\Request('GET', 'https://example.com/track');
+        $e = new NetworkException('boom', $request);
+
+        $this->assertInstanceOf(\Psr\Http\Client\NetworkExceptionInterface::class, $e);
+        $this->assertSame($request, $e->getRequest());
+    }
+
+    public function testNetworkExceptionWithoutRequestThrowsOnGetRequest(): void
+    {
+        $e = new NetworkException('boom');
+
+        $this->expectException(\LogicException::class);
+        $e->getRequest();
+    }
 }

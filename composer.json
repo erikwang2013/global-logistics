@@ -4,9 +4,20 @@
     "type": "library",
     "license": "MIT",
     "keywords": ["logistics", "express", "tracking", "courier", "快递", "物流"],
+    "authors": [
+        {
+            "name": "Erik Wang"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/erikwang2013/global-logistics/issues",
+        "source": "https://github.com/erikwang2013/global-logistics"
+    },
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.7"
+        "guzzlehttp/guzzle": "^7.7",
+        "psr/http-client": "^1.0",
+        "psr/http-message": "^1.1|^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.5"

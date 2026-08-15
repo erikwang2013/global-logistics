@@ -25,9 +25,9 @@ use Psr\Http\Client\ClientInterface;
  */
 final class Ups implements CarrierInterface
 {
-    private const TOKEN_URL = 'https://wwwcie.ups.com/security/v1/oauth/token';
+    private const TOKEN_URL = 'https://onlinetools.ups.com/security/v1/oauth/token';
 
-    private const ENDPOINT = 'https://wwwcie.ups.com/api/track/v1/details';
+    private const ENDPOINT = 'https://onlinetools.ups.com/api/track/v1/details';
 
     private readonly ClientInterface $http;
 

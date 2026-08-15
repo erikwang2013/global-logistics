@@ -64,6 +64,7 @@ final class OAuthTokenClient implements ClientInterface
         } catch (NetworkExceptionInterface $e) {
             throw new NetworkException(
                 'OAuth token 获取失败：' . $e->getMessage(),
+                request: $request,
                 previous: $e,
             );
         }
@@ -71,12 +72,20 @@ final class OAuthTokenClient implements ClientInterface
         $raw = (string) $response->getBody();
 
         if ($response->getStatusCode() !== 200) {
-            throw new AuthException('OAuth token 获取失败：' . $raw);
+            throw new AuthException(sprintf(
+                'OAuth token 获取失败（HTTP %d）：%s',
+                $response->getStatusCode(),
+                $this->sanitizeErrorBody($raw),
+            ));
         }
 
         $body = json_decode($raw, true);
         if (!is_array($body) || !isset($body['access_token']) || !is_string($body['access_token'])) {
-            throw new AuthException('OAuth token 获取失败：' . $raw);
+            throw new AuthException(sprintf(
+                'OAuth token 获取失败（HTTP %d）：%s',
+                $response->getStatusCode(),
+                $this->sanitizeErrorBody($raw),
+            ));
         }
 
         $this->accessToken = $body['access_token'];
@@ -86,6 +95,21 @@ final class OAuthTokenClient implements ClientInterface
             : null;
 
         return $this->accessToken;
+    }
+
+    /**
+     * 截断并脱敏错误响应体，避免响应回显的凭据（client_secret/access_token 等）泄露进日志。
+     */
+    private function sanitizeErrorBody(string $raw): string
+    {
+        $truncated = preg_match('/^.{0,200}/us', $raw, $m) === 1 ? $m[0] : $raw;
+        $display = strlen($raw) > strlen($truncated) ? $truncated . '...' : $truncated;
+
+        return preg_replace(
+            '/("?(?:client_secret|access_token|refresh_token|token)"?\s*[:=]\s*"[^"]*")/i',
+            '***',
+            $display,
+        ) ?? $display;
     }
 
     private function buildTokenRequest(): RequestInterface

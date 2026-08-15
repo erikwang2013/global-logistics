@@ -20,5 +20,4 @@ return [
     '/^LH\d{10,12}$/i' => ['international', 'dhl'],
     '/^94\d{16,22}$/' => ['international', 'usps'],
     '/^(?!77)\d{10}$/' => ['international', 'dhl'], // 纯 10 位数字 DHL 国际单号；负向断言排除 77 开头（国内旧式申通单号，10 位），避免误查 DHL API，77 开头 10 位落入 CarrierNotFoundException
-    '/^RR\d{12}$/i' => ['international', 'royal-mail'],
 ];

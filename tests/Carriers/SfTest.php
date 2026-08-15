@@ -76,6 +76,16 @@ final class SfTest extends TestCase
         $this->assertFalse($sf->verifyCallbackSignature($payload, 'wrong'));
     }
 
+    public function testSignatureVerificationThrowsWhenCheckwordMissing(): void
+    {
+        $sf = new Sf(new Config([]), new FakeHttpClient());
+
+        $this->expectException(LogisticsException::class);
+        $this->expectExceptionMessage('SF checkword 未配置');
+
+        $sf->verifyCallbackSignature('{"event":"push"}', 'dGVzdA==');
+    }
+
     public function testNonJsonBodyThrowsLogisticsException(): void
     {
         $http = new FakeHttpClient();

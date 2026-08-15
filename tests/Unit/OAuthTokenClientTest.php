@@ -146,7 +146,53 @@ final class OAuthTokenClientTest extends TestCase
             $client->sendRequest(new Request('GET', 'https://api.example.com/track'));
             $this->fail('Expected AuthException to be thrown');
         } catch (AuthException $e) {
-            $this->assertSame('OAuth token 获取失败：{"error":"invalid_client"}', $e->getMessage());
+            $this->assertSame('OAuth token 获取失败（HTTP 400）：{"error":"invalid_client"}', $e->getMessage());
+        }
+    }
+
+    public function testRedactsCredentialsInTokenErrorBody(): void
+    {
+        $inner = new FakeHttpClient();
+        $inner->handler = fn () => new Response(
+            400,
+            ['Content-Type' => 'application/json'],
+            '{"error":"invalid_client","error_description":"bad credentials","client_secret":"top-secret-value"}',
+        );
+
+        $client = new OAuthTokenClient(
+            $inner,
+            'https://api.example.com/oauth/token',
+            ['client_id' => 'cid', 'client_secret' => 'cs'],
+        );
+
+        try {
+            $client->sendRequest(new Request('GET', 'https://api.example.com/track'));
+            $this->fail('Expected AuthException to be thrown');
+        } catch (AuthException $e) {
+            $this->assertStringContainsString('HTTP 400', $e->getMessage());
+            $this->assertStringContainsString('***', $e->getMessage());
+            $this->assertStringNotContainsString('top-secret-value', $e->getMessage());
+            $this->assertStringNotContainsString('client_secret', $e->getMessage());
+        }
+    }
+
+    public function testTruncatesLongTokenErrorBody(): void
+    {
+        $inner = new FakeHttpClient();
+        $inner->handler = fn () => new Response(500, ['Content-Type' => 'text/plain'], str_repeat('x', 500));
+
+        $client = new OAuthTokenClient(
+            $inner,
+            'https://api.example.com/oauth/token',
+            ['client_id' => 'cid', 'client_secret' => 'cs'],
+        );
+
+        try {
+            $client->sendRequest(new Request('GET', 'https://api.example.com/track'));
+            $this->fail('Expected AuthException to be thrown');
+        } catch (AuthException $e) {
+            $this->assertStringContainsString('HTTP 500', $e->getMessage());
+            $this->assertLessThan(250, strlen($e->getMessage()));
         }
     }
 
@@ -230,6 +276,7 @@ final class OAuthTokenClientTest extends TestCase
         } catch (NetworkException $e) {
             $this->assertStringStartsWith('OAuth token 获取失败：', $e->getMessage());
             $this->assertInstanceOf(\GuzzleHttp\Exception\ConnectException::class, $e->getPrevious());
+            $this->assertSame('https://api.example.com/oauth/token', (string) $e->getRequest()->getUri());
         }
     }
 }
