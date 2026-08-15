@@ -134,6 +134,83 @@ use GlobalLogistics\Carriers\International\MoldovaPost;
 use GlobalLogistics\Carriers\International\SerbiaPost;
 use GlobalLogistics\Carriers\International\SlovakPost;
 use GlobalLogistics\Carriers\International\SloveniaPost;
+use GlobalLogistics\Carriers\International\AfghanistanPost;
+use GlobalLogistics\Carriers\International\AlandPost;
+use GlobalLogistics\Carriers\International\AlgeriaPost;
+use GlobalLogistics\Carriers\International\AndorraPost;
+use GlobalLogistics\Carriers\International\AngolaPost;
+use GlobalLogistics\Carriers\International\ArmeniaPost;
+use GlobalLogistics\Carriers\International\AzerbaijanPost;
+use GlobalLogistics\Carriers\International\BahamasPost;
+use GlobalLogistics\Carriers\International\BahrainPost;
+use GlobalLogistics\Carriers\International\BangladeshPost;
+use GlobalLogistics\Carriers\International\BarbadosPost;
+use GlobalLogistics\Carriers\International\BhutanPost;
+use GlobalLogistics\Carriers\International\BoliviaPost;
+use GlobalLogistics\Carriers\International\BruneiPost;
+use GlobalLogistics\Carriers\International\CambodiaPost;
+use GlobalLogistics\Carriers\International\CameroonPost;
+use GlobalLogistics\Carriers\International\ColombiaPost;
+use GlobalLogistics\Carriers\International\CostaRicaPost;
+use GlobalLogistics\Carriers\International\CubaPost;
+use GlobalLogistics\Carriers\International\DeutschePost;
+use GlobalLogistics\Carriers\International\DominicanPost;
+use GlobalLogistics\Carriers\International\EcuadorPost;
+use GlobalLogistics\Carriers\International\ElSalvadorPost;
+use GlobalLogistics\Carriers\International\EthiopiaPost;
+use GlobalLogistics\Carriers\International\FaroePost;
+use GlobalLogistics\Carriers\International\FijiPost;
+use GlobalLogistics\Carriers\International\GeorgiaPost;
+use GlobalLogistics\Carriers\International\GhanaPost;
+use GlobalLogistics\Carriers\International\GibraltarPost;
+use GlobalLogistics\Carriers\International\GreenlandPost;
+use GlobalLogistics\Carriers\International\GuatemalaPost;
+use GlobalLogistics\Carriers\International\GuernseyPost;
+use GlobalLogistics\Carriers\International\GuyanaPost;
+use GlobalLogistics\Carriers\International\HondurasPost;
+use GlobalLogistics\Carriers\International\IsleOfManPost;
+use GlobalLogistics\Carriers\International\IvoryCoastPost;
+use GlobalLogistics\Carriers\International\JamaicaPost;
+use GlobalLogistics\Carriers\International\JerseyPost;
+use GlobalLogistics\Carriers\International\KenyaPost;
+use GlobalLogistics\Carriers\International\KuwaitPost;
+use GlobalLogistics\Carriers\International\KyrgyzstanPost;
+use GlobalLogistics\Carriers\International\LaosPost;
+use GlobalLogistics\Carriers\International\LiechtensteinPost;
+use GlobalLogistics\Carriers\International\MaldivesPost;
+use GlobalLogistics\Carriers\International\MauritiusPost;
+use GlobalLogistics\Carriers\International\MonacoPost;
+use GlobalLogistics\Carriers\International\MongoliaPost;
+use GlobalLogistics\Carriers\International\MontenegroPost;
+use GlobalLogistics\Carriers\International\MoroccoPost;
+use GlobalLogistics\Carriers\International\MozambiquePost;
+use GlobalLogistics\Carriers\International\MyanmarPost;
+use GlobalLogistics\Carriers\International\NepalPost;
+use GlobalLogistics\Carriers\International\NicaraguaPost;
+use GlobalLogistics\Carriers\International\NigeriaPost;
+use GlobalLogistics\Carriers\International\PanamaPost;
+use GlobalLogistics\Carriers\International\PapuaPost;
+use GlobalLogistics\Carriers\International\ParaguayPost;
+use GlobalLogistics\Carriers\International\PeruPost;
+use GlobalLogistics\Carriers\International\QatarPost;
+use GlobalLogistics\Carriers\International\RwandaPost;
+use GlobalLogistics\Carriers\International\SamoaPost;
+use GlobalLogistics\Carriers\International\SanMarinoPost;
+use GlobalLogistics\Carriers\International\SenegalPost;
+use GlobalLogistics\Carriers\International\SriLankaPost;
+use GlobalLogistics\Carriers\International\SurinamePost;
+use GlobalLogistics\Carriers\International\TajikistanPost;
+use GlobalLogistics\Carriers\International\TanzaniaPost;
+use GlobalLogistics\Carriers\International\TrinidadPost;
+use GlobalLogistics\Carriers\International\TunisiaPost;
+use GlobalLogistics\Carriers\International\TurkmenistanPost;
+use GlobalLogistics\Carriers\International\UgandaPost;
+use GlobalLogistics\Carriers\International\UruguayPost;
+use GlobalLogistics\Carriers\International\UzbekistanPost;
+use GlobalLogistics\Carriers\International\VaticanPost;
+use GlobalLogistics\Carriers\International\VenezuelaPost;
+use GlobalLogistics\Carriers\International\ZambiaPost;
+use GlobalLogistics\Carriers\International\ZimbabwePost;
 
 // channel => code => adapter class
 return [
@@ -272,5 +349,82 @@ return [
         'belarus-post' => BelarusPost::class,
         'macedonia-post' => MacedoniaPost::class,
         'bosnia-post' => BosniaPost::class,
+        'deutsche-post' => DeutschePost::class,
+        'montenegro-post' => MontenegroPost::class,
+        'andorra-post' => AndorraPost::class,
+        'monaco-post' => MonacoPost::class,
+        'liechtenstein-post' => LiechtensteinPost::class,
+        'san-marino-post' => SanMarinoPost::class,
+        'vatican-post' => VaticanPost::class,
+        'gibraltar-post' => GibraltarPost::class,
+        'jersey-post' => JerseyPost::class,
+        'guernsey-post' => GuernseyPost::class,
+        'isle-of-man-post' => IsleOfManPost::class,
+        'faroe-post' => FaroePost::class,
+        'greenland-post' => GreenlandPost::class,
+        'aland-post' => AlandPost::class,
+        'colombia-post' => ColombiaPost::class,
+        'peru-post' => PeruPost::class,
+        'uruguay-post' => UruguayPost::class,
+        'paraguay-post' => ParaguayPost::class,
+        'bolivia-post' => BoliviaPost::class,
+        'ecuador-post' => EcuadorPost::class,
+        'venezuela-post' => VenezuelaPost::class,
+        'costa-rica-post' => CostaRicaPost::class,
+        'panama-post' => PanamaPost::class,
+        'dominican-post' => DominicanPost::class,
+        'guatemala-post' => GuatemalaPost::class,
+        'honduras-post' => HondurasPost::class,
+        'el-salvador-post' => ElSalvadorPost::class,
+        'nicaragua-post' => NicaraguaPost::class,
+        'cuba-post' => CubaPost::class,
+        'jamaica-post' => JamaicaPost::class,
+        'trinidad-post' => TrinidadPost::class,
+        'barbados-post' => BarbadosPost::class,
+        'bahamas-post' => BahamasPost::class,
+        'suriname-post' => SurinamePost::class,
+        'guyana-post' => GuyanaPost::class,
+        'morocco-post' => MoroccoPost::class,
+        'algeria-post' => AlgeriaPost::class,
+        'tunisia-post' => TunisiaPost::class,
+        'kenya-post' => KenyaPost::class,
+        'nigeria-post' => NigeriaPost::class,
+        'ethiopia-post' => EthiopiaPost::class,
+        'ghana-post' => GhanaPost::class,
+        'tanzania-post' => TanzaniaPost::class,
+        'uganda-post' => UgandaPost::class,
+        'rwanda-post' => RwandaPost::class,
+        'zambia-post' => ZambiaPost::class,
+        'zimbabwe-post' => ZimbabwePost::class,
+        'mozambique-post' => MozambiquePost::class,
+        'angola-post' => AngolaPost::class,
+        'senegal-post' => SenegalPost::class,
+        'ivory-coast-post' => IvoryCoastPost::class,
+        'cameroon-post' => CameroonPost::class,
+        'mauritius-post' => MauritiusPost::class,
+        'qatar-post' => QatarPost::class,
+        'kuwait-post' => KuwaitPost::class,
+        'bahrain-post' => BahrainPost::class,
+        'bangladesh-post' => BangladeshPost::class,
+        'nepal-post' => NepalPost::class,
+        'sri-lanka-post' => SriLankaPost::class,
+        'myanmar-post' => MyanmarPost::class,
+        'cambodia-post' => CambodiaPost::class,
+        'laos-post' => LaosPost::class,
+        'mongolia-post' => MongoliaPost::class,
+        'georgia-post' => GeorgiaPost::class,
+        'azerbaijan-post' => AzerbaijanPost::class,
+        'armenia-post' => ArmeniaPost::class,
+        'uzbekistan-post' => UzbekistanPost::class,
+        'kyrgyzstan-post' => KyrgyzstanPost::class,
+        'tajikistan-post' => TajikistanPost::class,
+        'turkmenistan-post' => TurkmenistanPost::class,
+        'afghanistan-post' => AfghanistanPost::class,
+        'bhutan-post' => BhutanPost::class,
+        'maldives-post' => MaldivesPost::class,
+        'brunei-post' => BruneiPost::class,
+        'papua-post' => PapuaPost::class,
+        'fiji-post' => FijiPost::class,
+        'samoa-post' => SamoaPost::class,
     ],
 ];

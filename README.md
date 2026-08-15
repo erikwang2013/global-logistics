@@ -13,7 +13,7 @@
 
 ## 功能说明
 
-### 已接入承运商（132 家）
+### 已接入承运商（209 家）
 
 | 通道 | 承运商 | 代码 | 轨迹查询 | 下单/面单/订阅 |
 |---|---|---|---|---|
@@ -149,6 +149,83 @@
 | 国际 | Belpochta（白俄罗斯） | `belarus-post` | ✅ | 同上 |
 | 国际 | Makedonska Pošta（北马其顿） | `macedonia-post` | ✅ | 同上 |
 | 国际 | BH Pošta（波黑） | `bosnia-post` | ✅ | 同上 |
+| 国际 | Deutsche Post（德国） | `deutsche-post` | ✅ | 同上 |
+| 国际 | Montenegro Post（黑山） | `montenegro-post` | ✅ | 同上 |
+| 国际 | Andorra Post（安道尔） | `andorra-post` | ✅ | 同上 |
+| 国际 | La Poste Monaco（摩纳哥） | `monaco-post` | ✅ | 同上 |
+| 国际 | Liechtenstein Post（列支敦士登） | `liechtenstein-post` | ✅ | 同上 |
+| 国际 | Poste San Marino（圣马力诺） | `san-marino-post` | ✅ | 同上 |
+| 国际 | Poste Vaticane（梵蒂冈） | `vatican-post` | ✅ | 同上 |
+| 国际 | Royal Gibraltar Post（直布罗陀） | `gibraltar-post` | ✅ | 同上 |
+| 国际 | Jersey Post（泽西） | `jersey-post` | ✅ | 同上 |
+| 国际 | Guernsey Post（根西） | `guernsey-post` | ✅ | 同上 |
+| 国际 | Isle of Man Post（马恩岛） | `isle-of-man-post` | ✅ | 同上 |
+| 国际 | Posta Faroe Islands（法罗群岛） | `faroe-post` | ✅ | 同上 |
+| 国际 | Post Greenland（格陵兰） | `greenland-post` | ✅ | 同上 |
+| 国际 | Post Åland（奥兰群岛） | `aland-post` | ✅ | 同上 |
+| 国际 | 4-72（哥伦比亚） | `colombia-post` | ✅ | 同上 |
+| 国际 | Serpost（秘鲁） | `peru-post` | ✅ | 同上 |
+| 国际 | Correo Uruguayo（乌拉圭） | `uruguay-post` | ✅ | 同上 |
+| 国际 | Correo Paraguayo（巴拉圭） | `paraguay-post` | ✅ | 同上 |
+| 国际 | Correos de Bolivia（玻利维亚） | `bolivia-post` | ✅ | 同上 |
+| 国际 | Correos del Ecuador（厄瓜多尔） | `ecuador-post` | ✅ | 同上 |
+| 国际 | Ipostel（委内瑞拉） | `venezuela-post` | ✅ | 同上 |
+| 国际 | Correos de Costa Rica（哥斯达黎加） | `costa-rica-post` | ✅ | 同上 |
+| 国际 | Correos de Panamá（巴拿马） | `panama-post` | ✅ | 同上 |
+| 国际 | INPOSDOM（多米尼加） | `dominican-post` | ✅ | 同上 |
+| 国际 | Correo de Guatemala（危地马拉） | `guatemala-post` | ✅ | 同上 |
+| 国际 | HonduCorreo（洪都拉斯） | `honduras-post` | ✅ | 同上 |
+| 国际 | Correos de El Salvador（萨尔瓦多） | `el-salvador-post` | ✅ | 同上 |
+| 国际 | Correos de Nicaragua（尼加拉瓜） | `nicaragua-post` | ✅ | 同上 |
+| 国际 | Correos de Cuba（古巴） | `cuba-post` | ✅ | 同上 |
+| 国际 | Jamaica Post（牙买加） | `jamaica-post` | ✅ | 同上 |
+| 国际 | TTPOST（特立尼达和多巴哥） | `trinidad-post` | ✅ | 同上 |
+| 国际 | Barbados Post（巴巴多斯） | `barbados-post` | ✅ | 同上 |
+| 国际 | Bahamas Post（巴哈马） | `bahamas-post` | ✅ | 同上 |
+| 国际 | Suriname Post（苏里南） | `suriname-post` | ✅ | 同上 |
+| 国际 | Guyana Post（圭亚那） | `guyana-post` | ✅ | 同上 |
+| 国际 | Barid Al-Maghrib（摩洛哥） | `morocco-post` | ✅ | 同上 |
+| 国际 | Algérie Poste（阿尔及利亚） | `algeria-post` | ✅ | 同上 |
+| 国际 | La Poste Tunisienne（突尼斯） | `tunisia-post` | ✅ | 同上 |
+| 国际 | Posta Kenya（肯尼亚） | `kenya-post` | ✅ | 同上 |
+| 国际 | NIPOST（尼日利亚） | `nigeria-post` | ✅ | 同上 |
+| 国际 | Ethiopia Post（埃塞俄比亚） | `ethiopia-post` | ✅ | 同上 |
+| 国际 | Ghana Post（加纳） | `ghana-post` | ✅ | 同上 |
+| 国际 | Tanzania Post（坦桑尼亚） | `tanzania-post` | ✅ | 同上 |
+| 国际 | Uganda Post（乌干达） | `uganda-post` | ✅ | 同上 |
+| 国际 | Rwanda Post（卢旺达） | `rwanda-post` | ✅ | 同上 |
+| 国际 | Zampost（赞比亚） | `zambia-post` | ✅ | 同上 |
+| 国际 | Zimpost（津巴布韦） | `zimbabwe-post` | ✅ | 同上 |
+| 国际 | Mozambique Post（莫桑比克） | `mozambique-post` | ✅ | 同上 |
+| 国际 | Correios de Angola（安哥拉） | `angola-post` | ✅ | 同上 |
+| 国际 | La Poste Sénégalaise（塞内加尔） | `senegal-post` | ✅ | 同上 |
+| 国际 | La Poste de Côte d'Ivoire（科特迪瓦） | `ivory-coast-post` | ✅ | 同上 |
+| 国际 | Cameroon Post（喀麦隆） | `cameroon-post` | ✅ | 同上 |
+| 国际 | Mauritius Post（毛里求斯） | `mauritius-post` | ✅ | 同上 |
+| 国际 | Qatar Post（卡塔尔） | `qatar-post` | ✅ | 同上 |
+| 国际 | Kuwait Post（科威特） | `kuwait-post` | ✅ | 同上 |
+| 国际 | Bahrain Post（巴林） | `bahrain-post` | ✅ | 同上 |
+| 国际 | Bangladesh Post（孟加拉） | `bangladesh-post` | ✅ | 同上 |
+| 国际 | Nepal Post（尼泊尔） | `nepal-post` | ✅ | 同上 |
+| 国际 | Sri Lanka Post（斯里兰卡） | `sri-lanka-post` | ✅ | 同上 |
+| 国际 | Myanmar Post（缅甸） | `myanmar-post` | ✅ | 同上 |
+| 国际 | Cambodia Post（柬埔寨） | `cambodia-post` | ✅ | 同上 |
+| 国际 | Laos Post（老挝） | `laos-post` | ✅ | 同上 |
+| 国际 | Mongolia Post（蒙古） | `mongolia-post` | ✅ | 同上 |
+| 国际 | Georgian Post（格鲁吉亚） | `georgia-post` | ✅ | 同上 |
+| 国际 | Azərpoçt（阿塞拜疆） | `azerbaijan-post` | ✅ | 同上 |
+| 国际 | HayPost（亚美尼亚） | `armenia-post` | ✅ | 同上 |
+| 国际 | Uzbekistan Post（乌兹别克斯坦） | `uzbekistan-post` | ✅ | 同上 |
+| 国际 | Kyrgyz Post（吉尔吉斯斯坦） | `kyrgyzstan-post` | ✅ | 同上 |
+| 国际 | Tajikistan Post（塔吉克斯坦） | `tajikistan-post` | ✅ | 同上 |
+| 国际 | Turkmenistan Post（土库曼斯坦） | `turkmenistan-post` | ✅ | 同上 |
+| 国际 | Afghanistan Post（阿富汗） | `afghanistan-post` | ✅ | 同上 |
+| 国际 | Bhutan Post（不丹） | `bhutan-post` | ✅ | 同上 |
+| 国际 | Maldives Post（马尔代夫） | `maldives-post` | ✅ | 同上 |
+| 国际 | Brunei Post（文莱） | `brunei-post` | ✅ | 同上 |
+| 国际 | Papua New Guinea Post（巴布亚新几内亚） | `papua-post` | ✅ | 同上 |
+| 国际 | Fiji Post（斐济） | `fiji-post` | ✅ | 同上 |
+| 国际 | Samoa Post（萨摩亚） | `samoa-post` | ✅ | 同上 |
 
 ### 统一状态枚举（`GlobalLogistics\Support\TrackStatus`）
 
@@ -156,7 +233,7 @@
 
 ### 核心能力
 
-- 单号自动检测（109 条正则规则，顺序敏感，优先命中国内规则）
+- 单号自动检测（187 条正则规则，顺序敏感，优先命中国内规则）
 - 统一轨迹查询（`Logistics::track()`）与显式通道调用（`domestic()` / `international()`）
 - 统一异常体系（认证失败 / 单号不存在 / 网络错误 / 承运商未注册 / 接口错误）
 - HTTP 基础设施：PSR-18 客户端、OAuth2 token 自动获取与缓存、失败自动重试

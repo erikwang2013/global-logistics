@@ -1,0 +1,54 @@
+{
+    "shipments": [
+        {
+            "id": "RR123456789DE",
+            "service": "de-post",
+            "status": {
+                "timestamp": "2026-08-14T12:10:00+02:00",
+                "location": {
+                    "address": {
+                        "addressLocality": "Berlin"
+                    }
+                },
+                "statusCode": "delivered",
+                "status": "Delivered",
+                "description": "The shipment has been delivered to the recipient"
+            },
+            "events": [
+                {
+                    "timestamp": "2026-08-11T08:00:00+02:00",
+                    "location": {
+                        "address": {
+                            "addressLocality": "Frankfurt"
+                        }
+                    },
+                    "statusCode": "transit",
+                    "status": "Transit",
+                    "description": "The shipment is in transit"
+                },
+                {
+                    "timestamp": "2026-08-13T09:30:00+02:00",
+                    "location": {
+                        "address": {
+                            "addressLocality": "Berlin"
+                        }
+                    },
+                    "statusCode": "out-for-delivery",
+                    "status": "Out for delivery",
+                    "description": "The shipment is out for delivery"
+                },
+                {
+                    "timestamp": "2026-08-14T12:10:00+02:00",
+                    "location": {
+                        "address": {
+                            "addressLocality": "Berlin"
+                        }
+                    },
+                    "statusCode": "delivered",
+                    "status": "Delivered",
+                    "description": "The shipment has been delivered to the recipient"
+                }
+            ]
+        }
+    ]
+}

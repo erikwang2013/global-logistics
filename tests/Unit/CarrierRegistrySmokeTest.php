@@ -28,6 +28,6 @@ final class CarrierRegistrySmokeTest extends TestCase
             }
         }
 
-        $this->assertSame(132, $count);
+        $this->assertSame(209, $count);
     }
 }

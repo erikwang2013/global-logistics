@@ -980,6 +980,708 @@ final class DetectorTest extends TestCase
         $this->assertSame('bosnia-post', $result->carrierCode);
     }
 
+    public function testDetectsDeutschePostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789DE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('deutsche-post', $result->carrierCode);
+    }
+
+    public function testDetectsMontenegroPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789ME');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('montenegro-post', $result->carrierCode);
+    }
+
+    public function testDetectsAndorraPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789AD');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('andorra-post', $result->carrierCode);
+    }
+
+    public function testDetectsMonacoPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789MC');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('monaco-post', $result->carrierCode);
+    }
+
+    public function testDetectsLiechtensteinPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789LI');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('liechtenstein-post', $result->carrierCode);
+    }
+
+    public function testDetectsSanMarinoPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789SM');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('san-marino-post', $result->carrierCode);
+    }
+
+    public function testDetectsVaticanPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789VA');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('vatican-post', $result->carrierCode);
+    }
+
+    public function testDetectsGibraltarPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789GI');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('gibraltar-post', $result->carrierCode);
+    }
+
+    public function testDetectsJerseyPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789JE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('jersey-post', $result->carrierCode);
+    }
+
+    public function testDetectsGuernseyPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789GG');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('guernsey-post', $result->carrierCode);
+    }
+
+    public function testDetectsIsleOfManPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789IM');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('isle-of-man-post', $result->carrierCode);
+    }
+
+    public function testDetectsFaroePostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789FO');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('faroe-post', $result->carrierCode);
+    }
+
+    public function testDetectsGreenlandPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789GL');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('greenland-post', $result->carrierCode);
+    }
+
+    public function testDetectsAlandPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789AX');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('aland-post', $result->carrierCode);
+    }
+
+    public function testDetectsPostNlCountryCodeBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789NL');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('postnl', $result->carrierCode);
+    }
+
+    public function testDetectsColombiaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789CO');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('colombia-post', $result->carrierCode);
+    }
+
+    public function testDetectsPeruPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789PE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('peru-post', $result->carrierCode);
+    }
+
+    public function testDetectsUruguayPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789UY');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('uruguay-post', $result->carrierCode);
+    }
+
+    public function testDetectsParaguayPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789PY');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('paraguay-post', $result->carrierCode);
+    }
+
+    public function testDetectsBoliviaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789BO');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('bolivia-post', $result->carrierCode);
+    }
+
+    public function testDetectsEcuadorPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789EC');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('ecuador-post', $result->carrierCode);
+    }
+
+    public function testDetectsVenezuelaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789VE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('venezuela-post', $result->carrierCode);
+    }
+
+    public function testDetectsCostaRicaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789CR');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('costa-rica-post', $result->carrierCode);
+    }
+
+    public function testDetectsPanamaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789PA');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('panama-post', $result->carrierCode);
+    }
+
+    public function testDetectsDominicanPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789DO');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('dominican-post', $result->carrierCode);
+    }
+
+    public function testDetectsGuatemalaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789GT');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('guatemala-post', $result->carrierCode);
+    }
+
+    public function testDetectsHondurasPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789HN');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('honduras-post', $result->carrierCode);
+    }
+
+    public function testDetectsElSalvadorPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789SV');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('el-salvador-post', $result->carrierCode);
+    }
+
+    public function testDetectsNicaraguaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789NI');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('nicaragua-post', $result->carrierCode);
+    }
+
+    public function testDetectsCubaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789CU');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('cuba-post', $result->carrierCode);
+    }
+
+    public function testDetectsJamaicaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789JM');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('jamaica-post', $result->carrierCode);
+    }
+
+    public function testDetectsTrinidadPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789TT');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('trinidad-post', $result->carrierCode);
+    }
+
+    public function testDetectsBarbadosPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789BB');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('barbados-post', $result->carrierCode);
+    }
+
+    public function testDetectsBahamasPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789BS');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('bahamas-post', $result->carrierCode);
+    }
+
+    public function testDetectsSurinamePostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789SR');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('suriname-post', $result->carrierCode);
+    }
+
+    public function testDetectsGuyanaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789GY');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('guyana-post', $result->carrierCode);
+    }
+
+    public function testDetectsMoroccoPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789MA');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('morocco-post', $result->carrierCode);
+    }
+
+    public function testDetectsAlgeriaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789DZ');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('algeria-post', $result->carrierCode);
+    }
+
+    public function testDetectsTunisiaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789TN');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('tunisia-post', $result->carrierCode);
+    }
+
+    public function testDetectsKenyaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789KE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('kenya-post', $result->carrierCode);
+    }
+
+    public function testDetectsNigeriaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789NG');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('nigeria-post', $result->carrierCode);
+    }
+
+    public function testDetectsEthiopiaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789ET');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('ethiopia-post', $result->carrierCode);
+    }
+
+    public function testDetectsGhanaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789GH');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('ghana-post', $result->carrierCode);
+    }
+
+    public function testDetectsTanzaniaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789TZ');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('tanzania-post', $result->carrierCode);
+    }
+
+    public function testDetectsUgandaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789UG');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('uganda-post', $result->carrierCode);
+    }
+
+    public function testDetectsRwandaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789RW');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('rwanda-post', $result->carrierCode);
+    }
+
+    public function testDetectsZambiaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789ZM');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('zambia-post', $result->carrierCode);
+    }
+
+    public function testDetectsZimbabwePostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789ZW');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('zimbabwe-post', $result->carrierCode);
+    }
+
+    public function testDetectsMozambiquePostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789MZ');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('mozambique-post', $result->carrierCode);
+    }
+
+    public function testDetectsAngolaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789AO');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('angola-post', $result->carrierCode);
+    }
+
+    public function testDetectsSenegalPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789SN');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('senegal-post', $result->carrierCode);
+    }
+
+    public function testDetectsIvoryCoastPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789CI');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('ivory-coast-post', $result->carrierCode);
+    }
+
+    public function testDetectsCameroonPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789CM');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('cameroon-post', $result->carrierCode);
+    }
+
+    public function testDetectsMauritiusPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789MU');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('mauritius-post', $result->carrierCode);
+    }
+
+    public function testDetectsQatarPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789QA');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('qatar-post', $result->carrierCode);
+    }
+
+    public function testDetectsKuwaitPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789KW');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('kuwait-post', $result->carrierCode);
+    }
+
+    public function testDetectsBahrainPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789BH');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('bahrain-post', $result->carrierCode);
+    }
+
+    public function testDetectsBangladeshPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789BD');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('bangladesh-post', $result->carrierCode);
+    }
+
+    public function testDetectsNepalPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789NP');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('nepal-post', $result->carrierCode);
+    }
+
+    public function testDetectsSriLankaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789LK');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('sri-lanka-post', $result->carrierCode);
+    }
+
+    public function testDetectsMyanmarPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789MM');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('myanmar-post', $result->carrierCode);
+    }
+
+    public function testDetectsCambodiaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789KH');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('cambodia-post', $result->carrierCode);
+    }
+
+    public function testDetectsLaosPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789LA');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('laos-post', $result->carrierCode);
+    }
+
+    public function testDetectsMongoliaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789MN');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('mongolia-post', $result->carrierCode);
+    }
+
+    public function testDetectsGeorgiaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789GE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('georgia-post', $result->carrierCode);
+    }
+
+    public function testDetectsAzerbaijanPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789AZ');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('azerbaijan-post', $result->carrierCode);
+    }
+
+    public function testDetectsArmeniaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789AM');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('armenia-post', $result->carrierCode);
+    }
+
+    public function testDetectsUzbekistanPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789UZ');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('uzbekistan-post', $result->carrierCode);
+    }
+
+    public function testDetectsKyrgyzstanPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789KG');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('kyrgyzstan-post', $result->carrierCode);
+    }
+
+    public function testDetectsTajikistanPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789TJ');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('tajikistan-post', $result->carrierCode);
+    }
+
+    public function testDetectsTurkmenistanPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789TM');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('turkmenistan-post', $result->carrierCode);
+    }
+
+    public function testDetectsAfghanistanPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789AF');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('afghanistan-post', $result->carrierCode);
+    }
+
+    public function testDetectsBhutanPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789BT');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('bhutan-post', $result->carrierCode);
+    }
+
+    public function testDetectsMaldivesPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789MV');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('maldives-post', $result->carrierCode);
+    }
+
+    public function testDetectsBruneiPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789BN');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('brunei-post', $result->carrierCode);
+    }
+
+    public function testDetectsPapuaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789PG');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('papua-post', $result->carrierCode);
+    }
+
+    public function testDetectsFijiPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789FJ');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('fiji-post', $result->carrierCode);
+    }
+
+    public function testDetectsSamoaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789WS');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('samoa-post', $result->carrierCode);
+    }
+
     public function testDetectsPostiJjfiPrefix(): void
     {
         // JJFI 前缀 20 位；不匹配任何国内前缀规则
