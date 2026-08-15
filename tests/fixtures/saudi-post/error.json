@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "error": {
+    "code": "INVALID_TRACKING",
+    "message": "Tracking number not found"
+  }
+}

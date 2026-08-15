@@ -1,0 +1,21 @@
+{
+  "guia": "RR123456789MX",
+  "estatus": "Entregado",
+  "eventos": [
+    {
+      "Fecha": "12/08/2026 09:00:00",
+      "Descripcion": "Guía aceptada en oficina postal",
+      "Oficina": "Ciudad de México"
+    },
+    {
+      "Fecha": "13/08/2026 14:30:00",
+      "Descripcion": "En tránsito",
+      "Oficina": "Guadalajara"
+    },
+    {
+      "Fecha": "15/08/2026 10:00:00",
+      "Descripcion": "Entregado al destinatario",
+      "Oficina": "Monterrey"
+    }
+  ]
+}

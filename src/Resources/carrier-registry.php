@@ -35,6 +35,12 @@ use GlobalLogistics\Carriers\Domestic\YdFreight;
 use GlobalLogistics\Carriers\Domestic\YtoFreight;
 use GlobalLogistics\Carriers\Domestic\Zy;
 use GlobalLogistics\Carriers\Domestic\Cae;
+use GlobalLogistics\Carriers\Domestic\Huayu;
+use GlobalLogistics\Carriers\Domestic\Jiaji;
+use GlobalLogistics\Carriers\Domestic\Longbang;
+use GlobalLogistics\Carriers\Domestic\Qy;
+use GlobalLogistics\Carriers\Domestic\Suteng;
+use GlobalLogistics\Carriers\Domestic\Zhongtie;
 use GlobalLogistics\Carriers\International\Aramex;
 use GlobalLogistics\Carriers\International\AustraliaPost;
 use GlobalLogistics\Carriers\International\AustrianPost;
@@ -92,6 +98,21 @@ use GlobalLogistics\Carriers\International\ZtoIntl;
 use GlobalLogistics\Carriers\International\YtoIntl;
 use GlobalLogistics\Carriers\International\JtIntl;
 use GlobalLogistics\Carriers\International\Winit;
+use GlobalLogistics\Carriers\International\CorreoArgentino;
+use GlobalLogistics\Carriers\International\CorreosChile;
+use GlobalLogistics\Carriers\International\CorreosMexico;
+use GlobalLogistics\Carriers\International\CroatiaPost;
+use GlobalLogistics\Carriers\International\EgyptPost;
+use GlobalLogistics\Carriers\International\IsraelPost;
+use GlobalLogistics\Carriers\International\Kazpost;
+use GlobalLogistics\Carriers\International\PakistanPost;
+use GlobalLogistics\Carriers\International\PhlPost;
+use GlobalLogistics\Carriers\International\PosIndonesia;
+use GlobalLogistics\Carriers\International\RomaniaPost;
+use GlobalLogistics\Carriers\International\SaudiPost;
+use GlobalLogistics\Carriers\International\SouthAfricanPost;
+use GlobalLogistics\Carriers\International\TurkeyPost;
+use GlobalLogistics\Carriers\International\Ukrposhta;
 
 // channel => code => adapter class
 return [
@@ -129,6 +150,12 @@ return [
         'yto-freight' => YtoFreight::class,
         'zy' => Zy::class,
         'cae' => Cae::class,
+        'huayu' => Huayu::class,
+        'jiaji' => Jiaji::class,
+        'longbang' => Longbang::class,
+        'qy' => Qy::class,
+        'suteng' => Suteng::class,
+        'zhongtie' => Zhongtie::class,
     ],
     'international' => [
         'dhl' => Dhl::class,
@@ -188,5 +215,20 @@ return [
         'yto-intl' => YtoIntl::class,
         'jt-intl' => JtIntl::class,
         'winit' => Winit::class,
+        'ukrposhta' => Ukrposhta::class,
+        'turkey-post' => TurkeyPost::class,
+        'israel-post' => IsraelPost::class,
+        'egypt-post' => EgyptPost::class,
+        'saudi-post' => SaudiPost::class,
+        'south-african-post' => SouthAfricanPost::class,
+        'correos-mexico' => CorreosMexico::class,
+        'correo-argentino' => CorreoArgentino::class,
+        'correos-chile' => CorreosChile::class,
+        'pos-indonesia' => PosIndonesia::class,
+        'phl-post' => PhlPost::class,
+        'pakistan-post' => PakistanPost::class,
+        'kazpost' => Kazpost::class,
+        'romania-post' => RomaniaPost::class,
+        'croatia-post' => CroatiaPost::class,
     ],
 ];

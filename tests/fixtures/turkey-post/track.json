@@ -1,0 +1,24 @@
+{
+  "Status": true,
+  "Data": {
+    "Barcode": "RR123456789TR",
+    "StatusText": "Teslim Edildi",
+    "Events": [
+      {
+        "EventDate": "2026-08-12 09:00:00",
+        "EventDescription": "Kargo kabul edildi",
+        "EventLocation": "İstanbul"
+      },
+      {
+        "EventDate": "2026-08-13 14:30:00",
+        "EventDescription": "Aktarma merkezine ulaştı",
+        "EventLocation": "Ankara"
+      },
+      {
+        "EventDate": "2026-08-15 10:15:00",
+        "EventDescription": "Teslim edildi",
+        "EventLocation": "İzmir"
+      }
+    ]
+  }
+}

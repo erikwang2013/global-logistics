@@ -1,0 +1,13 @@
+{
+  "items": {
+    "Total": 3,
+    "Transit": 2,
+    "Delivered": 1,
+    "NotFound": 0,
+    "TrackingList": [
+      { "trackingNumber": "RR123456789PH", "status": "Delivered", "eventDate": "2026-08-14 12:10:00", "description": "Item delivered to recipient", "location": "Manila Central Post Office" },
+      { "trackingNumber": "RR123456789PH", "status": "Out for Delivery", "eventDate": "2026-08-13 09:30:00", "description": "Item out for delivery", "location": "Manila Central Post Office" },
+      { "trackingNumber": "RR123456789PH", "status": "In Transit", "eventDate": "2026-08-11 08:00:00", "description": "Item received at international exchange", "location": "Manila International Exchange" }
+    ]
+  }
+}

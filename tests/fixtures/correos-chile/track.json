@@ -1,0 +1,10 @@
+{
+  "numeroEnvio": "880000108638",
+  "servicio": "24",
+  "referencia": "REF-2026-001",
+  "historial": [
+    { "fecha": "2026-08-14T12:10:00-04:00", "fechaString": "14-08-2026 12:10", "estado": "ENTREGADO", "oficina": "SANTIAGO", "estadoBase": "006" },
+    { "fecha": "2026-08-13T09:30:00-04:00", "fechaString": "13-08-2026 09:30", "estado": "ENVIO EN REPARTO", "oficina": "SANTIAGO" },
+    { "fecha": "2026-08-11T08:00:00-04:00", "fechaString": "11-08-2026 08:00", "estado": "RECIBIDO EN PLANTA DE ORIGEN", "oficina": "RANCAGUA", "estadoBase": "003" }
+  ]
+}

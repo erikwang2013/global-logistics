@@ -1,0 +1,26 @@
+[
+  {
+    "trackingNumber": "RR123456789AR",
+    "status": "Entregado",
+    "events": [
+      {
+        "event": "Ingresado al correo",
+        "date": "2026-08-12 09:00:00",
+        "branch": "Buenos Aires",
+        "status": "INGRESADO"
+      },
+      {
+        "event": "En tránsito",
+        "date": "2026-08-13 16:45:00",
+        "branch": "Córdoba",
+        "status": "EN_TRANSITO"
+      },
+      {
+        "event": "Entregado al destinatario",
+        "date": "2026-08-15 11:30:00",
+        "branch": "Rosario",
+        "status": "ENTREGADO"
+      }
+    ]
+  }
+]

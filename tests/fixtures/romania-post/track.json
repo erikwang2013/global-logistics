@@ -1,0 +1,11 @@
+<html>
+<body>
+<h1>Track &amp; Trace - Poșta Română</h1>
+<table class="tracking">
+<tr><td>Date</td><td>Hour</td><td>Item status</td></tr>
+<tr><td>14.08.2026</td><td>12:10</td><td>Trimiterea a fost livrata destinatarului</td></tr>
+<tr><td>13.08.2026</td><td>09:30</td><td>Trimiterea este in livrare</td></tr>
+<tr><td>11.08.2026</td><td>08:00</td><td>Trimiterea a fost acceptata la oficiul postal</td></tr>
+</table>
+</body>
+</html>

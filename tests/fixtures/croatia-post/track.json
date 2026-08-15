@@ -1,0 +1,10 @@
+{
+  "data": {
+    "barcode": "RR123456789HR",
+    "events": [
+      { "date": "14.08.2026 12:10:00", "location": "Zagreb", "status": "Dostavljeno primatelju" },
+      { "date": "13.08.2026 09:30:00", "location": "Zagreb", "status": "Pošiljka u dostavi" },
+      { "date": "11.08.2026 08:00:00", "location": "Split", "status": "Zaprimljeno u poštanskom uredu" }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-08-15T10:00:00.000+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Tracking number not found",
+  "path": "/paqar/v1/tracking"
+}

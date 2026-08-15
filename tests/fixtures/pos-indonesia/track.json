@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "data": {
+    "barcode": "RE123456789ID",
+    "history": [
+      { "date": "2026-08-14 12:10:00", "kantor": "JAKARTA", "keterangan": "Kiriman telah diterima oleh penerima" },
+      { "date": "2026-08-13 09:30:00", "kantor": "JAKARTA", "keterangan": "Kiriman keluar untuk pengantaran" },
+      { "date": "2026-08-11 08:00:00", "kantor": "SURABAYA", "keterangan": "Kiriman diterima di kantor pos" }
+    ]
+  }
+}

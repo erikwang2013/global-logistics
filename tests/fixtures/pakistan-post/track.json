@@ -1,0 +1,11 @@
+<html>
+<body>
+<h1>EMTTS - Express Mail Track &amp; Trace System</h1>
+<table border="1">
+<tr><td>Date</td><td>Location</td><td>Status</td></tr>
+<tr><td>14/08/2026</td><td>KARACHI</td><td>Item delivered to recipient</td></tr>
+<tr><td>13/08/2026</td><td>KARACHI</td><td>Item out for delivery</td></tr>
+<tr><td>11/08/2026</td><td>ISLAMABAD</td><td>Item in transit</td></tr>
+</table>
+</body>
+</html>

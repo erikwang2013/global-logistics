@@ -1,0 +1,20 @@
+{
+  "Status": "Delivered",
+  "Events": [
+    {
+      "Date": "2026-08-12 09:00:00",
+      "Location": "Cairo",
+      "Description": "Item received at post office"
+    },
+    {
+      "Date": "2026-08-14 11:30:00",
+      "Location": "Giza",
+      "Description": "Item out for delivery"
+    },
+    {
+      "Date": "2026-08-15 10:00:00",
+      "Location": "Giza",
+      "Description": "Item delivered to recipient"
+    }
+  ]
+}

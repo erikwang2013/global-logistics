@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "data": {
+    "trackingNumber": "RR123456789SA",
+    "status": "Delivered",
+    "events": [
+      {
+        "eventDate": "2026-08-12T09:00:00+03:00",
+        "eventDescription": "Shipment accepted at origin",
+        "location": "Riyadh"
+      },
+      {
+        "eventDate": "2026-08-13T14:30:00+03:00",
+        "eventDescription": "Shipment in transit",
+        "location": "Jeddah"
+      },
+      {
+        "eventDate": "2026-08-15T10:15:00+03:00",
+        "eventDescription": "Shipment delivered",
+        "location": "Dammam"
+      }
+    ]
+  }
+}

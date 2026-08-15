@@ -1,0 +1,48 @@
+[
+    {
+        "barcode": "RA067022855UA",
+        "step": 1,
+        "date": "2026-08-10T09:15:00",
+        "index": "01001",
+        "name": "KYIV 1",
+        "event": 10100,
+        "eventName": "Acceptance",
+        "country": "Ukraine",
+        "eventReason": null,
+        "mailType": 1048576,
+        "indexOrder": 1
+    },
+    {
+        "barcode": "RA067022855UA",
+        "step": 2,
+        "date": "2026-08-11T14:20:00",
+        "index": "79000",
+        "name": "LVIV 3",
+        "event": 20700,
+        "eventName": "Arrival",
+        "country": "Ukraine",
+        "eventReason": null
+    },
+    {
+        "barcode": "RA067022855UA",
+        "step": 3,
+        "date": "2026-08-13T11:05:00",
+        "index": "79000",
+        "name": "LVIV 3",
+        "event": 21700,
+        "eventName": "Arrival to the branch office",
+        "country": "Ukraine",
+        "eventReason": null
+    },
+    {
+        "barcode": "RA067022855UA",
+        "step": 4,
+        "date": "2026-08-14T10:12:00",
+        "index": "79000",
+        "name": "LVIV 3",
+        "event": 41000,
+        "eventName": "Delivery",
+        "country": "Ukraine",
+        "eventReason": "personally"
+    }
+]

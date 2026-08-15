@@ -1,0 +1,29 @@
+{
+    "EBusinessID": "1264783",
+    "Success": true,
+    "LogisticCode": "1234567890",
+    "ShipperCode": "STWL",
+    "State": "3",
+    "Traces": [
+        {
+            "AcceptTime": "2026-08-12 09:30:00",
+            "AcceptStation": "速腾物流已揽收",
+            "Remark": "速腾物流"
+        },
+        {
+            "AcceptTime": "2026-08-13 14:20:00",
+            "AcceptStation": "快件已到达杭州转运中心",
+            "Remark": ""
+        },
+        {
+            "AcceptTime": "2026-08-14 10:45:00",
+            "AcceptStation": "快件正在派送途中",
+            "Remark": ""
+        },
+        {
+            "AcceptTime": "2026-08-15 10:12:00",
+            "AcceptStation": "快件已签收，签收人：本人",
+            "Remark": "签收人：本人"
+        }
+    ]
+}

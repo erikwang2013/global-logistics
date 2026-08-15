@@ -13,7 +13,7 @@
 
 ## 功能说明
 
-### 已接入承运商（90 家）
+### 已接入承运商（111 家）
 
 | 通道 | 承运商 | 代码 | 轨迹查询 | 下单/面单/订阅 |
 |---|---|---|---|---|
@@ -50,6 +50,12 @@
 | 国内 | 圆通快运 | `yto-freight` | ✅ | 同上 |
 | 国内 | 增益速递 | `zy` | ✅ | 同上 |
 | 国内 | 民航快递 | `cae` | ✅ | 同上 |
+| 国内 | 天地华宇 | `huayu` | ✅ | 同上 |
+| 国内 | 佳吉快运 | `jiaji` | ✅ | 同上 |
+| 国内 | 龙邦速递 | `longbang` | ✅ | 同上 |
+| 国内 | 全一快递 | `qy` | ✅ | 同上 |
+| 国内 | 速腾物流 | `suteng` | ✅ | 同上 |
+| 国内 | 中铁物流 | `zhongtie` | ✅ | 同上 |
 | 国际 | DHL | `dhl` | ✅（OAuth2） | 同上 |
 | 国际 | FedEx | `fedex` | ✅（OAuth2） | 同上 |
 | 国际 | UPS | `ups` | ✅（OAuth2） | 同上 |
@@ -107,6 +113,21 @@
 | 国际 | 圆通国际 | `yto-intl` | ✅ | 同上 |
 | 国际 | 极兔国际 | `jt-intl` | ✅ | 同上 |
 | 国际 | 万邑通 | `winit` | ✅ | 同上 |
+| 国际 | Ukrposhta（乌克兰） | `ukrposhta` | ✅ | 同上 |
+| 国际 | Turkey PTT（土耳其） | `turkey-post` | ✅ | 同上 |
+| 国际 | Israel Post（以色列） | `israel-post` | ✅ | 同上 |
+| 国际 | Egypt Post（埃及） | `egypt-post` | ✅ | 同上 |
+| 国际 | Saudi Post（沙特） | `saudi-post` | ✅ | 同上 |
+| 国际 | South African Post（南非） | `south-african-post` | ✅ | 同上 |
+| 国际 | Correos de México（墨西哥） | `correos-mexico` | ✅ | 同上 |
+| 国际 | Correo Argentino（阿根廷） | `correo-argentino` | ✅ | 同上 |
+| 国际 | Correos de Chile（智利） | `correos-chile` | ✅ | 同上 |
+| 国际 | Pos Indonesia（印尼） | `pos-indonesia` | ✅ | 同上 |
+| 国际 | PHLPost（菲律宾） | `phl-post` | ✅ | 同上 |
+| 国际 | Pakistan Post（巴基斯坦） | `pakistan-post` | ✅ | 同上 |
+| 国际 | Kazpost（哈萨克斯坦） | `kazpost` | ✅ | 同上 |
+| 国际 | Poșta Română（罗马尼亚） | `romania-post` | ✅ | 同上 |
+| 国际 | Hrvatska pošta（克罗地亚） | `croatia-post` | ✅ | 同上 |
 
 ### 统一状态枚举（`GlobalLogistics\Support\TrackStatus`）
 
@@ -114,7 +135,7 @@
 
 ### 核心能力
 
-- 单号自动检测（79 条正则规则，顺序敏感，优先命中国内规则）
+- 单号自动检测（94 条正则规则，顺序敏感，优先命中国内规则）
 - 统一轨迹查询（`Logistics::track()`）与显式通道调用（`domestic()` / `international()`）
 - 统一异常体系（认证失败 / 单号不存在 / 网络错误 / 承运商未注册 / 接口错误）
 - HTTP 基础设施：PSR-18 客户端、OAuth2 token 自动获取与缓存、失败自动重试

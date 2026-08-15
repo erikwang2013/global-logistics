@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "status": "Delivered",
+  "trackingNumber": "RR123456789ZA",
+  "events": [
+    {
+      "eventDate": "2026-08-12 09:00:00",
+      "description": "Item received at Post Office",
+      "location": "Johannesburg"
+    },
+    {
+      "eventDate": "2026-08-13 15:20:00",
+      "description": "Item out for delivery",
+      "location": "Cape Town"
+    },
+    {
+      "eventDate": "2026-08-15 12:00:00",
+      "description": "Item delivered",
+      "location": "Cape Town"
+    }
+  ]
+}
