@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1001,
+        "dateTime": "2026-08-10T09:12:00.000+02:00",
+        "code": "100",
+        "text": "Podání zásilky",
+        "postCode": "110 00",
+        "postName": "Praha 1",
+        "country": "CZ"
+    },
+    {
+        "id": 1002,
+        "dateTime": "2026-08-12T14:05:00.000+02:00",
+        "code": "200",
+        "text": "Zásilka v přepravě",
+        "postCode": "120 00",
+        "postName": "Praha 20",
+        "country": "CZ"
+    },
+    {
+        "id": 1003,
+        "dateTime": "2026-08-14T10:45:00.000+02:00",
+        "code": "300",
+        "text": "Doručení zásilky",
+        "postCode": "130 00",
+        "postName": "Praha 30",
+        "country": "CZ"
+    }
+]

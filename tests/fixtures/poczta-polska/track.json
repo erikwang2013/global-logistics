@@ -1,0 +1,39 @@
+{
+  "mailInfo": {
+    "number": "RR123456789PL",
+    "typeOfMailCode": "R",
+    "typeOfMailName": "Przesyłka polecona",
+    "finished": true,
+    "events": [
+      {
+        "code": "P_NAD",
+        "name": "Nadanie przesyłki",
+        "time": "2026-08-11T08:30:00",
+        "postOffice": { "name": "UP Warszawa 1" },
+        "finished": false,
+        "canceled": false,
+        "state": { "code": "NA", "name": "NADANA" }
+      },
+      {
+        "code": "P_WD",
+        "name": "Przygotowano do doręczenia",
+        "time": "2026-08-14T09:00:00",
+        "postOffice": { "name": "UP Kraków 1" },
+        "finished": false,
+        "canceled": false,
+        "state": { "code": "DOR", "name": "W DORĘCZENIU" }
+      },
+      {
+        "code": "P_D",
+        "name": "Doręczono",
+        "time": "2026-08-14T12:10:00",
+        "postOffice": { "name": "UP Kraków 1" },
+        "finished": true,
+        "canceled": false,
+        "state": { "code": "DO", "name": "DORĘCZONA" }
+      }
+    ]
+  },
+  "number": "RR123456789PL",
+  "mailStatus": 0
+}

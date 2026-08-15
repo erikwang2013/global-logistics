@@ -1,0 +1,21 @@
+{
+    "status": "1",
+    "message": "success",
+    "trace": [
+        {
+            "acceptTime": "2026-08-10 09:12:00",
+            "remark": "快件已揽收",
+            "acceptAddress": "上海"
+        },
+        {
+            "acceptTime": "2026-08-12 14:05:00",
+            "remark": "快件运输中",
+            "acceptAddress": "上海"
+        },
+        {
+            "acceptTime": "2026-08-14 10:45:00",
+            "remark": "快件已签收",
+            "acceptAddress": "广州"
+        }
+    ]
+}

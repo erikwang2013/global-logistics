@@ -1,0 +1,30 @@
+{
+  "versionInfo": {
+    "hasApiVersionChanged": false
+  },
+  "data": {
+    "ObjectEventsFromQuery": {
+      "Found": true,
+      "ObjectName": "RR123456789PT",
+      "Events": {
+        "List": [
+          {
+            "State": "Entregue",
+            "Event": "Objeto entregue ao destinatário",
+            "DateTime": "14-08-2026 12:10"
+          },
+          {
+            "State": "Em Distribuição",
+            "Event": "Objeto em saída para entrega",
+            "DateTime": "14-08-2026 09:00"
+          },
+          {
+            "State": "Em Trânsito",
+            "Event": "Objeto aceite na rede",
+            "DateTime": "11-08-2026 08:30"
+          }
+        ]
+      }
+    }
+  }
+}

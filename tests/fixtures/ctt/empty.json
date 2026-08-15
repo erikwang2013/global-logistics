@@ -1,0 +1,14 @@
+{
+  "versionInfo": {
+    "hasApiVersionChanged": false
+  },
+  "data": {
+    "ObjectEventsFromQuery": {
+      "Found": false,
+      "ObjectName": "RR123456789PT",
+      "Events": {
+        "List": []
+      }
+    }
+  }
+}

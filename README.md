@@ -13,7 +13,7 @@
 
 ## 功能说明
 
-### 已接入承运商（69 家）
+### 已接入承运商（90 家）
 
 | 通道 | 承运商 | 代码 | 轨迹查询 | 下单/面单/订阅 |
 |---|---|---|---|---|
@@ -44,6 +44,12 @@
 | 国内 | 信丰物流 | `xf` | ✅ | 同上 |
 | 国内 | 联昊通 | `lht` | ✅ | 同上 |
 | 国内 | 日日顺 | `rrs` | ✅ | 同上 |
+| 国内 | 丰网速运 | `fengwang` | ✅ | 同上 |
+| 国内 | 百世快运 | `ht-freight` | ✅ | 同上 |
+| 国内 | 韵达快运 | `yd-freight` | ✅ | 同上 |
+| 国内 | 圆通快运 | `yto-freight` | ✅ | 同上 |
+| 国内 | 增益速递 | `zy` | ✅ | 同上 |
+| 国内 | 民航快递 | `cae` | ✅ | 同上 |
 | 国际 | DHL | `dhl` | ✅（OAuth2） | 同上 |
 | 国际 | FedEx | `fedex` | ✅（OAuth2） | 同上 |
 | 国际 | UPS | `ups` | ✅（OAuth2） | 同上 |
@@ -86,6 +92,21 @@
 | 国际 | 奥地利邮政 | `austrian-post` | ✅ | 同上 |
 | 国际 | 泰国邮政 | `thailand-post` | ✅ | 同上 |
 | 国际 | 中华邮政（台湾） | `chunghwa-post` | ✅ | 同上 |
+| 国际 | PostNord（瑞典/丹麦） | `postnord` | ✅ | 同上 |
+| 国际 | CTT（葡萄牙） | `ctt` | ✅ | 同上 |
+| 国际 | An Post（爱尔兰） | `an-post` | ✅ | 同上 |
+| 国际 | Poczta Polska（波兰） | `poczta-polska` | ✅ | 同上 |
+| 国际 | India Post（印度） | `india-post` | ✅ | 同上 |
+| 国际 | Pos Malaysia（马来西亚） | `pos-malaysia` | ✅ | 同上 |
+| 国际 | Emirates Post（阿联酋） | `emirates-post` | ✅ | 同上 |
+| 国际 | Magyar Posta（匈牙利） | `magyar-posta` | ✅ | 同上 |
+| 国际 | Česká pošta（捷克） | `ceska-posta` | ✅ | 同上 |
+| 国际 | ELTA（希腊） | `elta` | ✅ | 同上 |
+| 国际 | Viettel Post（越南） | `viettel-post` | ✅ | 同上 |
+| 国际 | 中通国际 | `zto-intl` | ✅ | 同上 |
+| 国际 | 圆通国际 | `yto-intl` | ✅ | 同上 |
+| 国际 | 极兔国际 | `jt-intl` | ✅ | 同上 |
+| 国际 | 万邑通 | `winit` | ✅ | 同上 |
 
 ### 统一状态枚举（`GlobalLogistics\Support\TrackStatus`）
 
@@ -93,7 +114,7 @@
 
 ### 核心能力
 
-- 单号自动检测（68 条正则规则，顺序敏感，优先命中国内规则）
+- 单号自动检测（79 条正则规则，顺序敏感，优先命中国内规则）
 - 统一轨迹查询（`Logistics::track()`）与显式通道调用（`domestic()` / `international()`）
 - 统一异常体系（认证失败 / 单号不存在 / 网络错误 / 承运商未注册 / 接口错误）
 - HTTP 基础设施：PSR-18 客户端、OAuth2 token 自动获取与缓存、失败自动重试

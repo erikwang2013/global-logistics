@@ -590,6 +590,126 @@ final class DetectorTest extends TestCase
         $this->assertSame('posti', $result->carrierCode);
     }
 
+    public function testDetectsPostNordSeBeforeGenericFedExRule(): void
+    {
+        // XX...SE 同时匹配通用 FedEx 规则，postnord 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789SE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('postnord', $result->carrierCode);
+    }
+
+    public function testDetectsPostNordDkBeforeGenericFedExRule(): void
+    {
+        // XX...DK 同时匹配通用 FedEx 规则，postnord 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789DK');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('postnord', $result->carrierCode);
+    }
+
+    public function testDetectsCttBeforeGenericFedExRule(): void
+    {
+        // XX...PT 同时匹配通用 FedEx 规则，ctt 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789PT');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('ctt', $result->carrierCode);
+    }
+
+    public function testDetectsAnPostBeforeGenericFedExRule(): void
+    {
+        // XX...IE 同时匹配通用 FedEx 规则，an-post 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789IE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('an-post', $result->carrierCode);
+    }
+
+    public function testDetectsPocztaPolskaBeforeGenericFedExRule(): void
+    {
+        // XX...PL 同时匹配通用 FedEx 规则，poczta-polska 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789PL');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('poczta-polska', $result->carrierCode);
+    }
+
+    public function testDetectsIndiaPostBeforeGenericFedExRule(): void
+    {
+        // XX...IN 同时匹配通用 FedEx 规则，india-post 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789IN');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('india-post', $result->carrierCode);
+    }
+
+    public function testDetectsPosMalaysiaBeforeGenericFedExRule(): void
+    {
+        // XX...MY 同时匹配通用 FedEx 规则，pos-malaysia 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789MY');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('pos-malaysia', $result->carrierCode);
+    }
+
+    public function testDetectsEmiratesPostBeforeGenericFedExRule(): void
+    {
+        // XX...AE 同时匹配通用 FedEx 规则，emirates-post 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789AE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('emirates-post', $result->carrierCode);
+    }
+
+    public function testDetectsMagyarPostaBeforeGenericFedExRule(): void
+    {
+        // XX...HU 同时匹配通用 FedEx 规则，magyar-posta 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789HU');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('magyar-posta', $result->carrierCode);
+    }
+
+    public function testDetectsCeskaPostaBeforeGenericFedExRule(): void
+    {
+        // XX...CZ 同时匹配通用 FedEx 规则，ceska-posta 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789CZ');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('ceska-posta', $result->carrierCode);
+    }
+
+    public function testDetectsEltaBeforeGenericFedExRule(): void
+    {
+        // XX...GR 同时匹配通用 FedEx 规则，elta 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789GR');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('elta', $result->carrierCode);
+    }
+
+    public function testDetectsViettelPostBeforeGenericFedExRule(): void
+    {
+        // XX...VN 同时匹配通用 FedEx 规则，viettel-post 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789VN');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('viettel-post', $result->carrierCode);
+    }
+
     public function testDetectsPostiJjfiPrefix(): void
     {
         // JJFI 前缀 20 位；不匹配任何国内前缀规则

@@ -1,0 +1,56 @@
+{
+    "code": "0",
+    "msg": null,
+    "data": [
+        {
+            "masterOrderNo": null,
+            "orderNo": "ID15110000000061ZZ",
+            "trackingNo": "0B044518500034109567A",
+            "origin": "深圳市",
+            "destination": "UK",
+            "pickupMode": "3rd Party Logistic",
+            "status": "派送完成",
+            "vendorName": null,
+            "trace": [
+                {
+                    "type": "S",
+                    "date": "2026-08-12 09:00:00",
+                    "location": "Shenzhen",
+                    "lastEvent": "N",
+                    "eventCode": "WFD",
+                    "eventStatus": "Submitted",
+                    "eventDescription": "提交订单",
+                    "operator": null
+                },
+                {
+                    "type": "S",
+                    "date": "2026-08-13 16:30:00",
+                    "location": "LAX",
+                    "lastEvent": "N",
+                    "eventCode": "OPT",
+                    "eventStatus": "In Transit",
+                    "eventDescription": "海外段运输中",
+                    "operator": null
+                },
+                {
+                    "type": "S",
+                    "date": "2026-08-15 11:24:00",
+                    "location": "London",
+                    "lastEvent": "Y",
+                    "eventCode": "DLC",
+                    "eventStatus": "Delivered",
+                    "eventDescription": "派送完成",
+                    "operator": null
+                }
+            ],
+            "occurTime": null,
+            "logisticsStatus": null,
+            "logisticsMess": null,
+            "carrier": null,
+            "carrierCode": "RM Post",
+            "standardCarrier": "Royal Mail",
+            "trackingUrl": "https://www.royalmail.com/track-your-item",
+            "isTracked": "Y"
+        }
+    ]
+}

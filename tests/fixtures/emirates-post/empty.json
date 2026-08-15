@@ -1,0 +1,7 @@
+{
+  "GetTrackDetailsResponse": {
+    "AWB": "RR123456789AE",
+    "Status": "Not Found",
+    "Events": []
+  }
+}

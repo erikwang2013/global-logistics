@@ -61,6 +61,17 @@ return [
     '/^[A-Z]{2}\d{9}TW$/i' => ['international', 'chunghwa-post'], // 中华邮政（台湾），同上
     '/^[A-Z]{2}\d{9}EE$/i' => ['international', 'omniva'], // 爱沙尼亚 Omniva，同上
     '/^[A-Z]{2}\d{9}FI$/i' => ['international', 'posti'], // 芬兰 Posti，同上
+    '/^[A-Z]{2}\d{9}(SE|DK)$/i' => ['international', 'postnord'], // 瑞典/丹麦 PostNord，同上
+    '/^[A-Z]{2}\d{9}PT$/i' => ['international', 'ctt'], // 葡萄牙 CTT，同上
+    '/^[A-Z]{2}\d{9}IE$/i' => ['international', 'an-post'], // 爱尔兰 An Post，同上
+    '/^[A-Z]{2}\d{9}PL$/i' => ['international', 'poczta-polska'], // 波兰 Poczta Polska，同上
+    '/^[A-Z]{2}\d{9}IN$/i' => ['international', 'india-post'], // 印度 India Post，同上
+    '/^[A-Z]{2}\d{9}MY$/i' => ['international', 'pos-malaysia'], // 马来西亚 Pos Malaysia，同上
+    '/^[A-Z]{2}\d{9}AE$/i' => ['international', 'emirates-post'], // 阿联酋 Emirates Post，同上
+    '/^[A-Z]{2}\d{9}HU$/i' => ['international', 'magyar-posta'], // 匈牙利 Magyar Posta，同上
+    '/^[A-Z]{2}\d{9}CZ$/i' => ['international', 'ceska-posta'], // 捷克 Česká pošta，同上
+    '/^[A-Z]{2}\d{9}GR$/i' => ['international', 'elta'], // 希腊 ELTA，同上
+    '/^[A-Z]{2}\d{9}VN$/i' => ['international', 'viettel-post'], // 越南 Viettel Post，同上
     '/^[A-Z]{2}\d{9}(YP|YW|YE|YL)$/i' => ['international', 'yanwen'], // 燕文 S10 形态（YP 等尾码），同上
     '/^[A-Z]{2}\d{9}[A-Z]{2}$/i' => ['international', 'fedex'],
     '/^AUP\d{8,12}$/i' => ['international', 'australia-post'],

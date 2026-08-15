@@ -29,6 +29,12 @@ use GlobalLogistics\Carriers\Domestic\Yto;
 use GlobalLogistics\Carriers\Domestic\Zjs;
 use GlobalLogistics\Carriers\Domestic\Zto;
 use GlobalLogistics\Carriers\Domestic\ZtoFreight;
+use GlobalLogistics\Carriers\Domestic\Fengwang;
+use GlobalLogistics\Carriers\Domestic\HtFreight;
+use GlobalLogistics\Carriers\Domestic\YdFreight;
+use GlobalLogistics\Carriers\Domestic\YtoFreight;
+use GlobalLogistics\Carriers\Domestic\Zy;
+use GlobalLogistics\Carriers\Domestic\Cae;
 use GlobalLogistics\Carriers\International\Aramex;
 use GlobalLogistics\Carriers\International\AustraliaPost;
 use GlobalLogistics\Carriers\International\AustrianPost;
@@ -71,6 +77,21 @@ use GlobalLogistics\Carriers\International\Usps;
 use GlobalLogistics\Carriers\International\Yanwen;
 use GlobalLogistics\Carriers\International\Yodel;
 use GlobalLogistics\Carriers\International\YunExpress;
+use GlobalLogistics\Carriers\International\PostNord;
+use GlobalLogistics\Carriers\International\Ctt;
+use GlobalLogistics\Carriers\International\AnPost;
+use GlobalLogistics\Carriers\International\PocztaPolska;
+use GlobalLogistics\Carriers\International\IndiaPost;
+use GlobalLogistics\Carriers\International\PosMalaysia;
+use GlobalLogistics\Carriers\International\EmiratesPost;
+use GlobalLogistics\Carriers\International\MagyarPosta;
+use GlobalLogistics\Carriers\International\CeskaPosta;
+use GlobalLogistics\Carriers\International\Elta;
+use GlobalLogistics\Carriers\International\ViettelPost;
+use GlobalLogistics\Carriers\International\ZtoIntl;
+use GlobalLogistics\Carriers\International\YtoIntl;
+use GlobalLogistics\Carriers\International\JtIntl;
+use GlobalLogistics\Carriers\International\Winit;
 
 // channel => code => adapter class
 return [
@@ -102,6 +123,12 @@ return [
         'dainiao' => Dainiao::class,
         'cre' => Cre::class,
         'sxjd' => Sxjd::class,
+        'fengwang' => Fengwang::class,
+        'ht-freight' => HtFreight::class,
+        'yd-freight' => YdFreight::class,
+        'yto-freight' => YtoFreight::class,
+        'zy' => Zy::class,
+        'cae' => Cae::class,
     ],
     'international' => [
         'dhl' => Dhl::class,
@@ -146,5 +173,20 @@ return [
         'purolator' => Purolator::class,
         'bpost' => Bpost::class,
         'correos' => Correos::class,
+        'postnord' => PostNord::class,
+        'ctt' => Ctt::class,
+        'an-post' => AnPost::class,
+        'poczta-polska' => PocztaPolska::class,
+        'india-post' => IndiaPost::class,
+        'pos-malaysia' => PosMalaysia::class,
+        'emirates-post' => EmiratesPost::class,
+        'magyar-posta' => MagyarPosta::class,
+        'ceska-posta' => CeskaPosta::class,
+        'elta' => Elta::class,
+        'viettel-post' => ViettelPost::class,
+        'zto-intl' => ZtoIntl::class,
+        'yto-intl' => YtoIntl::class,
+        'jt-intl' => JtIntl::class,
+        'winit' => Winit::class,
     ],
 ];

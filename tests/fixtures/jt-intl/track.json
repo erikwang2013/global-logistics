@@ -1,0 +1,29 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": [
+        {
+            "traces": [
+                {
+                    "track_time": "2026-08-10 09:12:00",
+                    "station_name": "上海分拨中心",
+                    "track_desc": "快件已揽收",
+                    "status": "已揽收"
+                },
+                {
+                    "track_time": "2026-08-12 14:05:00",
+                    "station_name": "上海分拨中心",
+                    "track_desc": "快件运输中",
+                    "status": "运输中"
+                },
+                {
+                    "track_time": "2026-08-14 10:45:00",
+                    "station_name": "新加坡分拨中心",
+                    "track_desc": "快件已签收",
+                    "status": "已签收"
+                }
+            ]
+        }
+    ]
+}

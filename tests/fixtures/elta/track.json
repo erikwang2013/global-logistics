@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "trackingNumber": "CE024068912GR",
+            "events": [
+                {
+                    "date": "2026-08-10T09:12:00+03:00",
+                    "description": "Shipment received",
+                    "place": "ATHENS"
+                },
+                {
+                    "date": "2026-08-12T14:05:00+03:00",
+                    "description": "In transit",
+                    "place": "ATHENS"
+                },
+                {
+                    "date": "2026-08-14T10:45:00+03:00",
+                    "description": "Delivered",
+                    "place": "THESSALONIKI"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+  "TrackingInformationResponse": {
+    "shipments": [
+      {
+        "id": "85319760154SE",
+        "statusCode": "FINAL_DELIVERED",
+        "items": [
+          {
+            "itemId": "RR123456789SE",
+            "events": [
+              {
+                "eventTime": "2026-08-14T12:10:00+02:00",
+                "eventCode": "DELIVERED",
+                "eventDescription": "Delivered",
+                "statusCode": "FINAL_DELIVERED",
+                "status": "Delivered",
+                "location": { "displayName": "Stockholm" }
+              },
+              {
+                "eventTime": "2026-08-13T09:30:00+02:00",
+                "eventCode": "UTL",
+                "eventDescription": "Out for delivery",
+                "statusCode": "OUT_FOR_DELIVERY",
+                "status": "Out for delivery",
+                "location": { "displayName": "Stockholm" }
+              },
+              {
+                "eventTime": "2026-08-11T08:00:00+02:00",
+                "eventCode": "POST",
+                "eventDescription": "The shipment is in transit",
+                "statusCode": "IN_TRANSIT",
+                "status": "In transit",
+                "location": { "displayName": "Malmö" }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

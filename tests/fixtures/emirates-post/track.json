@@ -1,0 +1,23 @@
+{
+  "GetTrackDetailsResponse": {
+    "AWB": "RR123456789AE",
+    "Status": "Delivered",
+    "Events": [
+      {
+        "EventDateTime": "12-08-2026 10:30:00",
+        "EventDescription": "Shipment Created",
+        "EventLocation": "SHARJAH"
+      },
+      {
+        "EventDateTime": "14-08-2026 09:00:00",
+        "EventDescription": "Out for Delivery",
+        "EventLocation": "DUBAI"
+      },
+      {
+        "EventDateTime": "14-08-2026 12:10:00",
+        "EventDescription": "Shipment Delivered",
+        "EventLocation": "DUBAI"
+      }
+    ]
+  }
+}

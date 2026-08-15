@@ -1,0 +1,27 @@
+{
+  "getEventsResponse": {
+    "GetEventsResult": [
+      {
+        "activity": "Your item has been delivered",
+        "date": "2026-08-14T12:10:00",
+        "location": "Dublin 1 Delivery Office",
+        "reason": "Signed by JANE DOE",
+        "traceCode": 14
+      },
+      {
+        "activity": "Your item is out for delivery",
+        "date": "2026-08-14T09:00:00",
+        "location": "Dublin 1 Delivery Office",
+        "reason": "",
+        "traceCode": 4
+      },
+      {
+        "activity": "Your item has been sorted in",
+        "date": "2026-08-12T10:00:00",
+        "location": "Dublin Mail Centre",
+        "reason": "",
+        "traceCode": 1
+      }
+    ]
+  }
+}

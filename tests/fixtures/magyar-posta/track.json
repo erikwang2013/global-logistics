@@ -1,0 +1,25 @@
+{
+    "result": {
+        "item": {
+            "item_identifier": "RR123456789HU",
+            "last_event_type": "Sikeresen kézbesítve",
+            "events": [
+                {
+                    "event_timestamp": "2026-08-10T08:12:00+02:00",
+                    "event_type": "A küldeményt a feladótól átvettük",
+                    "post_name": "Budapest 62"
+                },
+                {
+                    "event_timestamp": "2026-08-12T11:30:00+02:00",
+                    "event_type": "A küldemény szállítás alatt",
+                    "post_name": "Budapest"
+                },
+                {
+                    "event_timestamp": "2026-08-14T12:10:00+02:00",
+                    "event_type": "Sikeresen kézbesítve",
+                    "post_name": "Budapest 62"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "result": {
+        "data": {
+            "tracking": [
+                {
+                    "time": "2026-08-10 09:12:00",
+                    "location": "Hà Nội",
+                    "description": "Đã nhận hàng",
+                    "status": "RECEIVED"
+                },
+                {
+                    "time": "2026-08-12 14:05:00",
+                    "location": "Hà Nội",
+                    "description": "Đang vận chuyển",
+                    "status": "TRANSPORTING"
+                },
+                {
+                    "time": "2026-08-14 10:45:00",
+                    "location": "TP. Hồ Chí Minh",
+                    "description": "Đã giao hàng thành công",
+                    "status": "DELIVERED"
+                }
+            ]
+        }
+    }
+}
