@@ -6,7 +6,10 @@
     "keywords": ["logistics", "express", "tracking", "courier", "快递", "物流"],
     "authors": [
         {
-            "name": "Erik Wang"
+            "name": "Erik Wang",
+            "email": "erik@erik.xyz",
+            "homepage": "https://erik.xyz",
+            "role": "Developer"
         }
     ],
     "support": {
