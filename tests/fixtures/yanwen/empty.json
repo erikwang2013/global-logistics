@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": {
+        "trackingNumber": "UA123456789YP",
+        "events": []
+    }
+}

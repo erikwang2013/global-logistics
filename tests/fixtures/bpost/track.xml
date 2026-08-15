@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trackingInfo xmlns="http://schema.post.be/shm/deepintegration/v3/">
+  <barcode>RB123456789BE</barcode>
+  <status>DELIVERED</status>
+  <events>
+    <event>
+      <code>ACCEPT</code>
+      <description>Parcel accepted at the post office</description>
+      <date>2026-08-12T09:00:00+02:00</date>
+      <location>Brussels</location>
+    </event>
+    <event>
+      <code>TRANSIT</code>
+      <description>In transit</description>
+      <date>2026-08-13T11:30:00+02:00</date>
+      <location>Antwerp</location>
+    </event>
+    <event>
+      <code>OFD</code>
+      <description>Out for delivery</description>
+      <date>2026-08-14T15:00:00+02:00</date>
+      <location>Ghent</location>
+    </event>
+    <event>
+      <code>DLVD</code>
+      <description>Parcel delivered</description>
+      <date>2026-08-14T17:45:00+02:00</date>
+      <location>Ghent</location>
+    </event>
+  </events>
+</trackingInfo>

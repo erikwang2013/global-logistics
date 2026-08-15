@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <TrackByPinResponse xmlns="http://purolator.com/pws/datatypes/v1">
+      <ResponseInformation>
+        <Errors>
+          <Error>
+            <Code>2001135</Code>
+            <Description>No Delivery Details are available</Description>
+            <AdditionalInformation>Tracking Error</AdditionalInformation>
+          </Error>
+        </Errors>
+      </ResponseInformation>
+      <TrackingInformation>
+        <PIN><Value>329014521622</Value></PIN>
+        <Scans />
+      </TrackingInformation>
+    </TrackByPinResponse>
+  </soap:Body>
+</soap:Envelope>

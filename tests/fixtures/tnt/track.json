@@ -1,0 +1,21 @@
+{
+    "consignments": [
+        {
+            "access": "public",
+            "conNumber": "256867154",
+            "statusData": {
+                "statusCode": "DEL",
+                "statusDescription": "Delivered",
+                "localEventDate": "20260814",
+                "localEventTime": "1745",
+                "depot": {"depotName": "London"}
+            },
+            "events": [
+                {"statusCode": "SH", "statusDescription": "Shipment received at depot", "localEventDate": "20260811", "localEventTime": "0930", "depot": {"depotName": "Arnhem"}},
+                {"statusCode": "INT", "statusDescription": "In transit", "localEventDate": "20260812", "localEventTime": "1100", "depot": {"depotName": "Arnhem"}},
+                {"statusCode": "OD", "statusDescription": "Out for delivery", "localEventDate": "20260814", "localEventTime": "0900", "depot": {"depotName": "London"}},
+                {"statusCode": "DEL", "statusDescription": "Delivered", "localEventDate": "20260814", "localEventTime": "1745", "depot": {"depotName": "London"}}
+            ]
+        }
+    ]
+}

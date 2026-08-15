@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tracking>
+  <Error>
+    <Code>1001</Code>
+    <Description>Invalid tracking number</Description>
+  </Error>
+</Tracking>

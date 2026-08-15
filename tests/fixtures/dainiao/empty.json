@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "errorCode": null,
+    "errorMsg": null,
+    "data": {
+        "waybillNo": "689012345678",
+        "traces": []
+    }
+}

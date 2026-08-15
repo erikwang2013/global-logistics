@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "code": "0000",
+    "message": "success",
+    "data": {
+        "waybillNo": "SJ1234567890",
+        "routes": []
+    }
+}

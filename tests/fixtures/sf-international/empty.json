@@ -1,0 +1,13 @@
+{
+    "success": true,
+    "apiResultCode": "8000",
+    "apiErrorMsg": "success",
+    "msgData": {
+        "routeResps": [
+            {
+                "mailNo": "SF1234567890123",
+                "routes": []
+            }
+        ]
+    }
+}

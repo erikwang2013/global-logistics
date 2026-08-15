@@ -1,0 +1,13 @@
+{
+    "code": "0000",
+    "msg": "成功",
+    "data": {
+        "billNo": "K12345678901",
+        "traces": [
+            {"acceptTime": "2026-08-12 10:15:00", "acceptAddress": "北京市", "remark": "中铁快运已揽收"},
+            {"acceptTime": "2026-08-13 16:40:00", "acceptAddress": "石家庄市", "remark": "货物已到达石家庄站装车"},
+            {"acceptTime": "2026-08-14 08:30:00", "acceptAddress": "郑州市", "remark": "货物正在派送途中"},
+            {"acceptTime": "2026-08-15 09:52:00", "acceptAddress": "郑州市", "remark": "货物已签收，签收人：本人"}
+        ]
+    }
+}

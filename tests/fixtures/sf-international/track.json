@@ -1,0 +1,18 @@
+{
+    "success": true,
+    "apiResultCode": "8000",
+    "apiErrorMsg": "success",
+    "msgData": {
+        "routeResps": [
+            {
+                "mailNo": "SF1234567890123",
+                "routes": [
+                    {"acceptTime": "2026-08-11 10:00:00", "acceptAddress": "深圳市", "remark": "快件已揽收", "opcode": "50"},
+                    {"acceptTime": "2026-08-12 08:30:00", "acceptAddress": "香港国际机场", "remark": "快件运输中", "opcode": "60"},
+                    {"acceptTime": "2026-08-13 12:00:00", "acceptAddress": "Los Angeles, US", "remark": "快件派送中", "opcode": "70"},
+                    {"acceptTime": "2026-08-13 18:00:00", "acceptAddress": "Los Angeles, US", "remark": "快件已签收", "opcode": "8000"}
+                ]
+            }
+        ]
+    }
+}

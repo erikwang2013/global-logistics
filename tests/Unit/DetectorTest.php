@@ -414,4 +414,119 @@ final class DetectorTest extends TestCase
         $this->assertSame(Channel::International, $result->channel);
         $this->assertSame('yunexpress', $result->carrierCode);
     }
+
+    public function testDetectsSfInternationalAfterDomesticSfRule(): void
+    {
+        // SF+13 位与国内顺丰（SF+10-12 位）位数互斥，顺序无冲突
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('SF1234567890123');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('sf-international', $result->carrierCode);
+    }
+
+    public function testDetectsZtoFreightBeforePurolatorRule(): void
+    {
+        // 32 开头 12 位同时匹配 /^3\d{11}$/（purolator），国内中通快运规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('320000038967');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('zto-freight', $result->carrierCode);
+    }
+
+    public function testDetectsPurolator(): void
+    {
+        // 33 开头 12 位命中 purolator；32 开头已被 zto-freight（国内优先）截获
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('330112345678');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('purolator', $result->carrierCode);
+    }
+
+    public function testDetectsDainiaoBeforeUcRule(): void
+    {
+        // 6 开头 12 位同时匹配 /^\d{12}$/（uc），丹鸟规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('689012345678');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('dainiao', $result->carrierCode);
+    }
+
+    public function testDetectsTiantian(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('50301872145678');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('tiantian', $result->carrierCode);
+    }
+
+    public function testDetectsTnt(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('256867154');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('tnt', $result->carrierCode);
+    }
+
+    public function testDetectsSxjd(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('SJ1234567890');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('sxjd', $result->carrierCode);
+    }
+
+    public function testDetectsCre(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('K12345678901');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('cre', $result->carrierCode);
+    }
+
+    public function testDetectsOntrac(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('C11031500001879');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('ontrac', $result->carrierCode);
+    }
+
+    public function testDetectsBpostBeforeGenericFedExRule(): void
+    {
+        // XX...BE 同时匹配通用 FedEx 规则，bpost 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RB123456789BE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('bpost', $result->carrierCode);
+    }
+
+    public function testDetectsCorreosBeforeGenericFedExRule(): void
+    {
+        // XX...ES 同时匹配通用 FedEx 规则，correos 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RR123456789ES');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('correos', $result->carrierCode);
+    }
+
+    public function testDetectsYanwenBeforeGenericFedExRule(): void
+    {
+        // UA...YP 同时匹配通用 FedEx 规则（/^[A-Z]{2}\d{9}[A-Z]{2}$/i），燕文规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('UA123456789YP');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('yanwen', $result->carrierCode);
+    }
 }

@@ -1,0 +1,9 @@
+{
+    "status": true,
+    "statusCode": "200",
+    "message": "成功",
+    "data": {
+        "billCode": "320000038967",
+        "traces": []
+    }
+}

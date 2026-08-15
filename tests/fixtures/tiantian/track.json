@@ -1,0 +1,13 @@
+{
+    "code": "0000",
+    "msg": "成功",
+    "data": {
+        "mailNo": "50301872145678",
+        "traces": [
+            {"acceptTime": "2026-08-12 16:30:00", "acceptAddress": "上海市", "remark": "快件已被揽收"},
+            {"acceptTime": "2026-08-13 08:10:00", "acceptAddress": "上海市", "remark": "快件已到达分拨中心"},
+            {"acceptTime": "2026-08-14 09:20:00", "acceptAddress": "杭州市", "remark": "快件正在派送途中"},
+            {"acceptTime": "2026-08-15 11:05:00", "acceptAddress": "杭州市", "remark": "快件已签收，签收人：家人"}
+        ]
+    }
+}

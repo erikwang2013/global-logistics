@@ -1,0 +1,7 @@
+{
+    "shippingCode": "RR123456789ES",
+    "error": {
+        "code": "404",
+        "description": "Envío no encontrado"
+    }
+}

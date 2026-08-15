@@ -32,6 +32,11 @@ return [
     'uc' => ['partner_id' => '', 'token' => ''],
     'ymd' => ['partner_id' => '', 'token' => ''],
     'zjs' => ['partner_id' => '', 'token' => ''],
+    'tiantian' => ['partner_id' => '', 'token' => '', 'endpoint' => ''],
+    'zto-freight' => ['company_id' => '', 'app_secret' => '', 'phone_suffix' => '', 'endpoint' => ''],
+    'dainiao' => ['logistic_provider_id' => '', 'secret_key' => '', 'endpoint' => ''],
+    'cre' => ['partner_id' => '', 'token' => '', 'phone_suffix' => '', 'endpoint' => ''],
+    'sxjd' => ['app_key' => '', 'customer_code' => '', 'endpoint' => ''],
 
     // 国际（OAuth2、签名认证或无认证公开 API）
     'dhl' => ['client_id' => '', 'client_secret' => ''],
@@ -61,4 +66,11 @@ return [
     'swiss-post' => ['client_id' => '', 'client_secret' => '', 'scope' => '', 'language' => ''],
     'yodel' => ['client_id' => '', 'client_secret' => '', 'base_url' => '', 'token_url' => ''],
     'yunexpress' => ['app_id' => '', 'app_secret' => '', 'source_key' => ''],
+    'yanwen' => ['customer_code' => '', 'api_secret' => '', 'endpoint' => ''],
+    'sf-international' => ['partner_id' => '', 'checkword' => '', 'endpoint' => ''],
+    'tnt' => ['company_id' => '', 'password' => '', 'endpoint' => ''],
+    'ontrac' => ['account_no' => '', 'password' => '', 'endpoint' => ''],
+    'purolator' => ['production_key' => '', 'password' => '', 'group_id' => '', 'language' => '', 'endpoint' => ''],
+    'bpost' => ['account_id' => '', 'password' => '', 'endpoint' => ''],
+    'correos' => ['client_id' => '', 'client_secret' => '', 'endpoint' => ''],
 ];

@@ -1,0 +1,10 @@
+{
+    "shippingCode": "RR123456789ES",
+    "status": "DELIVERED",
+    "events": [
+        {"code": "ADMD", "description": "Admitido en oficina de cambio", "date": "2026-08-12T09:00:00+02:00", "location": "Madrid"},
+        {"code": "TRAN", "description": "En tránsito", "date": "2026-08-13T11:30:00+02:00", "location": "Zaragoza"},
+        {"code": "OFD", "description": "En reparto", "date": "2026-08-14T15:00:00+02:00", "location": "Barcelona"},
+        {"code": "DLVD", "description": "Entregado", "date": "2026-08-14T17:45:00+02:00", "location": "Barcelona"}
+    ]
+}

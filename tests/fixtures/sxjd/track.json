@@ -1,0 +1,14 @@
+{
+    "success": true,
+    "code": "0000",
+    "message": "success",
+    "data": {
+        "waybillNo": "SJ1234567890",
+        "routes": [
+            {"acceptTime": "2026-08-11 08:30:00", "acceptAddress": "杭州市拱墅区", "remark": "顺心捷达已揽收", "opCode": "50"},
+            {"acceptTime": "2026-08-12 10:00:00", "acceptAddress": "杭州萧山分拨中心", "remark": "快件到达中转场，运输中", "opCode": "60"},
+            {"acceptTime": "2026-08-14 14:20:00", "acceptAddress": "上海市闵行区", "remark": "快件派送中", "opCode": "70"},
+            {"acceptTime": "2026-08-14 16:40:00", "acceptAddress": "上海市闵行区", "remark": "快件已签收", "opCode": "8000"}
+        ]
+    }
+}

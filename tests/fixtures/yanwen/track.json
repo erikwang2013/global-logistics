@@ -1,0 +1,14 @@
+{
+    "success": true,
+    "code": "0",
+    "message": "success",
+    "data": {
+        "trackingNumber": "UA123456789YP",
+        "events": [
+            {"time": "2026-08-11 09:00:00", "location": "深圳市", "description": "已揽收，快件到达深圳分拨中心", "statusCode": "P"},
+            {"time": "2026-08-12 15:30:00", "location": "上海浦东机场", "description": "发往美国，运输中", "statusCode": "T"},
+            {"time": "2026-08-13 10:00:00", "location": "New York, US", "description": "Out for delivery", "statusCode": "O"},
+            {"time": "2026-08-13 16:20:00", "location": "New York, US", "description": "Delivered", "statusCode": "D"}
+        ]
+    }
+}

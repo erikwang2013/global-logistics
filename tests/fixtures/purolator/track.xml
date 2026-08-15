@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <TrackByPinResponse xmlns="http://purolator.com/pws/datatypes/v1">
+      <ResponseInformation>
+        <Errors />
+        <InformationalMessages />
+      </ResponseInformation>
+      <TrackingInformation>
+        <PIN><Value>329014521622</Value></PIN>
+        <Scans>
+          <Scan>
+            <ScanType>P</ScanType>
+            <Date>2026-08-12T09:00:00</Date>
+            <Description>Picked up</Description>
+            <Location>Toronto, ON</Location>
+          </Scan>
+          <Scan>
+            <ScanType>T</ScanType>
+            <Date>2026-08-13T11:30:00</Date>
+            <Description>In transit</Description>
+            <Location>Mississauga, ON</Location>
+          </Scan>
+          <Scan>
+            <ScanType>OFD</ScanType>
+            <Date>2026-08-14T15:00:00</Date>
+            <Description>Out for delivery</Description>
+            <Location>Vancouver, BC</Location>
+          </Scan>
+          <Scan>
+            <ScanType>D</ScanType>
+            <Date>2026-08-14T17:45:00</Date>
+            <Description>Delivered</Description>
+            <Location>Vancouver, BC</Location>
+          </Scan>
+        </Scans>
+      </TrackingInformation>
+    </TrackByPinResponse>
+  </soap:Body>
+</soap:Envelope>
