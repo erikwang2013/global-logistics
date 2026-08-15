@@ -1,7 +1,7 @@
 {
     "name": "erikwang2013/global-logistics",
     "description": "Unified facade for domestic (China) express and international logistics tracking APIs",
-    "type": "library",
+    "type": "yii2-extension",
     "license": "MIT",
     "keywords": ["logistics", "express", "tracking", "courier", "快递", "物流"],
     "authors": [
