@@ -1,0 +1,39 @@
+{
+    "mailPieces": [
+        {
+            "mailPieceId": "XX000000000GB",
+            "events": [
+                {
+                    "eventCode": "C",
+                    "eventName": "Collected",
+                    "location": {"locationName": "Leeds"},
+                    "timestamp": "2026-08-10T09:00:00Z"
+                },
+                {
+                    "eventCode": "P",
+                    "eventName": "Despatched",
+                    "location": {"locationName": "Leeds"},
+                    "timestamp": "2026-08-10T15:12:00Z"
+                },
+                {
+                    "eventCode": "T",
+                    "eventName": "In Transit",
+                    "location": {"locationName": "Heathrow"},
+                    "timestamp": "2026-08-11T07:45:00Z"
+                },
+                {
+                    "eventCode": "O",
+                    "eventName": "Out for delivery",
+                    "location": {"locationName": "London"},
+                    "timestamp": "2026-08-14T08:20:00Z"
+                },
+                {
+                    "eventCode": "D",
+                    "eventName": "Delivered",
+                    "location": {"locationName": "London"},
+                    "timestamp": "2026-08-14T10:00:00Z"
+                }
+            ]
+        }
+    ]
+}

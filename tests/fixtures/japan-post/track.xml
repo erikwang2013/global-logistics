@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<srvData>
+    <result>
+        <requestNo>EJ123456789JP</requestNo>
+        <records>
+            <!-- 接口按时间降序返回（最新在前），适配器应反转为升序 -->
+            <record>
+                <statusCd>4</statusCd>
+                <statusName>Delivery</statusName>
+                <officeName>Tokyo</officeName>
+                <acceptDt>2026-08-15 10:00:00</acceptDt>
+            </record>
+            <record>
+                <statusCd>2</statusCd>
+                <statusName>In transit</statusName>
+                <officeName>Osaka</officeName>
+                <acceptDt>2026-08-14 10:00:00</acceptDt>
+            </record>
+            <record>
+                <statusCd>1</statusCd>
+                <statusName>Posting</statusName>
+                <officeName>Tokyo</officeName>
+                <acceptDt>2026-08-13 09:00:00</acceptDt>
+            </record>
+        </records>
+    </result>
+</srvData>

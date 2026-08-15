@@ -1,0 +1,30 @@
+{
+    "parcels": [
+        {
+            "parcelNumber": "GLS1234567890",
+            "events": [
+                {
+                    "eventCode": "1000",
+                    "eventDescription": "Parcel data received",
+                    "location": "Berlin",
+                    "eventDate": "2026-08-13",
+                    "eventTime": "09:00:00"
+                },
+                {
+                    "eventCode": "3000",
+                    "eventDescription": "In transit",
+                    "location": "Leipzig",
+                    "eventDate": "2026-08-14",
+                    "eventTime": "10:00:00"
+                },
+                {
+                    "eventCode": "9000",
+                    "eventDescription": "Delivered",
+                    "location": "Berlin",
+                    "eventDate": "2026-08-15",
+                    "eventTime": "10:00:00"
+                }
+            ]
+        }
+    ]
+}

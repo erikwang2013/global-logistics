@@ -1,0 +1,31 @@
+{
+    "tracking": {
+        "tracking_id": "AA123456789AU",
+        "events": [
+            {
+                "eventCode": "A",
+                "description": "Received",
+                "location": "Sydney",
+                "dateTime": "2026-08-10T09:00:00+10:00"
+            },
+            {
+                "eventCode": "B",
+                "description": "In transit",
+                "location": "Melbourne",
+                "dateTime": "2026-08-11T12:00:00+10:00"
+            },
+            {
+                "eventCode": "C",
+                "description": "Out for delivery",
+                "location": "Sydney",
+                "dateTime": "2026-08-14T08:30:00+10:00"
+            },
+            {
+                "eventCode": "D",
+                "description": "Delivered",
+                "location": "Sydney",
+                "dateTime": "2026-08-14T10:00:00+10:00"
+            }
+        ]
+    }
+}

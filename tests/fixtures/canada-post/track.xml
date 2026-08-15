@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracking-detail>
+    <significant-events>
+        <occurrence>
+            <event-identifier>M1</event-identifier>
+            <event-description>In transit</event-description>
+            <event-date>2026-08-13</event-date>
+            <event-time>10:30:00</event-time>
+            <site>Vancouver</site>
+        </occurrence>
+        <occurrence>
+            <event-identifier>M2</event-identifier>
+            <event-description>Out for delivery</event-description>
+            <event-date>2026-08-14</event-date>
+            <event-time>08:00:00</event-time>
+            <site>London</site>
+        </occurrence>
+        <occurrence>
+            <event-identifier>M0</event-identifier>
+            <event-description>Delivered</event-description>
+            <event-date>2026-08-14</event-date>
+            <event-time>10:00:00</event-time>
+            <site>London</site>
+        </occurrence>
+    </significant-events>
+</tracking-detail>

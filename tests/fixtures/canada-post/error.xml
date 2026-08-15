@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<error>
+    <code>PIN-0001</code>
+    <messages>
+        <message>Tracking number not found</message>
+    </messages>
+</error>

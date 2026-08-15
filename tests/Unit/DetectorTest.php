@@ -129,4 +129,96 @@ final class DetectorTest extends TestCase
         $this->expectException(CarrierNotFoundException::class);
         $detector->detect('7734567890');
     }
+
+    public function testDetectsHt(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('HT123456789012');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('ht', $result->carrierCode);
+    }
+
+    public function testDetectsDebonDpk(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('DPK12345678');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('debon', $result->carrierCode);
+    }
+
+    public function testDetectsDebonDb(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('DB1234567890');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('debon', $result->carrierCode);
+    }
+
+    public function testDetectsKy(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('KY1234567890');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('ky', $result->carrierCode);
+    }
+
+    public function testDetectsAne(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('ANE12345678');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('ane', $result->carrierCode);
+    }
+
+    public function testDetectsRoyalMailBeforeGenericFedExRule(): void
+    {
+        // XX...GB 同时匹配通用 FedEx 规则（/^[A-Z]{2}\d{9}[A-Z]{2}$/i），royal-mail 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('AB123456789GB');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('royal-mail', $result->carrierCode);
+    }
+
+    public function testDetectsJapanPostBeforeGenericFedExRule(): void
+    {
+        // XX...JP 同时匹配通用 FedEx 规则，japan-post 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('AB123456789JP');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('japan-post', $result->carrierCode);
+    }
+
+    public function testDetectsAustraliaPost(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('AUP12345678');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('australia-post', $result->carrierCode);
+    }
+
+    public function testDetectsPostnl(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('3SAB12345678901');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('postnl', $result->carrierCode);
+    }
+
+    public function testDetectsCanadaPost(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('1234567890123456');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('canada-post', $result->carrierCode);
+    }
 }

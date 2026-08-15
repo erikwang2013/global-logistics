@@ -1,0 +1,10 @@
+{
+    "code": 200,
+    "msg": "成功",
+    "data": {
+        "routeList": [
+            {"operation_time": "2026-08-14 10:00:00", "operation_desc": "快件已到达上海转运中心", "city_name": "上海"},
+            {"operation_time": "2026-08-15 18:30:00", "operation_desc": "快件已签收，签收人：本人", "city_name": "杭州"}
+        ]
+    }
+}

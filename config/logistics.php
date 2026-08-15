@@ -22,10 +22,22 @@ return [
     'sto' => [],
     'jd' => [],
     'ems' => ['app_id' => ''],
+    'ht' => ['partner_id' => '', 'token' => ''],
+    'debon' => ['app_key' => '', 'app_secret' => ''],
+    'ky' => ['app_key' => '', 'app_secret' => ''],
+    'ane' => ['app_key' => ''],
 
-    // 国际（OAuth2 或 签名认证）
+    // 国际（OAuth2、签名认证或无认证公开 API）
     'dhl' => ['client_id' => '', 'client_secret' => ''],
     'fedex' => ['client_id' => '', 'client_secret' => ''],
     'ups' => ['client_id' => '', 'client_secret' => ''],
     'usps' => ['user_id' => ''],
+    'royal-mail' => ['client_id' => '', 'client_secret' => ''],
+    'canada-post' => ['customer_number' => '', 'api_key' => ''],
+    'australia-post' => ['api_key' => ''],
+    'japan-post' => [],
+    'aramex' => ['user_name' => '', 'password' => '', 'account_number' => ''],
+    'gls' => ['api_key' => ''],
+    'dpd' => ['user_name' => '', 'password' => ''],
+    'postnl' => ['api_key' => ''],
 ];

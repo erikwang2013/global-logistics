@@ -13,7 +13,7 @@
 
 ## 功能说明
 
-### 已接入承运商（12 家）
+### 已接入承运商（24 家）
 
 | 通道 | 承运商 | 代码 | 轨迹查询 | 下单/面单/订阅 |
 |---|---|---|---|---|
@@ -25,10 +25,22 @@
 | 国内 | 申通 | `sto` | ✅ | 同上 |
 | 国内 | 京东 | `jd` | ✅ | 同上 |
 | 国内 | EMS | `ems` | ✅ | 同上 |
+| 国内 | 百世 | `ht` | ✅ | 同上 |
+| 国内 | 德邦 | `debon` | ✅ | 同上 |
+| 国内 | 跨越 | `ky` | ✅ | 同上 |
+| 国内 | 安能 | `ane` | ✅ | 同上 |
 | 国际 | DHL | `dhl` | ✅（OAuth2） | 同上 |
 | 国际 | FedEx | `fedex` | ✅（OAuth2） | 同上 |
 | 国际 | UPS | `ups` | ✅（OAuth2） | 同上 |
 | 国际 | USPS | `usps` | ✅ | 同上 |
+| 国际 | 皇家邮政 | `royal-mail` | ✅（OAuth2） | 同上 |
+| 国际 | 加拿大邮政 | `canada-post` | ✅ | 同上 |
+| 国际 | 澳大利亚邮政 | `australia-post` | ✅ | 同上 |
+| 国际 | 日本邮政 | `japan-post` | ✅（无认证） | 同上 |
+| 国际 | Aramex | `aramex` | ✅ | 同上 |
+| 国际 | GLS | `gls` | ✅ | 同上 |
+| 国际 | DPD | `dpd` | ✅ | 同上 |
+| 国际 | PostNL | `postnl` | ✅ | 同上 |
 
 ### 统一状态枚举（`GlobalLogistics\Support\TrackStatus`）
 
@@ -68,11 +80,23 @@ Logistics::configure([
     'sto' => [],
     'jd' => [],
     'ems' => ['app_id' => '...'],
+    'ht' => ['partner_id' => '...', 'token' => '...'],
+    'debon' => ['app_key' => '...', 'app_secret' => '...'],
+    'ky' => ['app_key' => '...', 'app_secret' => '...'],
+    'ane' => ['app_key' => '...'],
     // 国际
     'dhl' => ['client_id' => '...', 'client_secret' => '...'],
     'fedex' => ['client_id' => '...', 'client_secret' => '...'],
     'ups' => ['client_id' => '...', 'client_secret' => '...'],
     'usps' => ['user_id' => '...'],
+    'royal-mail' => ['client_id' => '...', 'client_secret' => '...'],
+    'canada-post' => ['customer_number' => '...', 'api_key' => '...'],
+    'australia-post' => ['api_key' => '...'],
+    'japan-post' => [],
+    'aramex' => ['user_name' => '...', 'password' => '...', 'account_number' => '...'],
+    'gls' => ['api_key' => '...'],
+    'dpd' => ['user_name' => '...', 'password' => '...'],
+    'postnl' => ['api_key' => '...'],
 
     // 可选：自定义 PSR-18 HTTP 客户端（默认自动构建 Guzzle）
     'http_client' => null,

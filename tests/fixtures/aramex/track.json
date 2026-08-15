@@ -1,0 +1,30 @@
+{
+    "results": [
+        {
+            "trackingNumber": "ARAMEX1234567890",
+            "events": [
+                {
+                    "eventCode": "SH0001",
+                    "eventDescription": "Shipment collected",
+                    "eventLocation": "Dubai",
+                    "eventDate": "2026-08-13",
+                    "eventTime": "09:00:00"
+                },
+                {
+                    "eventCode": "SH0002",
+                    "eventDescription": "In transit",
+                    "eventLocation": "Dubai",
+                    "eventDate": "2026-08-14",
+                    "eventTime": "10:00:00"
+                },
+                {
+                    "eventCode": "SH0000",
+                    "eventDescription": "Delivered",
+                    "eventLocation": "Dubai",
+                    "eventDate": "2026-08-14",
+                    "eventTime": "18:30:00"
+                }
+            ]
+        }
+    ]
+}

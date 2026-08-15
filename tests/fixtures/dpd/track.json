@@ -1,0 +1,24 @@
+{
+    "trackingData": {
+        "events": [
+            {
+                "eventCode": "C01",
+                "eventDescription": "Parcel picked up",
+                "eventLocation": "Milan",
+                "eventDate": "2026-08-13 09:00:00"
+            },
+            {
+                "eventCode": "T01",
+                "eventDescription": "In transit",
+                "eventLocation": "Bologna",
+                "eventDate": "2026-08-14 10:00:00"
+            },
+            {
+                "eventCode": "D01",
+                "eventDescription": "Delivered",
+                "eventLocation": "Rome",
+                "eventDate": "2026-08-15 18:30:00"
+            }
+        ]
+    }
+}

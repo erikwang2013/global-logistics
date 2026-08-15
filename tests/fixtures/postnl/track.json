@@ -1,0 +1,32 @@
+{
+    "status": {
+        "code": 4,
+        "description": "Delivered"
+    },
+    "events": [
+        {
+            "code": 1,
+            "description": "Parcel received by PostNL",
+            "location": {"city": "Rotterdam"},
+            "timeStamp": "2026-08-10T09:00:00.000+02:00"
+        },
+        {
+            "code": 2,
+            "description": "Parcel sorted",
+            "location": {"city": "Amsterdam"},
+            "timeStamp": "2026-08-12T11:15:00+02:00"
+        },
+        {
+            "code": 3,
+            "description": "Out for delivery",
+            "location": {"city": "Amsterdam"},
+            "timeStamp": "2026-08-14T08:00:00+02:00"
+        },
+        {
+            "code": 4,
+            "description": "Delivered",
+            "location": {"city": "Amsterdam"},
+            "timeStamp": "2026-08-14T10:00:00+02:00"
+        }
+    ]
+}
