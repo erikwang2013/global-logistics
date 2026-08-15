@@ -23,7 +23,34 @@
         "psr/http-message": "^1.1|^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.5"
+        "phpunit/phpunit": "^10.5",
+        "illuminate/container": "^10.0|^11.0|^12.0",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "illuminate/config": "^10.0|^11.0|^12.0",
+        "topthink/framework": "^8.0"
+    },
+    "suggest": {
+        "illuminate/support": "Laravel 服务提供者自动注册（extra.laravel.providers）",
+        "topthink/framework": "ThinkPHP 8 服务自动注册（extra.think.services）",
+        "hyperf/framework": "Hyperf ConfigProvider 配置发布（extra.hyperf.config）",
+        "workerman/webman-framework": "Webman 插件自动拷贝配置（src/Install.php）",
+        "yiisoft/yii2": "Yii 2 引导自动注册（type=yii2-extension + extra.bootstrap）"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GlobalLogistics\\Framework\\LaravelServiceProvider"
+            ]
+        },
+        "think": {
+            "services": [
+                "GlobalLogistics\\Framework\\ThinkService"
+            ]
+        },
+        "hyperf": {
+            "config": "GlobalLogistics\\Framework\\HyperfConfigProvider"
+        },
+        "bootstrap": "GlobalLogistics\\Framework\\YiiBootstrap"
     },
     "autoload": {
         "psr-4": {
@@ -32,7 +59,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "GlobalLogistics\\Tests\\": "tests/"
+            "GlobalLogistics\\Tests\\": "tests/",
+            "yii\\": "tests/Stubs/yii/"
         }
     },
     "scripts": {
