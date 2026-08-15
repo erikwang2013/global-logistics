@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650" font-family="system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/>
+    </marker>
+  </defs>
+
+  <text x="560" y="22" text-anchor="middle" font-size="20" font-weight="700" fill="#263238">Logistics::track() 设计时序图</text>
+
+  <!-- 参与方头部 -->
+  <rect x="50" y="34" width="80" height="44" rx="8" fill="#e3f2fd" stroke="#1e88e5" stroke-width="1.5"/>
+  <text x="90" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="#0d47a1">业务方</text>
+  <rect x="190" y="34" width="120" height="44" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="250" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="#1b5e20">Logistics 门面</text>
+  <rect x="350" y="34" width="120" height="44" rx="8" fill="#e3f2fd" stroke="#1e88e5" stroke-width="1.5"/>
+  <text x="410" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="#0d47a1">Detector</text>
+  <rect x="500" y="34" width="120" height="44" rx="8" fill="#e3f2fd" stroke="#1e88e5" stroke-width="1.5"/>
+  <text x="560" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="#0d47a1">CarrierFactory</text>
+  <rect x="650" y="34" width="120" height="44" rx="8" fill="#fff3e0" stroke="#fb8c00" stroke-width="1.5"/>
+  <text x="710" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="#e65100">承运商适配器</text>
+  <rect x="800" y="34" width="120" height="44" rx="8" fill="#f3e5f5" stroke="#8e24aa" stroke-width="1.5"/>
+  <text x="860" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="#4a148c">HTTP 客户端</text>
+  <rect x="950" y="34" width="120" height="44" rx="8" fill="#eceff1" stroke="#546e7a" stroke-width="1.5"/>
+  <text x="1010" y="61" text-anchor="middle" font-size="13" font-weight="700" fill="#37474f">承运商官方 API</text>
+
+  <!-- lifelines -->
+  <line x1="90" y1="78" x2="90" y2="590" stroke="#90a4ae" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="250" y1="78" x2="250" y2="590" stroke="#90a4ae" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="410" y1="78" x2="410" y2="590" stroke="#90a4ae" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="560" y1="78" x2="560" y2="590" stroke="#90a4ae" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="710" y1="78" x2="710" y2="590" stroke="#90a4ae" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="860" y1="78" x2="860" y2="590" stroke="#90a4ae" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="1010" y1="78" x2="1010" y2="590" stroke="#90a4ae" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- 1. track -->
+  <line x1="90" y1="115" x2="248" y2="115" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <text x="170" y="107" text-anchor="middle" font-size="13" fill="#37474f">1. track($trackingNo)</text>
+
+  <!-- 2. detect -->
+  <line x1="250" y1="160" x2="408" y2="160" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <text x="330" y="152" text-anchor="middle" font-size="13" fill="#37474f">2. detect($trackingNo)</text>
+  <!-- 2b. Detection -->
+  <line x1="410" y1="185" x2="252" y2="185" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr2)"/>
+  <text x="330" y="177" text-anchor="middle" font-size="13" fill="#37474f">Detection（channel + carrierCode）</text>
+
+  <!-- 3. create -->
+  <line x1="250" y1="230" x2="558" y2="230" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <text x="405" y="222" text-anchor="middle" font-size="13" fill="#37474f">3. create(channel, code)</text>
+  <!-- 3b. adapter -->
+  <line x1="560" y1="255" x2="252" y2="255" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr2)"/>
+  <text x="405" y="247" text-anchor="middle" font-size="13" fill="#37474f">CarrierInterface 适配器实例</text>
+
+  <!-- 4. queryTrack -->
+  <line x1="250" y1="300" x2="708" y2="300" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <text x="480" y="292" text-anchor="middle" font-size="13" fill="#37474f">4. queryTrack($trackingNo)</text>
+
+  <!-- 5. HTTP 请求 -->
+  <line x1="710" y1="345" x2="858" y2="345" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <text x="785" y="337" text-anchor="middle" font-size="13" fill="#37474f">5. HTTP 请求（重试 / OAuth2 / 签名）</text>
+
+  <!-- 6. HTTPS -->
+  <line x1="860" y1="390" x2="1008" y2="390" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <text x="935" y="382" text-anchor="middle" font-size="13" fill="#37474f">6. HTTPS 调用</text>
+
+  <!-- 7. 响应 -->
+  <line x1="1010" y1="430" x2="862" y2="430" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr2)"/>
+  <text x="935" y="422" text-anchor="middle" font-size="13" fill="#37474f">7. 响应（JSON / XML / HTML）</text>
+
+  <!-- 8. 响应体 -->
+  <line x1="860" y1="470" x2="712" y2="470" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr2)"/>
+  <text x="785" y="462" text-anchor="middle" font-size="13" fill="#37474f">8. 响应体</text>
+
+  <!-- 9. Tracking -->
+  <line x1="710" y1="510" x2="252" y2="510" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr2)"/>
+  <text x="480" y="502" text-anchor="middle" font-size="13" fill="#37474f">9. Tracking（事件升序 / 状态映射 / deliveredAt）</text>
+
+  <!-- 10. 返回 -->
+  <line x1="250" y1="550" x2="92" y2="550" stroke="#43a047" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr2)"/>
+  <text x="170" y="542" text-anchor="middle" font-size="13" fill="#2e7d32">10. Tracking 统一模型返回</text>
+
+  <!-- 异常路径图例 -->
+  <rect x="50" y="598" width="1020" height="56" rx="8" fill="#fff8e1" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="60" y="616" font-size="13" font-weight="700" fill="#e65100">异常路径：</text>
+  <text x="150" y="616" font-size="12.5" fill="#5d4037">单号未识别 → CarrierNotFoundException · 无事件 → TrackingNotFoundException · 401/403 → AuthException</text>
+  <text x="60" y="640" font-size="12.5" fill="#5d4037">接口错误 → LogisticsException · 解析失败 → LogisticsException</text>
+</svg>

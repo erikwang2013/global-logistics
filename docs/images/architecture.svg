@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" font-family="system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/>
+    </marker>
+  </defs>
+
+  <text x="480" y="30" text-anchor="middle" font-size="22" font-weight="700" fill="#263238">global-logistics 架构图</text>
+  <text x="480" y="54" text-anchor="middle" font-size="14" fill="#78909c">统一门面 · 自动识别 · 209 家承运商（国内 45 + 国际 164）</text>
+
+  <!-- 业务层 -->
+  <rect x="180" y="74" width="600" height="72" rx="10" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="480" y="100" text-anchor="middle" font-size="16" font-weight="700" fill="#1b5e20">业务层 · Logistics 门面（静态）</text>
+  <text x="480" y="126" text-anchor="middle" font-size="13" fill="#2e7d32">track() / detect() / domestic() / international() / configure()</text>
+
+  <!-- detect 路由 -->
+  <line x1="480" y1="146" x2="480" y2="178" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="492" y="166" font-size="13" fill="#37474f">detect 路由</text>
+
+  <!-- 检测与路由 -->
+  <rect x="180" y="178" width="290" height="84" rx="10" fill="#e3f2fd" stroke="#1e88e5" stroke-width="1.5"/>
+  <text x="325" y="206" text-anchor="middle" font-size="15" font-weight="700" fill="#0d47a1">Detector · 单号规则 187 条</text>
+  <text x="325" y="232" text-anchor="middle" font-size="12" fill="#1565c0">国内 / 国际通道 + 承运商代码</text>
+  <rect x="490" y="178" width="290" height="84" rx="10" fill="#e3f2fd" stroke="#1e88e5" stroke-width="1.5"/>
+  <text x="635" y="206" text-anchor="middle" font-size="15" font-weight="700" fill="#0d47a1">CarrierFactory · 注册表 209 家</text>
+  <text x="635" y="232" text-anchor="middle" font-size="12" fill="#1565c0">通道 + 代码 → 适配器类</text>
+  <line x1="470" y1="220" x2="488" y2="220" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="480" y="212" text-anchor="middle" font-size="12" fill="#37474f">Detection</text>
+
+  <!-- 构造注入 -->
+  <line x1="480" y1="262" x2="480" y2="296" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="492" y="283" font-size="13" fill="#37474f">构造注入（Config + HTTP 客户端）</text>
+
+  <!-- 适配器层 -->
+  <rect x="130" y="296" width="700" height="128" rx="10" fill="#fff3e0" stroke="#fb8c00" stroke-width="1.5"/>
+  <text x="480" y="322" text-anchor="middle" font-size="16" font-weight="700" fill="#e65100">适配器层 · 承运商适配器（CarrierInterface）</text>
+  <text x="480" y="352" text-anchor="middle" font-size="13" fill="#6d4c41">国内 45 家：顺丰 / 中通 / 圆通 / 极兔 / 韵达 / 申通 / 京东 / EMS / 菜鸟 / …</text>
+  <text x="480" y="378" text-anchor="middle" font-size="13" fill="#6d4c41">国际 164 家：DHL / FedEx / UPS / USPS / 皇家邮政 / 各国邮政 S10（欧洲、拉美、非洲中东、亚太）</text>
+  <text x="480" y="406" text-anchor="middle" font-size="12" fill="#a1887f">queryTrack / createOrder / createLabel / subscribe + 验签</text>
+
+  <!-- PSR-18 -->
+  <line x1="480" y1="424" x2="480" y2="458" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="492" y="445" font-size="13" fill="#37474f">PSR-18 请求</text>
+
+  <!-- HTTP 层 -->
+  <rect x="140" y="458" width="200" height="92" rx="10" fill="#f3e5f5" stroke="#8e24aa" stroke-width="1.5"/>
+  <text x="240" y="492" text-anchor="middle" font-size="14" font-weight="700" fill="#4a148c">RetryingClient</text>
+  <text x="240" y="518" text-anchor="middle" font-size="12" fill="#6a1b9a">失败自动重试</text>
+  <rect x="380" y="458" width="200" height="92" rx="10" fill="#f3e5f5" stroke="#8e24aa" stroke-width="1.5"/>
+  <text x="480" y="492" text-anchor="middle" font-size="14" font-weight="700" fill="#4a148c">OAuthTokenClient</text>
+  <text x="480" y="518" text-anchor="middle" font-size="12" fill="#6a1b9a">token 获取 / 缓存 / 401 刷新</text>
+  <rect x="620" y="458" width="200" height="92" rx="10" fill="#f3e5f5" stroke="#8e24aa" stroke-width="1.5"/>
+  <text x="720" y="492" text-anchor="middle" font-size="14" font-weight="700" fill="#4a148c">HttpClientFactory</text>
+  <text x="720" y="518" text-anchor="middle" font-size="12" fill="#6a1b9a">默认构建 Guzzle</text>
+
+  <!-- HTTPS -->
+  <line x1="480" y1="550" x2="480" y2="584" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="492" y="571" font-size="13" fill="#37474f">HTTPS / 签名 / OAuth2</text>
+
+  <!-- 官方 API -->
+  <rect x="130" y="584" width="700" height="86" rx="10" fill="#eceff1" stroke="#546e7a" stroke-width="1.5"/>
+  <text x="480" y="612" text-anchor="middle" font-size="16" font-weight="700" fill="#37474f">承运商官方 API</text>
+  <text x="480" y="640" text-anchor="middle" font-size="13" fill="#607d8b">国内各家快递接口 / DHL、FedEx、UPS、USPS / 各国邮政 S10 轨迹系统</text>
+
+  <!-- 回程 -->
+  <line x1="845" y1="584" x2="845" y2="110" stroke="#43a047" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <text transform="rotate(-90 858 630)" x="858" y="630" font-size="13" fill="#2e7d32">统一返回 Tracking / TrackingEvent（7 种状态语义）</text>
+</svg>

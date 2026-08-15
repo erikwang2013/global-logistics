@@ -2,6 +2,19 @@
 
 统一门面的国内快递 / 国际物流轨迹查询 composer 包（PHP 8.2+，PSR-4，不绑定框架）。
 
+## 项目介绍
+
+**global-logistics** 把全球 **209 家**快递 / 邮政承运商的轨迹查询统一收敛为一个门面：业务方只需传入单号，自动识别国内 / 国际通道与承运商，无需关心各家协议差异（签名、OAuth2、XML/JSON、状态映射）。
+
+| 指标 | 数值 |
+|---|---|
+| 已接入承运商 | **209 家**（国内 45 + 国际 164） |
+| 单号自动识别规则 | 187 条（顺序敏感，优先命中） |
+| 国际覆盖 | 四大快递（DHL / FedEx / UPS / USPS）+ 各国邮政 S10（欧洲、拉美加勒比、非洲中东、亚太四区域） |
+| 统一状态语义 | `TrackStatus` 7 种（含异常 / 退回） |
+| 测试 | 1663 个用例 / 6662 断言，全绿 |
+| 环境 | PHP 8.2+、PSR-4 / PSR-18，无框架绑定，Laravel / ThinkPHP / Hyperf / Webman / Yii 2 即装即用 |
+
 ## 项目说明
 
 面向电商、仓储、ERP 等业务系统，把「国内快递 + 国际物流」的官方 API 统一收敛为一个门面：
@@ -9,6 +22,7 @@
 - **一条入口**：`Logistics::track($trackingNo)` 自动识别国内 / 国际通道与承运商，无需关心单号归属
 - **一套数据模型**：所有承运商返回统一的 `Tracking` / `TrackingEvent` 结构，业务层只对接一种形状
 - **一种状态语义**：承运商五花八门的原始状态映射为统一的 `TrackStatus` 枚举（7 种）
+- **全球覆盖**：国际通道 164 家，含 DHL / FedEx / UPS / USPS 与各国邮政 S10 系统（欧洲、拉美加勒比、非洲中东、亚太四区域）
 - **密钥零硬编码**：各家密钥全部经配置注入，代码与密钥完全分离
 
 ## 功能说明
@@ -351,34 +365,43 @@ if (!$carrier->verifyCallbackSignature((string) file_get_contents('php://input')
 
 ## 架构设计
 
+![global-logistics 架构图](docs/images/architecture.svg)
+
+![global-logistics 设计时序图](docs/images/design.svg)
+
+### 目录结构
+
 ```
-┌───────────────────────────── 业务层 ─────────────────────────────┐
-│  Logistics 门面（静态）                                             │
-│    track() / detect() / domestic() / international() / configure()│
-└───────────────────────────────────────────────────────────────────┘
-            │ detect 路由
-┌───────────▼─────────────┐   ┌──────────────────────────────────────┐
-│ Detector（单号规则）      │   │ CarrierFactory（注册表）              │
-│ 国内/国际通道 + 承运商代码 │──▶│ 通道+代码 → 承运商适配器实例            │
-└─────────────────────────┘   └────────────────┬─────────────────────┘
-                                               │ 构造注入
-                        ┌──────────────────────▼──────────────────────┐
-                        │ 承运商适配器（CarrierInterface）              │
-                        │  sf/zto/yto/.../dhl/fedex/ups/usps          │
-                        │  queryTrack / createOrder / createLabel /   │
-                        │  subscribe + 验签                            │
-                        └──────────────────────┬──────────────────────┘
-                                               │ PSR-18
-                        ┌──────────────────────▼──────────────────────┐
-                        │ HTTP 层                                      │
-                        │  RetryingClient（失败重试）                    │
-                        │  OAuthTokenClient（token 获取/缓存/401 刷新） │
-                        │  HttpClientFactory（默认构建 Guzzle）          │
-                        └──────────────────────┬──────────────────────┘
-                                               │
-                        ┌──────────────────────▼──────────────────────┐
-                        │ 承运商官方 API（国内各家 / DHL、FedEx、UPS、USPS）│
-                        └─────────────────────────────────────────────┘
+global-logistics/
+├── src/
+│   ├── Carriers/
+│   │   ├── Domestic/          # 国内 45 家适配器（顺丰、中通、圆通、…）
+│   │   └── International/     # 国际 164 家适配器（DHL、FedEx、UPS、各国邮政 S10、…）
+│   ├── Exceptions/            # 异常体系（LogisticsException + 4 个细分场景异常）
+│   ├── Framework/             # 框架自动发现（Laravel / ThinkPHP / Hyperf / Webman / Yii 2）
+│   ├── Http/                  # PSR-18：OAuthTokenClient、RetryingClient、HttpClientFactory
+│   ├── Models/                # Tracking / TrackingEvent / Order / OrderRequest / Label
+│   ├── Resources/             # carrier-registry.php（209 家注册表）、detector-rules.php（187 条规则）
+│   ├── Support/               # TrackStatus 等支持类
+│   ├── CarrierFactory.php     # 注册表 → 适配器实例化
+│   ├── CarrierInterface.php   # 适配器统一契约
+│   ├── Channel.php            # 国内 / 国际通道枚举
+│   ├── Config.php             # 点号键配置读取
+│   ├── Detection.php          # 单号检测结果
+│   ├── Detector.php           # 单号规则检测
+│   ├── Install.php            # 安装引导
+│   └── Logistics.php          # 静态门面
+├── config/
+│   └── logistics.php          # 配置模板（209 家密钥占位）
+├── docs/
+│   ├── images/                # 架构图 / 设计时序图
+│   └── superpowers/           # 设计规格与实施计划
+├── tests/
+│   ├── Carriers/              # 每承运商 7 个用例（共 539 个）
+│   ├── Unit/                  # 检测器、注册表冒烟等
+│   └── fixtures/              # 每家 track / empty / error 夹具
+├── composer.json
+└── README.md
 ```
 
 ### 各层职责
