@@ -1,0 +1,33 @@
+{
+    "parcels": [
+        {
+            "parcelId": "XX123456789CH",
+            "delivery": {
+                "status": "delivered"
+            },
+            "events": [
+                {
+                    "code": "ITEM_POSTED",
+                    "status": "in transit",
+                    "timestamp": "2026-08-08T09:00:00+02:00",
+                    "place": "Bern",
+                    "text": "Item posted"
+                },
+                {
+                    "code": "ITEM_OUT_FOR_DELIVERY",
+                    "status": "in transit",
+                    "timestamp": "2026-08-14T08:30:00+02:00",
+                    "place": "Zurich",
+                    "text": "Item out for delivery"
+                },
+                {
+                    "code": "ITEM_DELIVERED",
+                    "status": "delivered",
+                    "timestamp": "2026-08-14T10:00:00+02:00",
+                    "place": "Zurich",
+                    "text": "Item delivered"
+                }
+            ]
+        }
+    ]
+}

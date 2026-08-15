@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns2:getMTTInfoReturn xmlns:ns2="http://webservice.integrator.hkpost.com">
+            <errMessage>Invalid item number</errMessage>
+            <status>-1</status>
+            <itemNo>RB123456789HK</itemNo>
+        </ns2:getMTTInfoReturn>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "errorCode": "",
+    "errorMsg": "",
+    "logisticsTrajectories": [
+        {"time": "2026-08-12 10:00:00", "desc": "快件已揽收", "location": "深圳市"},
+        {"time": "2026-08-13 08:30:00", "desc": "快件已到达广州分拨中心", "location": "广州市"},
+        {"time": "2026-08-15 14:02:00", "desc": "快件已签收", "location": "杭州市"}
+    ]
+}

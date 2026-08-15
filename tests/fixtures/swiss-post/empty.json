@@ -1,0 +1,11 @@
+{
+    "parcels": [
+        {
+            "parcelId": "XX123456789CH",
+            "delivery": {
+                "status": "unknown"
+            },
+            "events": []
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "data": {
+        "mailNos": [
+            {
+                "mailNo": "LP00123456789012",
+                "status": "TMS_TRANSIT",
+                "traceDTOList": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "success": false,
+    "errorCode": "SERVICE_ERROR",
+    "errorMsg": "服务异常，请稍后重试"
+}

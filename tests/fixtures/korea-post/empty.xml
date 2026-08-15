@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <comMsgHeader>
+        <errMsg>NORMAL SERVICE</errMsg>
+        <returnAuthMsg>SUCCESS</returnAuthMsg>
+        <returnReasonCode>00</returnReasonCode>
+    </comMsgHeader>
+    <msgHeader>
+        <totalCount>0</totalCount>
+        <count>0</count>
+        <pageNum>1</pageNum>
+        <pageSize>10</pageSize>
+    </msgHeader>
+    <msgBody>
+        <items/>
+    </msgBody>
+</response>

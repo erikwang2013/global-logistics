@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <comMsgHeader>
+        <errMsg>NORMAL SERVICE</errMsg>
+        <returnAuthMsg>SUCCESS</returnAuthMsg>
+        <returnReasonCode>00</returnReasonCode>
+    </comMsgHeader>
+    <msgHeader>
+        <totalCount>1</totalCount>
+        <count>1</count>
+        <pageNum>1</pageNum>
+        <pageSize>10</pageSize>
+    </msgHeader>
+    <msgBody>
+        <items>
+            <item>
+                <rgist>RR123456789KR</rgist>
+                <applcntNm>홍길동</applcntNm>
+                <addrseNm>김철수</addrseNm>
+                <dlvySttus>배달완료</dlvySttus>
+                <list>
+                    <item>
+                        <processDe>2026.08.08 09:00</processDe>
+                        <processSttus>접수</processSttus>
+                        <nowLc>서울강남우체국</nowLc>
+                        <detailDc>우편물 접수</detailDc>
+                    </item>
+                    <item>
+                        <processDe>2026.08.10 12:30</processDe>
+                        <processSttus>배달준비</processSttus>
+                        <nowLc>서울</nowLc>
+                        <detailDc>배달 준비 중</detailDc>
+                    </item>
+                    <item>
+                        <processDe>2026.08.14 10:00</processDe>
+                        <processSttus>배달완료</processSttus>
+                        <nowLc>서울</nowLc>
+                        <detailDc>수취인 배달 완료</detailDc>
+                    </item>
+                </list>
+            </item>
+        </items>
+    </msgBody>
+</response>

@@ -1,0 +1,5 @@
+{
+    "success": false,
+    "errorCode": "TRACKING_NOT_FOUND",
+    "errorMsg": "Barcode not found"
+}

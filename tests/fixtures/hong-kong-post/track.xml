@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns2:getMTTInfoReturn xmlns:ns2="http://webservice.integrator.hkpost.com">
+            <errMessage>Success</errMessage>
+            <status>0</status>
+            <itemNo>RB123456789HK</itemNo>
+            <milestoneList>
+                <milestone>
+                    <milestoneNo>1</milestoneNo>
+                    <milestoneName>Posted</milestoneName>
+                    <eventDate>2026-08-08</eventDate>
+                    <eventTime>09:00</eventTime>
+                    <eventLocation>Hong Kong</eventLocation>
+                    <milestoneDescription>Item posted at post office</milestoneDescription>
+                </milestone>
+                <milestone>
+                    <milestoneNo>2</milestoneNo>
+                    <milestoneName>In Transit</milestoneName>
+                    <eventDate>2026-08-10</eventDate>
+                    <eventTime>12:00</eventTime>
+                    <eventLocation>Hong Kong</eventLocation>
+                    <milestoneDescription>Item in transit</milestoneDescription>
+                </milestone>
+                <milestone>
+                    <milestoneNo>3</milestoneNo>
+                    <milestoneName>Delivered</milestoneName>
+                    <eventDate>2026-08-14</eventDate>
+                    <eventTime>10:00</eventTime>
+                    <eventLocation>Hong Kong</eventLocation>
+                    <milestoneDescription>Item delivered</milestoneDescription>
+                </milestone>
+            </milestoneList>
+        </ns2:getMTTInfoReturn>
+    </soap:Body>
+</soap:Envelope>

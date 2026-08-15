@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <comMsgHeader>
+        <errMsg>배송조회 서비스 오류</errMsg>
+        <returnAuthMsg>FAIL</returnAuthMsg>
+        <returnReasonCode>07</returnReasonCode>
+    </comMsgHeader>
+    <msgHeader>
+        <totalCount>0</totalCount>
+        <count>0</count>
+        <pageNum>1</pageNum>
+        <pageSize>10</pageSize>
+    </msgHeader>
+    <msgBody/>
+</response>

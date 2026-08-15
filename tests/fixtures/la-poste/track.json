@@ -1,0 +1,25 @@
+{
+    "lang": "fr_FR",
+    "scope": "open",
+    "returnCode": 200,
+    "returnMessage": "OK",
+    "shipment": {
+        "idShip": "EY604176344FR",
+        "product": "colissimo",
+        "isFinal": false,
+        "timeline": [
+            {"id": 1, "shortLabel": "En préparation chez l'expéditeur", "status": true, "type": 1, "country": ""},
+            {"id": 2, "shortLabel": "Pris en charge par Colissimo", "status": true, "type": 1, "country": ""},
+            {"id": 3, "shortLabel": "En cours d'acheminement", "status": true, "type": 1, "country": ""},
+            {"id": 4, "shortLabel": "Envoi en cours de livraison", "status": true, "type": 1, "country": ""},
+            {"id": 5, "shortLabel": "Livré", "status": false, "type": 1, "country": ""}
+        ],
+        "event": [
+            {"order": 100, "date": "2026-08-12T10:00:00+02:00", "label": "Pris en charge par Colissimo", "code": "PC"},
+            {"order": 200, "date": "2026-08-13T09:30:00+02:00", "label": "En cours de livraison", "code": "CL"},
+            {"order": 300, "date": "2026-08-13T14:05:00+02:00", "label": "Colis livré", "code": "DI1"}
+        ],
+        "holder": 2,
+        "urlDetail": "https://www.laposte.fr/particulier/outils/suivre-vos-envois?code=EY604176344FR"
+    }
+}

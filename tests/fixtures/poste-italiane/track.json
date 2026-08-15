@@ -1,0 +1,11 @@
+[
+    {
+        "idTracciatura": "RA123456789IT",
+        "descrizioneErrore": null,
+        "listaMovimenti": [
+            {"dataOra": "2026-08-14T10:00:00+02:00", "statoLavorazione": "Consegnato", "localita": "MILANO"},
+            {"dataOra": "2026-08-14T08:00:00+02:00", "statoLavorazione": "In consegna", "localita": "MILANO"},
+            {"dataOra": "2026-08-13T15:30:00+02:00", "statoLavorazione": "In transito", "localita": "ROMA"}
+        ]
+    }
+]

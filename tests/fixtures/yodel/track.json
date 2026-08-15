@@ -1,0 +1,14 @@
+{
+    "parcels": [
+        {
+            "parcelNumber": "JD0001234567890123",
+            "parcelStatus": "DELIVERED",
+            "trackingEvents": [
+                {"eventCode": "PC", "eventDateTime": "2026-08-10T08:00:00Z", "eventDescription": "Parcel collected", "eventLocation": "Manchester"},
+                {"eventCode": "IT", "eventDateTime": "2026-08-11T14:00:00Z", "eventDescription": "Parcel is in transit", "eventLocation": "Manchester"},
+                {"eventCode": "OD", "eventDateTime": "2026-08-12T09:30:00Z", "eventDescription": "Parcel is out for delivery", "eventLocation": "London"},
+                {"eventCode": "DL", "eventDateTime": "2026-08-12T13:20:00Z", "eventDescription": "Parcel delivered", "eventLocation": "London"}
+            ]
+        }
+    ]
+}

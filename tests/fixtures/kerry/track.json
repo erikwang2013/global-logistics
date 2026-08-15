@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "data": {
+        "trackingResults": [
+            {
+                "trackingNumber": "KK0123456789TH",
+                "trackingEvents": [
+                    {"trackingEventCode": "PICKUP", "trackingEventDate": "2026-08-10 09:00:00", "trackingEventDescription": "Picked up", "trackingEventLocation": "Bangkok"},
+                    {"trackingEventCode": "TRANSIT", "trackingEventDate": "2026-08-11 15:30:00", "trackingEventDescription": "In transit", "trackingEventLocation": "Bangkok"},
+                    {"trackingEventCode": "ODF", "trackingEventDate": "2026-08-12 08:45:00", "trackingEventDescription": "Out for delivery", "trackingEventLocation": "Chiang Mai"},
+                    {"trackingEventCode": "DELIVERED", "trackingEventDate": "2026-08-12 11:10:00", "trackingEventDescription": "Delivered", "trackingEventLocation": "Chiang Mai"}
+                ]
+            }
+        ]
+    }
+}

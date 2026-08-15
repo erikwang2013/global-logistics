@@ -1,0 +1,17 @@
+{
+    "success": true,
+    "data": {
+        "mailNos": [
+            {
+                "mailNo": "LP00123456789012",
+                "status": "SIGNED",
+                "traceDTOList": [
+                    {"status": "GOT", "statusDesc": "已揽收", "timeDesc": "2026-08-05 10:00:00", "cityName": "深圳", "orgName": "深圳转运中心"},
+                    {"status": "TMS_TRANSIT", "statusDesc": "运输中", "timeDesc": "2026-08-07 16:00:00", "cityName": "香港", "orgName": "香港仓"},
+                    {"status": "TMS_DELIVERING", "statusDesc": "派送中", "timeDesc": "2026-08-14 09:00:00", "cityName": "伦敦", "orgName": "伦敦派送站"},
+                    {"status": "SIGNED", "statusDesc": "已签收", "timeDesc": "2026-08-14 14:30:00", "cityName": "伦敦", "orgName": "伦敦"}
+                ]
+            }
+        ]
+    }
+}

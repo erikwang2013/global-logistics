@@ -1,0 +1,27 @@
+{
+    "result": "1",
+    "msg": "success",
+    "data": {
+        "trackingNumber": "4PX1234567890",
+        "trackDetails": [
+            {
+                "trackTime": "2026-08-13 09:00:00",
+                "trackAddress": "深圳市",
+                "trackStatus": "已收件",
+                "trackDesc": "快件已收件"
+            },
+            {
+                "trackTime": "2026-08-14 03:00:00",
+                "trackAddress": "香港",
+                "trackStatus": "运输中",
+                "trackDesc": "快件已到达香港国际机场，正在处理"
+            },
+            {
+                "trackTime": "2026-08-15 18:30:00",
+                "trackAddress": "洛杉矶",
+                "trackStatus": "已签收",
+                "trackDesc": "快件已签收，签收人：JOHN"
+            }
+        ]
+    }
+}

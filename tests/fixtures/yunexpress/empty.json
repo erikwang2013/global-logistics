@@ -1,0 +1,12 @@
+{
+    "code": 0,
+    "message": "success",
+    "data": {
+        "waybill_number": "YT1234567890123",
+        "track_info": [
+            {
+                "track_events": []
+            }
+        ]
+    }
+}

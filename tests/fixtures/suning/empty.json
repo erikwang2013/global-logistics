@@ -1,0 +1,11 @@
+{
+    "sn_responseContent": {
+        "sn_head": {
+            "returnMessage": "biz.handler.data-get:no-result",
+            "pageTotal": "0"
+        },
+        "sn_body": {
+            "queryCrossbuyTask": []
+        }
+    }
+}

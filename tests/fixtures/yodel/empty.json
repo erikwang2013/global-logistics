@@ -1,0 +1,9 @@
+{
+    "parcels": [
+        {
+            "parcelNumber": "JD0001234567890123",
+            "parcelStatus": "IN_TRANSIT",
+            "trackingEvents": []
+        }
+    ]
+}

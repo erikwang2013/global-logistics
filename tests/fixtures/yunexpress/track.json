@@ -1,0 +1,28 @@
+{
+    "code": 0,
+    "message": "success",
+    "data": {
+        "waybill_number": "YT1234567890123",
+        "track_info": [
+            {
+                "track_events": [
+                    {
+                        "event_date": "2026-08-13 09:00:00",
+                        "location": "Shenzhen",
+                        "description": "Shipment picked up"
+                    },
+                    {
+                        "event_date": "2026-08-14 03:00:00",
+                        "location": "Hong Kong",
+                        "description": "Departed facility in Hong Kong"
+                    },
+                    {
+                        "event_date": "2026-08-15 18:30:00",
+                        "location": "Los Angeles",
+                        "description": "Delivered"
+                    }
+                ]
+            }
+        ]
+    }
+}

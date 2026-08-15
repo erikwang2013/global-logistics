@@ -1,0 +1,8 @@
+{
+    "sn_responseContent": {
+        "sn_error": {
+            "error_code": "biz.logistics.querylogisticsstatus.missing-parameter:startTime",
+            "error_msg": "参数必填"
+        }
+    }
+}

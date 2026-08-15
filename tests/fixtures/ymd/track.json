@@ -1,0 +1,11 @@
+{
+    "code": "0000",
+    "msg": "成功",
+    "data": {
+        "traces": [
+            {"acceptTime": "2026-08-12 11:20:00", "acceptAddress": "广州市", "remark": "货物已被提货"},
+            {"acceptTime": "2026-08-14 07:50:00", "acceptAddress": "长沙市", "remark": "货物已到达长沙分拨中心"},
+            {"acceptTime": "2026-08-15 15:22:00", "acceptAddress": "杭州市", "remark": "货物已签收"}
+        ]
+    }
+}

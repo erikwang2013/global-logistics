@@ -1,0 +1,17 @@
+{
+    "sn_responseContent": {
+        "sn_head": {
+            "returnMessage": "biz.handler.data-get:success",
+            "pageTotal": "1",
+            "pageNo": "1",
+            "totalSize": "1"
+        },
+        "sn_body": {
+            "queryCrossbuyTask": [
+                {"logisticExpressId": "62000000000000000001", "statusDescription": "已揽收", "logisticsSite": "L001", "siteDescription": "南京苏宁物流基地", "realCompleteDate": "2026-08-12", "realCompleteTime": "10:20:00", "operationStatus": "1020"},
+                {"logisticExpressId": "62000000000000000001", "statusDescription": "运输中", "logisticsSite": "L052", "siteDescription": "苏州分拨中心", "realCompleteDate": "2026-08-13", "realCompleteTime": "03:05:00", "operationStatus": "1040"},
+                {"logisticExpressId": "62000000000000000001", "statusDescription": "已签收", "logisticsSite": "L088", "siteDescription": "杭州站点", "realCompleteDate": "2026-08-15", "realCompleteTime": "16:45:00", "operationStatus": "1102"}
+            ]
+        }
+    }
+}

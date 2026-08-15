@@ -1,0 +1,30 @@
+{
+    "RR123456789NZ": {
+        "short_description": "Delivery Complete",
+        "detail_description": "Your item has been successfully delivered",
+        "events": [
+            {
+                "flag": "A",
+                "time": "09.00 AM",
+                "date": "08/08/26",
+                "description": "Picked up",
+                "datetime": "2026-08-08T09:00:00+12:00"
+            },
+            {
+                "flag": "O",
+                "time": "08.30 AM",
+                "date": "14/08/26",
+                "description": "Out for delivery",
+                "datetime": "2026-08-14T08:30:00+12:00"
+            },
+            {
+                "flag": "F",
+                "time": "10.00 AM",
+                "date": "14/08/26",
+                "description": "Delivery Complete",
+                "datetime": "2026-08-14T10:00:00+12:00"
+            }
+        ],
+        "source": "nz_post"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "parcel": {
+        "parcelNumber": "TV12345678901234",
+        "status": "ERROR"
+    },
+    "events": [
+        {"eventDateTime": "2026-08-14T16:00:00Z", "eventTypeCode": "E", "eventName": "Delivery failed", "location": "London"}
+    ]
+}

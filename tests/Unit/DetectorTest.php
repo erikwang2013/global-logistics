@@ -221,4 +221,197 @@ final class DetectorTest extends TestCase
         $this->assertSame(Channel::International, $result->channel);
         $this->assertSame('canada-post', $result->carrierCode);
     }
+
+    public function testDetectsCainiao(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('CA123456789');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('cainiao', $result->carrierCode);
+    }
+
+    public function testDetectsChinaPostBeforeGenericFedExRule(): void
+    {
+        // RA...CN 同时匹配通用 FedEx 规则，china-post 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789CN');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('china-post', $result->carrierCode);
+    }
+
+    public function testDetectsSuning(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('62000000000000000001');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('suning', $result->carrierCode);
+    }
+
+    public function testDetectsUc(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('900752733683');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('uc', $result->carrierCode);
+    }
+
+    public function testDetectsYmd(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('YMD123456789');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('ymd', $result->carrierCode);
+    }
+
+    public function testDetectsZjsBeforeZtoRule(): void
+    {
+        // 3 开头 13 位同时匹配 /^\d{13}$/（zto），zjs 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('3703743553612');
+
+        $this->assertSame(Channel::Domestic, $result->channel);
+        $this->assertSame('zjs', $result->carrierCode);
+    }
+
+    public function testDetectsCainiaoIntl(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('LP00123456789012');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('cainiao-intl', $result->carrierCode);
+    }
+
+    public function testDetectsCorreiosBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('DG049186226BR');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('correios', $result->carrierCode);
+    }
+
+    public function testDetectsEvri(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('TV12345678901234');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('evri', $result->carrierCode);
+    }
+
+    public function testDetectsFourPx(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('4PX1234567890');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('fourpx', $result->carrierCode);
+    }
+
+    public function testDetectsHongKongPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RB123456789HK');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('hong-kong-post', $result->carrierCode);
+    }
+
+    public function testDetectsKerry(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('KK0123456789TH');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('kerry', $result->carrierCode);
+    }
+
+    public function testDetectsKoreaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RR123456789KR');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('korea-post', $result->carrierCode);
+    }
+
+    public function testDetectsLaPosteBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('EY604176344FR');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('la-poste', $result->carrierCode);
+    }
+
+    public function testDetectsNzPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RR123456789NZ');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('nz-post', $result->carrierCode);
+    }
+
+    public function testDetectsPosteItalianeBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789IT');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('poste-italiane', $result->carrierCode);
+    }
+
+    public function testDetectsRussiaPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RA123456789RU');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('russia-post', $result->carrierCode);
+    }
+
+    public function testDetectsSingaporePostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RR123456789SG');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('singapore-post', $result->carrierCode);
+    }
+
+    public function testDetectsSwissPostBeforeGenericFedExRule(): void
+    {
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('XX123456789CH');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('swiss-post', $result->carrierCode);
+    }
+
+    public function testDetectsYodelBeforeJdRule(): void
+    {
+        // JD0 开头 16 位数字同时匹配京东规则（/^JD[A-Z0-9]{8,18}$/i），yodel 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('JD0001234567890123');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('yodel', $result->carrierCode);
+    }
+
+    public function testDetectsYunexpressAfterYtoRule(): void
+    {
+        // YT+13 位与 yto（YT+10-12 位）位数互斥，无顺序冲突
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('YT1234567890123');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('yunexpress', $result->carrierCode);
+    }
 }

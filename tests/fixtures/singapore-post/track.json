@@ -1,0 +1,36 @@
+{
+    "data": {
+        "trackingInfo": [
+            {
+                "trackingNumber": "RR123456789SG",
+                "status": "Delivered",
+                "trackingEvents": [
+                    {
+                        "status": "Picked Up",
+                        "description": "Item Collected",
+                        "location": "Singapore",
+                        "dateTime": "2026-08-08T09:00:00+08:00"
+                    },
+                    {
+                        "status": "In Transit",
+                        "description": "Item arrived at transit hub",
+                        "location": "Changi",
+                        "dateTime": "2026-08-10T12:00:00+08:00"
+                    },
+                    {
+                        "status": "Out for Delivery",
+                        "description": "Item out for delivery",
+                        "location": "Singapore",
+                        "dateTime": "2026-08-14T08:30:00+08:00"
+                    },
+                    {
+                        "status": "Delivered",
+                        "description": "Item Delivered",
+                        "location": "Singapore",
+                        "dateTime": "2026-08-14T15:00:00+08:00"
+                    }
+                ]
+            }
+        ]
+    }
+}

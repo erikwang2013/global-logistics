@@ -1,0 +1,12 @@
+{
+    "parcel": {
+        "parcelNumber": "TV12345678901234",
+        "status": "DELIVERED"
+    },
+    "events": [
+        {"eventDateTime": "2026-08-12T09:00:00Z", "eventTypeCode": "P", "eventName": "Parcel collected", "location": "Leeds"},
+        {"eventDateTime": "2026-08-13T11:30:00Z", "eventTypeCode": "T", "eventName": "Parcel is in transit", "location": "Leeds"},
+        {"eventDateTime": "2026-08-14T15:00:00Z", "eventTypeCode": "O", "eventName": "Parcel is out for delivery", "location": "London"},
+        {"eventDateTime": "2026-08-14T17:45:00Z", "eventTypeCode": "D", "eventName": "Parcel delivered", "location": "London"}
+    ]
+}

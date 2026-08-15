@@ -1,0 +1,12 @@
+{
+    "lang": "fr_FR",
+    "scope": "open",
+    "returnCode": 200,
+    "returnMessage": "OK",
+    "shipment": {
+        "idShip": "EY604176344FR",
+        "product": "colissimo",
+        "isFinal": false,
+        "event": []
+    }
+}

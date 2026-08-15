@@ -1,0 +1,11 @@
+{
+    "code": "0",
+    "message": "成功",
+    "data": {
+        "traces": [
+            {"acceptTime": "2026-08-12 09:15:00", "acceptAddress": "北京市", "remark": "【北京市】已收寄"},
+            {"acceptTime": "2026-08-13 02:30:00", "acceptAddress": "南京市", "remark": "【南京市】已到达南京集散中心"},
+            {"acceptTime": "2026-08-15 11:40:00", "acceptAddress": "杭州市", "remark": "【杭州市】快递已妥投，签收人：本人"}
+        ]
+    }
+}
