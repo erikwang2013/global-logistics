@@ -165,7 +165,8 @@ final class IndiaPost implements CarrierInterface
             'Y-m-d\TH:i:s.vP', 'Y-m-d\TH:i:sP', 'Y-m-d\TH:i:s', 'Y-m-d H:i:s', 'Y-m-d H:i',
             'd/m/Y g:i:s A', 'd-m-Y g:i:s A', 'd/m/Y H:i:s', 'd/m/Y H:i', 'd-m-Y H:i:s', 'd-m-Y H:i',
             'M/d/Y g:i:s A', 'n/j/Y g:i:s A', 'd/m/Y g:i A',
-            'Y-m-d', 'd-m-Y', 'd/m/Y',
+            // 纯日期格式需 `!` 重置未指定时间部分，否则 PHP 8.2+ 会填入当前时刻
+            '!Y-m-d', '!d-m-Y', '!d/m/Y',
         ] as $format) {
             $dt = \DateTimeImmutable::createFromFormat($format, $raw);
             if ($dt !== false) {

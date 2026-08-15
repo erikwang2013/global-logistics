@@ -182,7 +182,8 @@ final class Ctt implements CarrierInterface
         foreach ([
             'Y-m-d\TH:i:s.vP', 'Y-m-d\TH:i:sP', 'Y-m-d\TH:i:s', 'Y-m-d\TH:i', 'Y-m-d H:i:s', 'Y-m-d H:i',
             'd-m-Y H:i:s', 'd-m-Y H:i', 'd/m/Y H:i:s', 'd/m/Y H:i', 'd/m/Y g:i:s A', 'd-m-Y g:i:s A',
-            'Y-m-d', 'd-m-Y', 'd/m/Y',
+            // 纯日期格式需 `!` 重置未指定时间部分，否则 PHP 8.2+ 会填入当前时刻
+            '!Y-m-d', '!d-m-Y', '!d/m/Y',
         ] as $format) {
             $dt = \DateTimeImmutable::createFromFormat($format, $raw);
             if ($dt !== false) {

@@ -169,7 +169,8 @@ final class FedEx implements CarrierInterface
             }
         }
 
-        return \DateTimeImmutable::createFromFormat('Y-m-d', $date) ?: null;
+        // `!` 重置未指定时间部分，否则 PHP 8.2+ 会填入当前时刻
+        return \DateTimeImmutable::createFromFormat('!Y-m-d', $date) ?: null;
     }
 
     private function mapStatus(string $description): TrackStatus

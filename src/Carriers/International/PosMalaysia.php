@@ -175,7 +175,8 @@ final class PosMalaysia implements CarrierInterface
             'j-M-Y, g:i:s A', 'j-M-Y g:i:s A', 'd-M-Y, g:i:s A', 'd-M-Y g:i:s A', 'd-M-Y H:i:s', 'd-M-Y H:i',
             'j M Y, g:i:s A', 'j M Y, H:i:s', 'd M Y, g:i:s A', 'd M Y, H:i:s', 'd M Y g:i:s A', 'd M Y H:i:s',
             'd/m/Y g:i:s A', 'd-m-Y g:i:s A', 'd/m/Y H:i:s', 'd/m/Y H:i', 'd-m-Y H:i:s', 'd-m-Y H:i',
-            'Y-m-d', 'd-m-Y', 'd/m/Y',
+            // 纯日期格式需 `!` 重置未指定时间部分，否则 PHP 8.2+ 会填入当前时刻
+            '!Y-m-d', '!d-m-Y', '!d/m/Y',
         ] as $format) {
             $dt = \DateTimeImmutable::createFromFormat($format, $raw);
             if ($dt !== false) {
