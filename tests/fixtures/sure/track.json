@@ -1,0 +1,12 @@
+{
+    "EBusinessID": "1264783",
+    "Success": true,
+    "LogisticCode": "880488757848",
+    "ShipperCode": "SURE",
+    "State": "3",
+    "Traces": [
+        {"AcceptTime": "2026-08-12 16:30:00", "AcceptStation": "快件已被揽收", "Remark": "速尔快递"},
+        {"AcceptTime": "2026-08-13 06:45:00", "AcceptStation": "快件已到达上海中心 上一站是 松江一", "Remark": ""},
+        {"AcceptTime": "2026-08-15 09:58:00", "AcceptStation": "已签收,签收人是转同行", "Remark": "签收人：本人"}
+    ]
+}

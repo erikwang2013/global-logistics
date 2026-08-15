@@ -1,0 +1,12 @@
+{
+    "EBusinessID": "1264783",
+    "Success": true,
+    "LogisticCode": "130123456789",
+    "ShipperCode": "XFEXPRESS",
+    "State": "3",
+    "Traces": [
+        {"AcceptTime": "2026-08-12 16:30:00", "AcceptStation": "快件已被揽收", "Remark": "信丰物流"},
+        {"AcceptTime": "2026-08-13 06:45:00", "AcceptStation": "快件已到达东莞分拨中心", "Remark": ""},
+        {"AcceptTime": "2026-08-15 09:58:00", "AcceptStation": "快件已签收", "Remark": "签收人：前台"}
+    ]
+}

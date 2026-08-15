@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request>
+    <flag>T</flag>
+    <response>
+        <Realtime>
+            <expno>887654321098</expno>
+            <orderno>ORD20260815001</orderno>
+            <nodemes>【青岛市】快件已揽收</nodemes>
+            <opername>李四</opername>
+            <opertel>13800000000</opertel>
+            <operdate>2026-08-12</operdate>
+            <opertime>16:30:00</opertime>
+            <remark>揽收</remark>
+        </Realtime>
+        <Realtime>
+            <expno>887654321098</expno>
+            <orderno>ORD20260815001</orderno>
+            <nodemes>【青岛市】快件已到达青岛分拨中心</nodemes>
+            <opername>王五</opername>
+            <opertel>13900000000</opertel>
+            <operdate>2026-08-13</operdate>
+            <opertime>06:45:00</opertime>
+            <remark>到达</remark>
+        </Realtime>
+        <Realtime>
+            <expno>887654321098</expno>
+            <orderno>ORD20260815001</orderno>
+            <nodemes>【济南市】快件已签收</nodemes>
+            <opername>赵六</opername>
+            <opertel>13700000000</opertel>
+            <operdate>2026-08-15</operdate>
+            <opertime>09:58:00</opertime>
+            <remark>签收人：本人</remark>
+        </Realtime>
+    </response>
+    <msg>成功</msg>
+</request>

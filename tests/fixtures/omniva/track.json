@@ -1,0 +1,22 @@
+{
+  "events": [
+    {
+      "eventCode": "REG",
+      "eventDescription": "Package received",
+      "eventDate": "2026-08-12T09:00:00+03:00",
+      "eventLocation": "Tallinn"
+    },
+    {
+      "eventCode": "TRANSIT",
+      "eventDescription": "Shipment in transit",
+      "eventDate": "2026-08-13T14:30:00+03:00",
+      "eventLocation": "Viljandi"
+    },
+    {
+      "eventCode": "DEL",
+      "eventDescription": "Delivered",
+      "eventDate": "2026-08-14T11:45:00+03:00",
+      "eventLocation": "Tartu"
+    }
+  ]
+}

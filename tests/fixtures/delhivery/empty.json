@@ -1,0 +1,15 @@
+{
+  "ShipmentData": [
+    {
+      "Shipment": {
+        "Origin": "Mumbai_Andheri (Maharashtra)",
+        "Status": "In Transit",
+        "StatusLocation": "Mumbai_Malad (Maharashtra)",
+        "StatusDateTime": "2026-08-13T11:40:00.000000",
+        "StatusType": "IN",
+        "StatusCode": "",
+        "Scans": []
+      }
+    }
+  ]
+}

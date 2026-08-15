@@ -529,4 +529,94 @@ final class DetectorTest extends TestCase
         $this->assertSame(Channel::International, $result->channel);
         $this->assertSame('yanwen', $result->carrierCode);
     }
+
+    public function testDetectsAustrianPostBeforeGenericFedExRule(): void
+    {
+        // XX...AT 同时匹配通用 FedEx 规则，austrian-post 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RD123456789AT');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('austrian-post', $result->carrierCode);
+    }
+
+    public function testDetectsBringBeforeGenericFedExRule(): void
+    {
+        // XX...NO 同时匹配通用 FedEx 规则，bring 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RB123456789NO');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('bring', $result->carrierCode);
+    }
+
+    public function testDetectsThailandPostBeforeGenericFedExRule(): void
+    {
+        // XX...TH 同时匹配通用 FedEx 规则，thailand-post 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RR123456789TH');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('thailand-post', $result->carrierCode);
+    }
+
+    public function testDetectsChunghwaPostBeforeGenericFedExRule(): void
+    {
+        // XX...TW 同时匹配通用 FedEx 规则，chunghwa-post 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RL123456789TW');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('chunghwa-post', $result->carrierCode);
+    }
+
+    public function testDetectsOmnivaBeforeGenericFedExRule(): void
+    {
+        // XX...EE 同时匹配通用 FedEx 规则，omniva 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('RV123456789EE');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('omniva', $result->carrierCode);
+    }
+
+    public function testDetectsPostiBeforeGenericFedExRule(): void
+    {
+        // XX...FI 同时匹配通用 FedEx 规则，posti 规则必须先命中
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('LJ123456789FI');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('posti', $result->carrierCode);
+    }
+
+    public function testDetectsPostiJjfiPrefix(): void
+    {
+        // JJFI 前缀 20 位；不匹配任何国内前缀规则
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('JJFI1234567890123456');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('posti', $result->carrierCode);
+    }
+
+    public function testDetectsDelhiveryFifteenDigits(): void
+    {
+        // 15 位纯数字为新增位数，与 13/14/16 位规则互斥
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('123456789012345');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('delhivery', $result->carrierCode);
+    }
+
+    public function testDetectsInpostTwentyFourDigits(): void
+    {
+        // 24 位纯数字为新增位数（InPost 波兰包裹柜），现有规则最长 20 位
+        $detector = Detector::withDefaults();
+        $result = $detector->detect('242800000000000000000000');
+
+        $this->assertSame(Channel::International, $result->channel);
+        $this->assertSame('inpost', $result->carrierCode);
+    }
 }

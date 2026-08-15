@@ -1,0 +1,27 @@
+{
+  "tracking_number": "632085946340007012341234",
+  "status": "delivered",
+  "tracking_details": [
+    {
+      "status": "DOR",
+      "origin_status": "delivered",
+      "agency": "Poznań",
+      "datetime": "2026-08-14T12:10:00.000+02:00"
+    },
+    {
+      "status": "UWP",
+      "origin_status": "ready_to_pickup",
+      "agency": "Poznań",
+      "datetime": "2026-08-14T08:30:00.000+02:00"
+    },
+    {
+      "status": "PPN",
+      "origin_status": "confirmed",
+      "agency": "Kraków",
+      "datetime": "2026-08-12T09:00:00.000+02:00"
+    }
+  ],
+  "expected_flow": [],
+  "created_at": "2026-08-12T09:00:00.000+02:00",
+  "updated_at": "2026-08-14T12:10:00.000+02:00"
+}

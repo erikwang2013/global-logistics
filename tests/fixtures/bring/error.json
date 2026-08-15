@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "title": "No tracking data found",
+      "detail": "The tracking number could not be found"
+    }
+  ]
+}

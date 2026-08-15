@@ -13,12 +13,16 @@ use GlobalLogistics\Carriers\Domestic\Ht;
 use GlobalLogistics\Carriers\Domestic\Jd;
 use GlobalLogistics\Carriers\Domestic\Jt;
 use GlobalLogistics\Carriers\Domestic\Ky;
+use GlobalLogistics\Carriers\Domestic\Lht;
+use GlobalLogistics\Carriers\Domestic\Rrs;
 use GlobalLogistics\Carriers\Domestic\Sf;
 use GlobalLogistics\Carriers\Domestic\Sto;
 use GlobalLogistics\Carriers\Domestic\Suning;
+use GlobalLogistics\Carriers\Domestic\Sure;
 use GlobalLogistics\Carriers\Domestic\Sxjd;
 use GlobalLogistics\Carriers\Domestic\Tiantian;
 use GlobalLogistics\Carriers\Domestic\Uc;
+use GlobalLogistics\Carriers\Domestic\Xf;
 use GlobalLogistics\Carriers\Domestic\Yd;
 use GlobalLogistics\Carriers\Domestic\Ymd;
 use GlobalLogistics\Carriers\Domestic\Yto;
@@ -27,7 +31,11 @@ use GlobalLogistics\Carriers\Domestic\Zto;
 use GlobalLogistics\Carriers\Domestic\ZtoFreight;
 use GlobalLogistics\Carriers\International\Aramex;
 use GlobalLogistics\Carriers\International\AustraliaPost;
+use GlobalLogistics\Carriers\International\AustrianPost;
 use GlobalLogistics\Carriers\International\Bpost;
+use GlobalLogistics\Carriers\International\Bring;
+use GlobalLogistics\Carriers\International\ChunghwaPost;
+use GlobalLogistics\Carriers\International\Delhivery;
 use GlobalLogistics\Carriers\International\CainiaoIntl;
 use GlobalLogistics\Carriers\International\CanadaPost;
 use GlobalLogistics\Carriers\International\Correios;
@@ -39,13 +47,16 @@ use GlobalLogistics\Carriers\International\FedEx;
 use GlobalLogistics\Carriers\International\FourPx;
 use GlobalLogistics\Carriers\International\Gls;
 use GlobalLogistics\Carriers\International\HongKongPost;
+use GlobalLogistics\Carriers\International\InPost;
 use GlobalLogistics\Carriers\International\JapanPost;
 use GlobalLogistics\Carriers\International\Kerry;
 use GlobalLogistics\Carriers\International\KoreaPost;
 use GlobalLogistics\Carriers\International\LaPoste;
 use GlobalLogistics\Carriers\International\NzPost;
+use GlobalLogistics\Carriers\International\Omniva;
 use GlobalLogistics\Carriers\International\Ontrac;
 use GlobalLogistics\Carriers\International\PosteItaliane;
+use GlobalLogistics\Carriers\International\Posti;
 use GlobalLogistics\Carriers\International\Postnl;
 use GlobalLogistics\Carriers\International\Purolator;
 use GlobalLogistics\Carriers\International\RoyalMail;
@@ -53,6 +64,7 @@ use GlobalLogistics\Carriers\International\RussiaPost;
 use GlobalLogistics\Carriers\International\SfInternational;
 use GlobalLogistics\Carriers\International\SingaporePost;
 use GlobalLogistics\Carriers\International\SwissPost;
+use GlobalLogistics\Carriers\International\ThailandPost;
 use GlobalLogistics\Carriers\International\Tnt;
 use GlobalLogistics\Carriers\International\Ups;
 use GlobalLogistics\Carriers\International\Usps;
@@ -74,6 +86,10 @@ return [
         'ht' => Ht::class,
         'debon' => Debon::class,
         'ky' => Ky::class,
+        'lht' => Lht::class,
+        'rrs' => Rrs::class,
+        'sure' => Sure::class,
+        'xf' => Xf::class,
         'ane' => Ane::class,
         'cainiao' => Cainiao::class,
         'china-post' => ChinaPost::class,
@@ -95,6 +111,14 @@ return [
         'royal-mail' => RoyalMail::class,
         'canada-post' => CanadaPost::class,
         'australia-post' => AustraliaPost::class,
+        'austrian-post' => AustrianPost::class,
+        'bring' => Bring::class,
+        'chunghwa-post' => ChunghwaPost::class,
+        'delhivery' => Delhivery::class,
+        'inpost' => InPost::class,
+        'omniva' => Omniva::class,
+        'posti' => Posti::class,
+        'thailand-post' => ThailandPost::class,
         'japan-post' => JapanPost::class,
         'aramex' => Aramex::class,
         'gls' => Gls::class,

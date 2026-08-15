@@ -1,0 +1,29 @@
+{
+  "status": true,
+  "message": "ok",
+  "track": {
+    "RR123456789TH": [
+      {
+        "status": "รับฝาก",
+        "status_description": "รับฝาก",
+        "status_date": "2026-08-12 09:00:00",
+        "location": "Bangkok",
+        "postcode": "10110"
+      },
+      {
+        "status": "อยู่ระหว่างการขนส่ง",
+        "status_description": "อยู่ระหว่างการขนส่ง",
+        "status_date": "2026-08-13 14:30:00",
+        "location": "Khon Kaen",
+        "postcode": "40000"
+      },
+      {
+        "status": "ส่งถึง",
+        "status_description": "ส่งถึง",
+        "status_date": "2026-08-15 10:00:00",
+        "location": "Chiang Mai",
+        "postcode": "50000"
+      }
+    ]
+  }
+}

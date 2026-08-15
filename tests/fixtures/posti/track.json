@@ -1,0 +1,23 @@
+{
+  "parcelState": "delivered",
+  "events": [
+    {
+      "eventDate": "2026-08-12T07:00:00+03:00",
+      "eventCode": "APPREC",
+      "eventDescription": "Shipment has been received",
+      "eventState": "in_transit"
+    },
+    {
+      "eventDate": "2026-08-14T09:30:00+03:00",
+      "eventCode": "JAKELU",
+      "eventDescription": "Out for delivery",
+      "eventState": "out_for_delivery"
+    },
+    {
+      "eventDate": "2026-08-14T12:15:00+03:00",
+      "eventCode": "PERILLA",
+      "eventDescription": "Delivered",
+      "eventState": "delivered"
+    }
+  ]
+}

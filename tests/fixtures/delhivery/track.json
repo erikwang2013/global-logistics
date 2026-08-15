@@ -1,0 +1,47 @@
+{
+  "ShipmentData": [
+    {
+      "Shipment": {
+        "Origin": "Mumbai_Andheri (Maharashtra)",
+        "Status": "Delivered",
+        "StatusLocation": "Pune_Kothrud (Maharashtra)",
+        "StatusDateTime": "2026-08-14T10:30:00.000000",
+        "Instructions": "Delivered to consignee",
+        "StatusType": "DL",
+        "StatusCode": "EOD-38",
+        "Scans": [
+          {
+            "ScanDetail": {
+              "ScanDateTime": "2026-08-12T08:15:00.000000",
+              "ScanType": "UD",
+              "Scan": "Manifested",
+              "ScannedLocation": "Mumbai_Andheri (Maharashtra)",
+              "Status": "Consignment Manifested",
+              "NSLCode": "X-UCI"
+            }
+          },
+          {
+            "ScanDetail": {
+              "ScanDateTime": "2026-08-13T11:40:00.000000",
+              "ScanType": "IN",
+              "Scan": "In Transit",
+              "ScannedLocation": "Mumbai_Malad (Maharashtra)",
+              "Status": "In Transit to Destination",
+              "NSLCode": "X-INT"
+            }
+          },
+          {
+            "ScanDetail": {
+              "ScanDateTime": "2026-08-14T10:30:00.000000",
+              "ScanType": "DL",
+              "Scan": "Delivered",
+              "ScannedLocation": "Pune_Kothrud (Maharashtra)",
+              "Status": "Delivered to consignee",
+              "NSLCode": "X-DEL"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "consignmentSet": [
+    {
+      "consignmentId": "RB123456789NO",
+      "packageSet": [
+        {
+          "packageId": "RB123456789NO",
+          "eventSet": [
+            {
+              "description": "The shipment is picked up",
+              "status": "PICKED_UP",
+              "unitId": "OSLO",
+              "unitInformation": [
+                {
+                  "status": "PICKED_UP",
+                  "descriptions": [
+                    { "language": "EN", "description": "The shipment is picked up" }
+                  ]
+                }
+              ],
+              "dateAndTime": "2026-08-12T09:00:00+02:00"
+            },
+            {
+              "description": "The shipment is in transit",
+              "status": "IN_TRANSIT",
+              "unitId": "HELSINGBORG",
+              "unitInformation": [
+                {
+                  "status": "IN_TRANSIT",
+                  "descriptions": [
+                    { "language": "EN", "description": "The shipment is in transit" }
+                  ]
+                }
+              ],
+              "dateAndTime": "2026-08-13T14:30:00+02:00"
+            },
+            {
+              "description": "The shipment has been delivered",
+              "status": "DELIVERED",
+              "unitId": "STOCKHOLM",
+              "unitInformation": [
+                {
+                  "status": "DELIVERED",
+                  "descriptions": [
+                    { "language": "EN", "description": "The shipment has been delivered" }
+                  ]
+                }
+              ],
+              "dateAndTime": "2026-08-15T10:00:00+02:00"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

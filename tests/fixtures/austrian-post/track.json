@@ -1,0 +1,29 @@
+{
+  "FoundTracking": true,
+  "DGShippingStatus": "Delivered",
+  "StatusDescription": "Zugestellt an Empfänger",
+  "LastEventDate": "2026-08-15T10:00:00",
+  "LastEventLocation": "Wien",
+  "RawData": {
+    "events": [
+      {
+        "status": "Posted",
+        "description": "Sendung eingeliefert",
+        "location": "Wien",
+        "eventDate": "2026-08-12T09:00:00"
+      },
+      {
+        "status": "In transit",
+        "description": "Sendung unterwegs",
+        "location": "Linz",
+        "eventDate": "2026-08-13T14:30:00"
+      },
+      {
+        "status": "Delivered",
+        "description": "Zugestellt an Empfänger",
+        "location": "Wien",
+        "eventDate": "2026-08-15T10:00:00"
+      }
+    ]
+  }
+}
