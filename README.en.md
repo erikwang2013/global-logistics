@@ -307,6 +307,58 @@ Logistics::configure([
 ```
 
 > Framework projects (Laravel, etc.) can use the `config/logistics.php` template directly — see "Framework Integration".
+>
+> If `configure()` is never called, the facade auto-initializes with an empty config (only carriers that need no credentials are usable).
+
+### Configuration reference
+
+#### Top-level options
+
+| Key | Type | Default | Description |
+|---|---|---|---|
+| `http_client` | PSR-18 client or `null` | `null` | Custom HTTP client; `null` auto-builds a Guzzle client |
+| `max_retries` | int | `2` | Retry count for a failed request |
+| `registry` | array | built-in 209-carrier registry | Custom "channel → code → adapter class" registry (advanced) |
+| `detector_rules` | array | built-in 187 rules | Custom tracking-number detection rules (advanced) |
+
+#### Credential field quick reference
+
+Carriers use different auth methods, so field names vary. Common patterns:
+
+| Field | Meaning | Typical carriers |
+|---|---|---|
+| `partner_id` + `checkword` | SF Express-style signing account & checkword | `sf`, `sf-international` |
+| `company_id` + `secret` | ZTO-style company account & secret | `zto`, `zto-freight`, `zto-intl` |
+| `app_key` + `app_secret` | Generic signing keys | `yto`, `yd`, `jt`, `debon`, `ky`, etc. |
+| `ebusiness_id` + `app_key` | Kdniao (electronic waybill) API | `lht`, `rrs`, `sure`, `xf` and freight carriers |
+| `client_id` + `client_secret` | OAuth2 client credentials (token auto-fetch & refresh) | `dhl`, `fedex`, `ups`, `royal-mail`, `swiss-post`, `yodel` |
+| `user_id` / `api_key` / `key` | Carrier-issued account or key | `usps`, `postnl`, `gls`, `saudi-post`, etc. |
+| `endpoint` | Custom API endpoint (optional; `''` uses the built-in official URL) | where supported |
+
+> The exact keys each carrier needs are listed under its entry in `config/logistics.php`; carriers without auth can be left as empty arrays.
+
+#### Obtaining credentials
+
+- **Domestic carriers**: contact the carrier's business/technical contact to apply for a "tracking / electronic waybill API" account (SF Fengqiao, ZTO open platform, etc.)
+- **International carriers**: register developer accounts on the official portals of DHL / FedEx / UPS for OAuth2 credentials; apply for API keys on USPS, PostNL, etc. websites
+- **National posts**: most expose public tracking APIs that need no credentials; apply in the post's developer center when a key is required
+
+#### Carriers without credentials
+
+These are ready to use with an empty array: domestic `sto`, `jd`; international `japan-post` and most national posts (`turkey-post`, `israel-post`, `egypt-post`, `south-african-post`, `phl-post`, `pakistan-post`, `kazpost`, etc.) — see `config/logistics.php`.
+
+#### Credential security
+
+Inject credentials via environment variables or the framework `.env` file instead of hard-coding them:
+
+```php
+Logistics::configure([
+    'sf' => [
+        'partner_id' => getenv('SF_PARTNER_ID'),
+        'checkword' => getenv('SF_CHECKWORD'),
+    ],
+]);
+```
 
 ### Tracking
 

@@ -307,6 +307,58 @@ Logistics::configure([
 ```
 
 > 框架项目（Laravel 等）可直接使用 `config/logistics.php` 模板，见「框架集成」。
+>
+> 未调用 `configure()` 时门面会自动以空配置初始化（只支持无需密钥的承运商）。
+
+### 配置项详解
+
+#### 顶层选项
+
+| 键 | 类型 | 默认值 | 说明 |
+|---|---|---|---|
+| `http_client` | PSR-18 客户端 或 `null` | `null` | 自定义 HTTP 客户端；`null` 自动构建 Guzzle |
+| `max_retries` | int | `2` | 单次请求失败后的重试次数 |
+| `registry` | array | 内置 209 家注册表 | 自定义「通道 → 代码 → 适配器类」注册表（进阶） |
+| `detector_rules` | array | 内置 187 条规则 | 自定义单号识别规则（进阶） |
+
+#### 密钥字段速查
+
+各家接口认证方式不同，字段命名因此各异，常见对应关系如下：
+
+| 字段 | 含义 | 典型承运商 |
+|---|---|---|
+| `partner_id` + `checkword` | 顺丰式签名账号与校验码 | `sf`、`sf-international` |
+| `company_id` + `secret` | 中通式公司账号与密钥 | `zto`、`zto-freight`、`zto-intl` |
+| `app_key` + `app_secret` | 通用签名密钥 | `yto`、`yd`、`jt`、`debon`、`ky` 等 |
+| `ebusiness_id` + `app_key` | 快递鸟接口（电子面单） | `lht`、`rrs`、`sure`、`xf` 及各家快运 |
+| `client_id` + `client_secret` | OAuth2 客户端凭据（token 自动获取与刷新） | `dhl`、`fedex`、`ups`、`royal-mail`、`swiss-post`、`yodel` |
+| `user_id` / `api_key` / `key` | 各家分配的账号或密钥 | `usps`、`postnl`、`gls`、`saudi-post` 等 |
+| `endpoint` | 自定义 API 端点（可选，留空 '' 使用内置官方地址） | 支持各家 |
+
+> 每个承运商需要哪些字段，以 `config/logistics.php` 中对应条目的键为准；无需密钥的承运商留空数组即可。
+
+#### 密钥获取
+
+- **国内快递**：联系承运商商务或对接人申请「轨迹查询 / 电子面单接口」账号（顺丰丰桥、中通开放平台等）
+- **国际快递**：DHL / FedEx / UPS 等在官网开发者门户注册开发者账号获取 OAuth2 凭据；USPS、PostNL 等官网申请 API Key
+- **各国邮政**：多数提供公开轨迹查询 API 无需密钥；需要密钥的在邮政官网开发者中心申请
+
+#### 无需密钥的承运商
+
+以下承运商直接可用，配置留空数组即可：国内 `sto`（申通）、`jd`（京东）；国际 `japan-post`（日本邮政）及多数邮政（`turkey-post`、`israel-post`、`egypt-post`、`south-african-post`、`phl-post`、`pakistan-post`、`kazpost` 等），详见 `config/logistics.php`。
+
+#### 密钥安全
+
+密钥请通过环境变量或框架 `.env` 注入，避免硬编码进代码仓库：
+
+```php
+Logistics::configure([
+    'sf' => [
+        'partner_id' => getenv('SF_PARTNER_ID'),
+        'checkword' => getenv('SF_CHECKWORD'),
+    ],
+]);
+```
 
 ### 查询轨迹
 

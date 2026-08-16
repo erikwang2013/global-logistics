@@ -2,9 +2,30 @@
 
 declare(strict_types=1);
 
-// global-logistics 统一配置模板（Laravel / ThinkPHP / Hyperf / Webman 共享）。
-// 顶层键 = 承运商代码，结构同 Logistics::configure() 入参。
-// 密钥请填写到各框架自己的配置文件中（如 config/logistics.php、params['logistics']），切勿硬编码。
+/*
+ * global-logistics 统一配置模板（Laravel / ThinkPHP / Hyperf / Webman 共享）。
+ *
+ * 用法：
+ *   1. 将本文件复制到框架配置目录（Laravel: config/logistics.php，
+ *      Hyperf: config/autoload/logistics.php，ThinkPHP/Yii: 应用 config/logistics.php，
+ *      Webman: config/plugin/erikwang2013/global-logistics/），或直接传给
+ *      Logistics::configure($array)。
+ *   2. 顶层键 = 承运商代码，结构同 Logistics::configure() 入参。
+ *   3. 只填写你要使用的承运商即可，其余留空或删除均不影响。
+ *   4. 密钥属于敏感信息：请通过环境变量或框架的 .env 注入，切勿硬编码进代码仓库。
+ *
+ * 字段速查（各承运商只需填本文件中列出的字段）：
+ *   - partner_id / company_id / app_id / user_id / key / api_key / service_key
+ *      各家分配的账号或密钥标识
+ *   - checkword / secret / app_secret / client_secret / password / token
+ *      签名密钥或口令（不同承运商命名不同，含义一致：请求签名/鉴权用）
+ *   - client_id / client_secret / access_token / subscription_key
+ *      OAuth2 / 订阅制承运商（如 DHL、FedEx、UPS、Royal Mail、Swiss Post、Yodel）
+ *   - endpoint（可选）自定义 API 端点，留空 '' 则使用内置官方端点
+ *   - 无认证承运商（如 japan-post、多数邮政）留空数组或仅填可选字段即可
+ *
+ * 更多说明见 README.md「使用说明 - 配置」章节。
+ */
 
 return [
     // 可选：自定义 PSR-18 HTTP 客户端实例（null 则自动构建 Guzzle）
@@ -13,6 +34,16 @@ return [
     // 可选：单次请求失败后的重试次数（默认 2）
     'max_retries' => 2,
 
+    /*
+     * 国内快递（45 家）
+     * 字段含义：
+     *   partner_id + checkword   顺丰类签名（sf）
+     *   company_id + secret      中通类（zto / zto-freight）
+     *   app_key + app_secret     圆通、韵达、极兔、德邦等通用签名
+     *   ebusiness_id + app_key   快递鸟接口类（lht / rrs / sure / xf / 快运类）
+     *   endpoint                 可选自定义接口地址，留空用官方默认
+     * 申通(sto)、京东(jd) 无需密钥，留空数组即可。
+     */
     // 国内
     'sf' => ['partner_id' => '', 'checkword' => ''],
     'zto' => ['company_id' => '', 'secret' => ''],
@@ -60,6 +91,15 @@ return [
     'yuancheng' => ['ebusiness_id' => '', 'app_key' => '', 'customer_name' => '', 'endpoint' => ''],
     'xinbang' => ['ebusiness_id' => '', 'app_key' => '', 'customer_name' => '', 'endpoint' => ''],
 
+    /*
+     * 国际物流（164 家），认证方式分三类：
+     *   - OAuth2：client_id + client_secret（dhl / fedex / ups / royal-mail /
+     *     swiss-post / yodel），token 自动获取、进程内缓存、401 自动刷新
+     *   - 签名/密钥认证：各家分配的 api_key、user_id、password 等字段
+     *   - 无认证公开 API：多数邮政（japan-post、turkey-post、israel-post、
+     *     egypt-post、south-african-post 等），留空数组或仅填可选字段即可
+     * endpoint 均为可选字段：留空 '' 使用内置官方端点，可覆盖为代理地址。
+     */
     // 国际（OAuth2、签名认证或无认证公开 API）
     'dhl' => ['client_id' => '', 'client_secret' => ''],
     'fedex' => ['client_id' => '', 'client_secret' => ''],
