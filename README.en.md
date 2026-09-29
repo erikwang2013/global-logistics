@@ -14,8 +14,8 @@ A unified-facade composer package for domestic (China) express and international
 | Tracking-number detection rules | 187 (order-sensitive, first match wins) |
 | International coverage | Big four express (DHL / FedEx / UPS / USPS) + national postal S10 systems (Europe, Latin America & Caribbean, Africa & Middle East, Asia-Pacific) |
 | Unified status semantics | `TrackStatus` with 7 states (incl. exception / returned) |
-| Tests | 1663 test cases / 6662 assertions, all green |
-| Requirements | PHP 8.2+, PSR-4 / PSR-18, framework-agnostic; drop-in for Laravel / ThinkPHP / Hyperf / Webman / Yii 2 |
+| Tests | 1667 test cases / 6673 assertions, all green |
+| Requirements | PHP 8.2+, PSR-4 / PSR-18, framework-agnostic; drop-in for Laravel / ThinkPHP / Hyperf / Webman / Yii 2 / Yii 3 |
 
 ## Overview
 
@@ -253,7 +253,7 @@ Built for e-commerce, warehousing, and ERP systems, it converges the official AP
 - Unified tracking (`Logistics::track()`) and explicit channel calls (`domestic()` / `international()`)
 - Unified exception hierarchy (auth failure / tracking not found / network error / carrier not registered / API error)
 - HTTP infrastructure: PSR-18 client, OAuth2 token auto-fetch & caching, automatic retry on failure
-- Framework auto-discovery: Laravel / ThinkPHP 8 / Hyperf / Webman / Yii 2, drop-in ready
+- Framework auto-discovery: Laravel / ThinkPHP 8 / Hyperf / Webman / Yii 2 / Yii 3, drop-in ready
 - Callback signature verification (SF Express example: `verifyCallbackSignature()`)
 
 ## Usage
@@ -433,7 +433,7 @@ global-logistics/
 │   │   ├── Domestic/          # 45 domestic adapters (SF Express, ZTO, YTO, …)
 │   │   └── International/     # 164 international adapters (DHL, FedEx, UPS, national postal S10, …)
 │   ├── Exceptions/            # exception hierarchy (LogisticsException + 4 scenario exceptions)
-│   ├── Framework/             # framework auto-discovery (Laravel / ThinkPHP / Hyperf / Webman / Yii 2)
+│   ├── Framework/             # framework auto-discovery (Laravel / ThinkPHP / Hyperf / Webman / Yii 2; Yii 3 lives in config/params.php)
 │   ├── Http/                  # PSR-18: OAuthTokenClient, RetryingClient, HttpClientFactory
 │   ├── Models/                # Tracking / TrackingEvent / Order / OrderRequest / Label
 │   ├── Resources/             # carrier-registry.php (209 carriers), detector-rules.php (187 rules)
@@ -447,7 +447,9 @@ global-logistics/
 │   ├── Install.php            # installation bootstrap
 │   └── Logistics.php          # static facade
 ├── config/
-│   └── logistics.php          # config template (credential placeholders for 209 carriers)
+│   ├── logistics.php          # config template (credential placeholders for 209 carriers, shared)
+│   ├── params.php             # Yii 3: defaults for the params group (requires logistics.php)
+│   └── bootstrap.php          # Yii 3: callback for the bootstrap group, injects config at startup
 ├── docs/
 │   ├── images/                # architecture / design sequence diagrams
 │   └── superpowers/           # design specs and implementation plans
@@ -480,7 +482,7 @@ global-logistics/
 
 ## Framework Integration
 
-After `composer require erikwang2013/global-logistics`, auto-discovery works per framework without manual registration; the config template uses carrier codes as top-level keys (see `config/logistics.php`, same structure as the `Logistics::configure()` argument).
+After `composer require erikwang2013/global-logistics`, auto-discovery works per framework without manual registration (Yii 3 needs a one-time package-type opt-in in the app root `composer.json`, see below); the config template uses carrier codes as top-level keys (see `config/logistics.php`, same structure as the `Logistics::configure()` argument).
 
 ### Laravel
 
@@ -513,6 +515,36 @@ After `composer require erikwang2013/global-logistics`, auto-discovery works per
 - Usage: `\GlobalLogistics\Logistics::track('SF1234567890')`
 - If the package entry is missing from `vendor/yiisoft/extensions.php` (rare), run `composer dump-autoload` to rebuild
 
+### Yii 3
+
+Yii 3 merges each package's `config/` directory through the `yiisoft/config` composer plugin. This package declares `extra.config-plugin` for two groups: `params` and `bootstrap`.
+
+- On first install, allow this package's type in the app root `composer.json` (the Yii 3 plugin only processes `library` / `composer-plugin` by default, while this package keeps `yii2-extension` for Yii 2 compatibility). If the app uses `extra.config-plugin-file` (e.g. `config/configuration.php`), add the same line to the `config-plugin-options` returned by **that** file instead:
+
+  ```json
+  "extra": {
+      "config-plugin-options": {
+          "package-types": ["library", "composer-plugin", "yii2-extension"]
+      }
+  }
+  ```
+
+- Then run `composer dump-autoload` to rebuild the merge plan (`config/.merge-plan.php`).
+- Config: override by package name in the app's `config/common/params.php`. The params group replaces the whole entry per top-level key, so list only the carriers you need (omitted keys fall back to the defaults built into `Logistics::configure()`); omit the key entirely to keep the bundled defaults (209 placeholder carriers + `max_retries`)
+
+  ```php
+  return [
+      'erikwang2013/global-logistics' => [
+          'sf' => ['partner_id' => '...', 'checkword' => '...'],
+          'dhl' => ['client_id' => '...', 'client_secret' => '...'],
+      ],
+  ];
+  ```
+
+- Auto-registration: the bundled `config/bootstrap.php` lands in the `bootstrap` group and runs `Logistics::configure()` on app startup (both web and console go through `$bootstrap`), no manual registration
+- Usage: `\GlobalLogistics\Logistics::track('SF1234567890')`
+- Without merging the package configs, wire it manually by calling `Logistics::configure([...])` from your own bootstrap callback — the argument shape is unchanged
+
 ## Development
 
 ```bash
@@ -520,4 +552,4 @@ composer install
 composer test
 ```
 
-The full test suite runs without real credentials (adapter tests use mock HTTP + fixtures; framework integration tests use real framework classes).
+The full test suite runs without real credentials (adapter tests use mock HTTP + fixtures; framework integration tests use real framework classes, with Yii 2 stubbed and Yii 3 replaying the yiisoft/config loading contract).

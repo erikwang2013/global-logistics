@@ -14,8 +14,8 @@
 | 单号自动识别规则 | 187 条（顺序敏感，优先命中） |
 | 国际覆盖 | 四大快递（DHL / FedEx / UPS / USPS）+ 各国邮政 S10（欧洲、拉美加勒比、非洲中东、亚太四区域） |
 | 统一状态语义 | `TrackStatus` 7 种（含异常 / 退回） |
-| 测试 | 1663 个用例 / 6662 断言，全绿 |
-| 环境 | PHP 8.2+、PSR-4 / PSR-18，无框架绑定，Laravel / ThinkPHP / Hyperf / Webman / Yii 2 即装即用 |
+| 测试 | 1667 个用例 / 6673 断言，全绿 |
+| 环境 | PHP 8.2+、PSR-4 / PSR-18，无框架绑定，Laravel / ThinkPHP / Hyperf / Webman / Yii 2 / Yii 3 即装即用 |
 
 ## 项目说明
 
@@ -45,7 +45,7 @@
 - 统一轨迹查询（`Logistics::track()`）与显式通道调用（`domestic()` / `international()`）
 - 统一异常体系（认证失败 / 单号不存在 / 网络错误 / 承运商未注册 / 接口错误）
 - HTTP 基础设施：PSR-18 客户端、OAuth2 token 自动获取与缓存、失败自动重试
-- 框架自动发现：Laravel / ThinkPHP 8 / Hyperf / Webman / Yii 2 即装即用
+- 框架自动发现：Laravel / ThinkPHP 8 / Hyperf / Webman / Yii 2 / Yii 3 即装即用
 - 回调签名验证（顺丰示例：`verifyCallbackSignature()`）
 
 ## 使用说明
@@ -224,7 +224,7 @@ global-logistics/
 │   │   ├── Domestic/          # 国内 45 家适配器（顺丰、中通、圆通、…）
 │   │   └── International/     # 国际 164 家适配器（DHL、FedEx、UPS、各国邮政 S10、…）
 │   ├── Exceptions/            # 异常体系（LogisticsException + 4 个细分场景异常）
-│   ├── Framework/             # 框架自动发现（Laravel / ThinkPHP / Hyperf / Webman / Yii 2）
+│   ├── Framework/             # 框架自动发现（Laravel / ThinkPHP / Hyperf / Webman / Yii 2；Yii 3 见 config/params.php）
 │   ├── Http/                  # PSR-18：OAuthTokenClient、RetryingClient、HttpClientFactory
 │   ├── Models/                # Tracking / TrackingEvent / Order / OrderRequest / Label
 │   ├── Resources/             # carrier-registry.php（209 家注册表）、detector-rules.php（187 条规则）
@@ -238,7 +238,9 @@ global-logistics/
 │   ├── Install.php            # 安装引导
 │   └── Logistics.php          # 静态门面
 ├── config/
-│   └── logistics.php          # 配置模板（209 家密钥占位）
+│   ├── logistics.php          # 配置模板（209 家密钥占位，各框架共享）
+│   ├── params.php             # Yii 3：params 组默认值（引用 logistics.php）
+│   └── bootstrap.php          # Yii 3：bootstrap 组回调，启动时注入配置
 ├── docs/
 │   ├── images/                # 架构图 / 设计时序图
 │   └── superpowers/           # 设计规格与实施计划
@@ -270,7 +272,7 @@ global-logistics/
 
 ## 框架集成
 
-`composer require erikwang2013/global-logistics` 后按框架自动发现，无需手工注册；配置模板统一为承运商代码为顶层键的数组（见 `config/logistics.php`，结构与 `Logistics::configure()` 入参一致）。
+`composer require erikwang2013/global-logistics` 后按框架自动发现，无需手工注册（Yii 3 需在应用根 `composer.json` 放行一次包类型，见下）；配置模板统一为承运商代码为顶层键的数组（见 `config/logistics.php`，结构与 `Logistics::configure()` 入参一致）。
 
 ### Laravel
 
@@ -303,6 +305,36 @@ global-logistics/
 - 使用：`\GlobalLogistics\Logistics::track('SF1234567890')`
 - 若 `vendor/yiisoft/extensions.php` 未出现本包条目（罕见），运行 `composer dump-autoload` 重建
 
+### Yii 3
+
+Yii 3 用 `yiisoft/config` 的 composer 插件合并各包 `config/` 目录，本包已声明 `extra.config-plugin`（`params` + `bootstrap` 两组）。
+
+- 首次安装需在应用根 `composer.json` 放行本包类型（Yii 3 插件默认只处理 `library` / `composer-plugin`，而本包为兼容 Yii 2 沿用 `yii2-extension`）。若应用用 `extra.config-plugin-file`（如 `config/configuration.php`），则改在**该文件返回的** `config-plugin-options` 中加同一行：
+
+  ```json
+  "extra": {
+      "config-plugin-options": {
+          "package-types": ["library", "composer-plugin", "yii2-extension"]
+      }
+  }
+  ```
+
+- 改完执行 `composer dump-autoload` 重建合并计划（`config/.merge-plan.php`）。
+- 配置：应用的 `config/common/params.php` 中按包名覆盖。params 组按顶层键整段替换，因此只填你要用的承运商即可（未写的键走 `Logistics::configure()` 内置默认值）；整段不写则用包内默认值（209 家空占位 + `max_retries`）
+
+  ```php
+  return [
+      'erikwang2013/global-logistics' => [
+          'sf' => ['partner_id' => '...', 'checkword' => '...'],
+          'dhl' => ['client_id' => '...', 'client_secret' => '...'],
+      ],
+  ];
+  ```
+
+- 自动注册：包内 `config/bootstrap.php` 进入 `bootstrap` 组，应用启动（web / console 均走 `$bootstrap`）时执行 `Logistics::configure()`，无需手工注册
+- 使用：`\GlobalLogistics\Logistics::track('SF1234567890')`
+- 不合并本包配置时也可手工接线：在应用自己的 bootstrap 回调里调用 `Logistics::configure([...])`，参数形状不变
+
 ## 开发
 
 ```bash
@@ -310,4 +342,4 @@ composer install
 composer test
 ```
 
-无需真实密钥即可跑全量测试（适配器测试走 mock HTTP + fixture；框架集成测试使用真实框架类）。
+无需真实密钥即可跑全量测试（适配器测试走 mock HTTP + fixture；框架集成测试使用真实框架类，Yii 2 / Yii 3 分别以桩类、yiisoft/config 的加载契约复刻）。

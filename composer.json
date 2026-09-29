@@ -34,7 +34,8 @@
         "topthink/framework": "ThinkPHP 8 服务自动注册（extra.think.services）",
         "hyperf/framework": "Hyperf ConfigProvider 配置发布（extra.hyperf.config）",
         "workerman/webman-framework": "Webman 插件自动拷贝配置（src/Install.php）",
-        "yiisoft/yii2": "Yii 2 引导自动注册（type=yii2-extension + extra.bootstrap）"
+        "yiisoft/yii2": "Yii 2 引导自动注册（type=yii2-extension + extra.bootstrap）",
+        "yiisoft/config": "Yii 3 自动合并 params / bootstrap（需在应用 config-plugin-options.package-types 中允许 yii2-extension 类型）"
     },
     "extra": {
         "laravel": {
@@ -50,7 +51,14 @@
         "hyperf": {
             "config": "GlobalLogistics\\Framework\\HyperfConfigProvider"
         },
-        "bootstrap": "GlobalLogistics\\Framework\\YiiBootstrap"
+        "bootstrap": "GlobalLogistics\\Framework\\YiiBootstrap",
+        "config-plugin-options": {
+            "source-directory": "config"
+        },
+        "config-plugin": {
+            "params": "params.php",
+            "bootstrap": "bootstrap.php"
+        }
     },
     "autoload": {
         "psr-4": {

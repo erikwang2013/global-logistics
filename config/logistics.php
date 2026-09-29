@@ -3,13 +3,17 @@
 declare(strict_types=1);
 
 /*
- * global-logistics 统一配置模板（Laravel / ThinkPHP / Hyperf / Webman 共享）。
+ * global-logistics 统一配置模板（Laravel / ThinkPHP / Hyperf / Webman / Yii 2 / Yii 3 共享）。
  *
  * 用法：
  *   1. 将本文件复制到框架配置目录（Laravel: config/logistics.php，
- *      Hyperf: config/autoload/logistics.php，ThinkPHP/Yii: 应用 config/logistics.php，
+ *      Hyperf: config/autoload/logistics.php，ThinkPHP: 应用 config/logistics.php，
  *      Webman: config/plugin/erikwang2013/global-logistics/），或直接传给
  *      Logistics::configure($array)。
+ *      Yii 2：写入应用配置 params['logistics']（键名 logistics，非本文件路径）。
+ *      Yii 3：无需复制 —— 包内 config/params.php 已引用本文件作为 params 组默认值，
+ *             在应用 config/common/params.php 中以 'erikwang2013/global-logistics' 键覆盖；
+ *             注意 params 组按顶层键整段替换，写了该键即以应用为准。
  *   2. 顶层键 = 承运商代码，结构同 Logistics::configure() 入参。
  *   3. 只填写你要使用的承运商即可，其余留空或删除均不影响。
  *   4. 密钥属于敏感信息：请通过环境变量或框架的 .env 注入，切勿硬编码进代码仓库。
