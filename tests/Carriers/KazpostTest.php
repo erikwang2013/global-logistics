@@ -9,8 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -129,20 +127,6 @@ final class KazpostTest extends TestCase
     public function testUnimplementedMethodsThrow(): void
     {
         $adapter = new Kazpost(new Config([]), new FakeHttpClient());
-
-        try {
-            $adapter->createOrder(new OrderRequest([], []));
-            $this->fail('expected LogisticsException');
-        } catch (LogisticsException $e) {
-            $this->assertSame('kazpost createOrder 待实现', $e->getMessage());
-        }
-
-        try {
-            $adapter->createLabel(new Order('RZ123456789KZ'));
-            $this->fail('expected LogisticsException');
-        } catch (LogisticsException $e) {
-            $this->assertSame('kazpost createLabel 待实现', $e->getMessage());
-        }
 
         try {
             $adapter->subscribe('https://example.com/callback');

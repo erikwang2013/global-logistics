@@ -38,7 +38,7 @@ final class Install
     private static function copyConfig(): void
     {
         $dir = self::projectRoot() . '/' . self::PLUGIN_CONFIG_DIR;
-        if (!is_dir($dir) && !mkdir($dir, 0777, true) && !is_dir($dir)) {
+        if (!is_dir($dir) && !mkdir($dir, 0755, true) && !is_dir($dir)) {
             throw new \RuntimeException(sprintf('[global-logistics] 无法创建插件配置目录：%s', $dir));
         }
         copy(self::SOURCE_CONFIG, $dir . '/app.php');
@@ -57,7 +57,7 @@ final class Install
                 continue;
             }
             $path = $dir . '/' . $item;
-            if (is_dir($path)) {
+            if (is_dir($path) && !is_link($path)) {
                 self::removeDir($path);
             } else {
                 unlink($path);

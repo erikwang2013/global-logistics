@@ -9,9 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Label;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Models\Tracking;
 use GlobalLogistics\Models\TrackingEvent;
 use GlobalLogistics\Support\TrackStatus;
@@ -129,16 +126,6 @@ final class Fengwang implements CarrierInterface
             rawStatus: (string) ($traces[count($traces) - 1]['AcceptStation'] ?? ''),
             raw: $result,
         );
-    }
-
-    public function createOrder(OrderRequest $request): Order
-    {
-        throw new LogisticsException('fengwang createOrder 待实现');
-    }
-
-    public function createLabel(Order $order, array $options = []): Label
-    {
-        throw new LogisticsException('fengwang createLabel 待实现');
     }
 
     public function subscribe(string $callbackUrl, array $options = []): void

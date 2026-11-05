@@ -9,8 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -128,20 +126,6 @@ final class EthiopiaPostTest extends TestCase
     public function testUnimplementedMethodsThrow(): void
     {
         $adapter = new EthiopiaPost(new Config([]), new FakeHttpClient());
-
-        try {
-            $adapter->createOrder(new OrderRequest([], []));
-            $this->fail('expected LogisticsException');
-        } catch (LogisticsException $e) {
-            $this->assertSame('ethiopia-post createOrder 待实现', $e->getMessage());
-        }
-
-        try {
-            $adapter->createLabel(new Order('RR123456789ET'));
-            $this->fail('expected LogisticsException');
-        } catch (LogisticsException $e) {
-            $this->assertSame('ethiopia-post createLabel 待实现', $e->getMessage());
-        }
 
         try {
             $adapter->subscribe('https://example.com/callback');

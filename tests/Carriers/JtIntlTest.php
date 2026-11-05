@@ -9,8 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -146,20 +144,6 @@ final class JtIntlTest extends TestCase
     public function testUnimplementedMethodsThrow(): void
     {
         $adapter = new JtIntl(new Config([]), new FakeHttpClient());
-
-        try {
-            $adapter->createOrder(new OrderRequest([], []));
-            $this->fail('expected LogisticsException');
-        } catch (LogisticsException $e) {
-            $this->assertSame('jt-intl createOrder 待实现', $e->getMessage());
-        }
-
-        try {
-            $adapter->createLabel(new Order('JT1234567890123'));
-            $this->fail('expected LogisticsException');
-        } catch (LogisticsException $e) {
-            $this->assertSame('jt-intl createLabel 待实现', $e->getMessage());
-        }
 
         try {
             $adapter->subscribe('https://example.com/callback');

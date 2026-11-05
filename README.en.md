@@ -14,7 +14,7 @@ A unified-facade composer package for domestic (China) express and international
 | Tracking-number detection rules | 187 (order-sensitive, first match wins) |
 | International coverage | Big four express (DHL / FedEx / UPS / USPS) + national postal S10 systems (Europe, Latin America & Caribbean, Africa & Middle East, Asia-Pacific) |
 | Unified status semantics | `TrackStatus` with 7 states (incl. exception / returned) |
-| Tests | 1667 test cases / 6673 assertions, all green |
+| Tests | 1665 test cases / 6267 assertions, all green |
 | Requirements | PHP 8.2+, PSR-4 / PSR-18, framework-agnostic; drop-in for Laravel / ThinkPHP / Hyperf / Webman / Yii 2 / Yii 3 |
 
 ## Overview
@@ -31,217 +31,217 @@ Built for e-commerce, warehousing, and ERP systems, it converges the official AP
 
 ### Integrated carriers (209)
 
-| Channel | Carrier | Code | Tracking | Order / Label / Subscribe |
+| Channel | Carrier | Code | Tracking | Subscribe |
 |---|---|---|---|---|
-| Domestic | SF Express | `sf` | ✅ | Being integrated as carriers open up their APIs |
-| Domestic | ZTO Express | `zto` | ✅ | Same as above |
-| Domestic | YTO Express | `yto` | ✅ | Same as above |
-| Domestic | J&T Express | `jt` | ✅ | Same as above |
-| Domestic | Yunda Express | `yd` | ✅ | Same as above |
-| Domestic | STO Express | `sto` | ✅ | Same as above |
-| Domestic | JD Logistics | `jd` | ✅ | Same as above |
-| Domestic | EMS | `ems` | ✅ | Same as above |
-| Domestic | Best Express | `ht` | ✅ | Same as above |
-| Domestic | Deppon | `debon` | ✅ | Same as above |
-| Domestic | KuaYue Express | `ky` | ✅ | Same as above |
-| Domestic | Aneng Logistics | `ane` | ✅ | Same as above |
-| Domestic | Cainiao Express | `cainiao` | ✅ | Same as above |
-| Domestic | China Post | `china-post` | ✅ | Same as above |
-| Domestic | Suning Logistics | `suning` | ✅ | Same as above |
-| Domestic | UC Express | `uc` | ✅ | Same as above |
-| Domestic | Yimidida | `ymd` | ✅ | Same as above |
-| Domestic | ZJS Express | `zjs` | ✅ | Same as above |
-| Domestic | Tiantian Express | `tiantian` | ✅ | Same as above |
-| Domestic | ZTO Freight | `zto-freight` | ✅ | Same as above |
-| Domestic | Dainiao (Cainiao Direct) | `dainiao` | ✅ | Same as above |
-| Domestic | CRE Express | `cre` | ✅ | Same as above |
-| Domestic | Shunxin Jieda | `sxjd` | ✅ | Same as above |
-| Domestic | Sure Express | `sure` | ✅ | Same as above |
-| Domestic | Xinfeng Logistics | `xf` | ✅ | Same as above |
-| Domestic | Lianhaotong | `lht` | ✅ | Same as above |
-| Domestic | RRS Logistics | `rrs` | ✅ | Same as above |
-| Domestic | Fengwang Express | `fengwang` | ✅ | Same as above |
-| Domestic | Best Freight | `ht-freight` | ✅ | Same as above |
-| Domestic | Yunda Freight | `yd-freight` | ✅ | Same as above |
-| Domestic | YTO Freight | `yto-freight` | ✅ | Same as above |
-| Domestic | Zengyi Express | `zy` | ✅ | Same as above |
-| Domestic | CAE Express | `cae` | ✅ | Same as above |
-| Domestic | Tiandi Huayu | `huayu` | ✅ | Same as above |
-| Domestic | Jiaji Freight | `jiaji` | ✅ | Same as above |
-| Domestic | Longbang Express | `longbang` | ✅ | Same as above |
-| Domestic | Quanyi Express | `qy` | ✅ | Same as above |
-| Domestic | Suteng Logistics | `suteng` | ✅ | Same as above |
-| Domestic | Zhongtie Logistics | `zhongtie` | ✅ | Same as above |
-| Domestic | Zhongyou Logistics | `zhongyou` | ✅ | Same as above |
-| Domestic | Zengyi Express | `zengyi` | ✅ | Same as above |
-| Domestic | Quanfeng Express | `quanfeng` | ✅ | Same as above |
-| Domestic | Guotong Express | `guotong` | ✅ | Same as above |
-| Domestic | Yuancheng Freight | `yuancheng` | ✅ | Same as above |
-| Domestic | Xinbang Logistics | `xinbang` | ✅ | Same as above |
-| International | DHL | `dhl` | ✅ (OAuth2) | Same as above |
-| International | FedEx | `fedex` | ✅ (OAuth2) | Same as above |
-| International | UPS | `ups` | ✅ (OAuth2) | Same as above |
-| International | USPS | `usps` | ✅ | Same as above |
-| International | Royal Mail | `royal-mail` | ✅ (OAuth2) | Same as above |
-| International | Canada Post | `canada-post` | ✅ | Same as above |
-| International | Australia Post | `australia-post` | ✅ | Same as above |
-| International | Japan Post | `japan-post` | ✅ (no auth) | Same as above |
-| International | Aramex | `aramex` | ✅ | Same as above |
-| International | GLS | `gls` | ✅ | Same as above |
-| International | DPD | `dpd` | ✅ | Same as above |
-| International | PostNL | `postnl` | ✅ | Same as above |
-| International | Cainiao International | `cainiao-intl` | ✅ | Same as above |
-| International | Correios (Brazil) | `correios` | ✅ | Same as above |
-| International | Evri | `evri` | ✅ | Same as above |
-| International | 4PX | `fourpx` | ✅ | Same as above |
-| International | Hong Kong Post | `hong-kong-post` | ✅ | Same as above |
-| International | Kerry Express | `kerry` | ✅ | Same as above |
-| International | Korea Post | `korea-post` | ✅ | Same as above |
-| International | La Poste (France) | `la-poste` | ✅ | Same as above |
-| International | NZ Post | `nz-post` | ✅ | Same as above |
-| International | Poste Italiane | `poste-italiane` | ✅ | Same as above |
-| International | Russia Post | `russia-post` | ✅ | Same as above |
-| International | Singapore Post | `singapore-post` | ✅ | Same as above |
-| International | Swiss Post | `swiss-post` | ✅ (OAuth2) | Same as above |
-| International | Yodel | `yodel` | ✅ (OAuth2) | Same as above |
-| International | YunExpress | `yunexpress` | ✅ | Same as above |
-| International | Yanwen | `yanwen` | ✅ | Same as above |
-| International | SF International | `sf-international` | ✅ | Same as above |
-| International | TNT | `tnt` | ✅ | Same as above |
-| International | OnTrac | `ontrac` | ✅ | Same as above |
-| International | Purolator | `purolator` | ✅ | Same as above |
-| International | bpost (Belgium) | `bpost` | ✅ | Same as above |
-| International | Correos (Spain) | `correos` | ✅ | Same as above |
-| International | Delhivery (India) | `delhivery` | ✅ | Same as above |
-| International | InPost (Poland parcel lockers) | `inpost` | ✅ | Same as above |
-| International | Omniva (Estonia) | `omniva` | ✅ | Same as above |
-| International | Posti (Finland) | `posti` | ✅ | Same as above |
-| International | Bring (Norway) | `bring` | ✅ | Same as above |
-| International | Austrian Post | `austrian-post` | ✅ | Same as above |
-| International | Thailand Post | `thailand-post` | ✅ | Same as above |
-| International | Chunghwa Post (Taiwan) | `chunghwa-post` | ✅ | Same as above |
-| International | PostNord (Sweden/Denmark) | `postnord` | ✅ | Same as above |
-| International | CTT (Portugal) | `ctt` | ✅ | Same as above |
-| International | An Post (Ireland) | `an-post` | ✅ | Same as above |
-| International | Poczta Polska (Poland) | `poczta-polska` | ✅ | Same as above |
-| International | India Post | `india-post` | ✅ | Same as above |
-| International | Pos Malaysia | `pos-malaysia` | ✅ | Same as above |
-| International | Emirates Post (UAE) | `emirates-post` | ✅ | Same as above |
-| International | Magyar Posta (Hungary) | `magyar-posta` | ✅ | Same as above |
-| International | Česká pošta (Czech Republic) | `ceska-posta` | ✅ | Same as above |
-| International | ELTA (Greece) | `elta` | ✅ | Same as above |
-| International | Viettel Post (Vietnam) | `viettel-post` | ✅ | Same as above |
-| International | ZTO International | `zto-intl` | ✅ | Same as above |
-| International | YTO International | `yto-intl` | ✅ | Same as above |
-| International | J&T International | `jt-intl` | ✅ | Same as above |
-| International | Winit | `winit` | ✅ | Same as above |
-| International | Ukrposhta (Ukraine) | `ukrposhta` | ✅ | Same as above |
-| International | Turkey PTT | `turkey-post` | ✅ | Same as above |
-| International | Israel Post | `israel-post` | ✅ | Same as above |
-| International | Egypt Post | `egypt-post` | ✅ | Same as above |
-| International | Saudi Post | `saudi-post` | ✅ | Same as above |
-| International | South African Post | `south-african-post` | ✅ | Same as above |
-| International | Correos de México (Mexico) | `correos-mexico` | ✅ | Same as above |
-| International | Correo Argentino (Argentina) | `correo-argentino` | ✅ | Same as above |
-| International | Correos de Chile (Chile) | `correos-chile` | ✅ | Same as above |
-| International | Pos Indonesia | `pos-indonesia` | ✅ | Same as above |
-| International | PHLPost (Philippines) | `phl-post` | ✅ | Same as above |
-| International | Pakistan Post | `pakistan-post` | ✅ | Same as above |
-| International | Kazpost (Kazakhstan) | `kazpost` | ✅ | Same as above |
-| International | Poșta Română (Romania) | `romania-post` | ✅ | Same as above |
-| International | Hrvatska pošta (Croatia) | `croatia-post` | ✅ | Same as above |
-| International | Slovak Post | `slovak-post` | ✅ | Same as above |
-| International | Pošta Slovenije (Slovenia) | `slovenia-post` | ✅ | Same as above |
-| International | Pošta Srbije (Serbia) | `serbia-post` | ✅ | Same as above |
-| International | Bulgarian Posts | `bulgaria-post` | ✅ | Same as above |
-| International | Lietuvos paštas (Lithuania) | `lithuania-post` | ✅ | Same as above |
-| International | Latvijas Pasts (Latvia) | `latvia-post` | ✅ | Same as above |
-| International | Íslandspóstur (Iceland) | `iceland-post` | ✅ | Same as above |
-| International | MaltaPost | `malta-post` | ✅ | Same as above |
-| International | POST Luxembourg | `luxembourg-post` | ✅ | Same as above |
-| International | Cyprus Post | `cyprus-post` | ✅ | Same as above |
-| International | Poșta Moldovei (Moldova) | `moldova-post` | ✅ | Same as above |
-| International | Posta Shqiptare (Albania) | `albania-post` | ✅ | Same as above |
-| International | Belpochta (Belarus) | `belarus-post` | ✅ | Same as above |
-| International | Makedonska Pošta (North Macedonia) | `macedonia-post` | ✅ | Same as above |
-| International | BH Pošta (Bosnia and Herzegovina) | `bosnia-post` | ✅ | Same as above |
-| International | Deutsche Post (Germany) | `deutsche-post` | ✅ | Same as above |
-| International | Montenegro Post | `montenegro-post` | ✅ | Same as above |
-| International | Andorra Post | `andorra-post` | ✅ | Same as above |
-| International | La Poste Monaco | `monaco-post` | ✅ | Same as above |
-| International | Liechtenstein Post | `liechtenstein-post` | ✅ | Same as above |
-| International | Poste San Marino | `san-marino-post` | ✅ | Same as above |
-| International | Poste Vaticane (Vatican) | `vatican-post` | ✅ | Same as above |
-| International | Royal Gibraltar Post | `gibraltar-post` | ✅ | Same as above |
-| International | Jersey Post | `jersey-post` | ✅ | Same as above |
-| International | Guernsey Post | `guernsey-post` | ✅ | Same as above |
-| International | Isle of Man Post | `isle-of-man-post` | ✅ | Same as above |
-| International | Posta Faroe Islands | `faroe-post` | ✅ | Same as above |
-| International | Post Greenland | `greenland-post` | ✅ | Same as above |
-| International | Post Åland | `aland-post` | ✅ | Same as above |
-| International | 4-72 (Colombia) | `colombia-post` | ✅ | Same as above |
-| International | Serpost (Peru) | `peru-post` | ✅ | Same as above |
-| International | Correo Uruguayo (Uruguay) | `uruguay-post` | ✅ | Same as above |
-| International | Correo Paraguayo (Paraguay) | `paraguay-post` | ✅ | Same as above |
-| International | Correos de Bolivia (Bolivia) | `bolivia-post` | ✅ | Same as above |
-| International | Correos del Ecuador (Ecuador) | `ecuador-post` | ✅ | Same as above |
-| International | Ipostel (Venezuela) | `venezuela-post` | ✅ | Same as above |
-| International | Correos de Costa Rica (Costa Rica) | `costa-rica-post` | ✅ | Same as above |
-| International | Correos de Panamá (Panama) | `panama-post` | ✅ | Same as above |
-| International | INPOSDOM (Dominican Republic) | `dominican-post` | ✅ | Same as above |
-| International | Correo de Guatemala (Guatemala) | `guatemala-post` | ✅ | Same as above |
-| International | HonduCorreo (Honduras) | `honduras-post` | ✅ | Same as above |
-| International | Correos de El Salvador (El Salvador) | `el-salvador-post` | ✅ | Same as above |
-| International | Correos de Nicaragua (Nicaragua) | `nicaragua-post` | ✅ | Same as above |
-| International | Correos de Cuba (Cuba) | `cuba-post` | ✅ | Same as above |
-| International | Jamaica Post | `jamaica-post` | ✅ | Same as above |
-| International | TTPOST (Trinidad and Tobago) | `trinidad-post` | ✅ | Same as above |
-| International | Barbados Post | `barbados-post` | ✅ | Same as above |
-| International | Bahamas Post | `bahamas-post` | ✅ | Same as above |
-| International | Suriname Post | `suriname-post` | ✅ | Same as above |
-| International | Guyana Post | `guyana-post` | ✅ | Same as above |
-| International | Barid Al-Maghrib (Morocco) | `morocco-post` | ✅ | Same as above |
-| International | Algérie Poste (Algeria) | `algeria-post` | ✅ | Same as above |
-| International | La Poste Tunisienne (Tunisia) | `tunisia-post` | ✅ | Same as above |
-| International | Posta Kenya (Kenya) | `kenya-post` | ✅ | Same as above |
-| International | NIPOST (Nigeria) | `nigeria-post` | ✅ | Same as above |
-| International | Ethiopia Post | `ethiopia-post` | ✅ | Same as above |
-| International | Ghana Post | `ghana-post` | ✅ | Same as above |
-| International | Tanzania Post | `tanzania-post` | ✅ | Same as above |
-| International | Uganda Post | `uganda-post` | ✅ | Same as above |
-| International | Rwanda Post | `rwanda-post` | ✅ | Same as above |
-| International | Zampost (Zambia) | `zambia-post` | ✅ | Same as above |
-| International | Zimpost (Zimbabwe) | `zimbabwe-post` | ✅ | Same as above |
-| International | Mozambique Post | `mozambique-post` | ✅ | Same as above |
-| International | Correios de Angola (Angola) | `angola-post` | ✅ | Same as above |
-| International | La Poste Sénégalaise (Senegal) | `senegal-post` | ✅ | Same as above |
-| International | La Poste de Côte d'Ivoire (Ivory Coast) | `ivory-coast-post` | ✅ | Same as above |
-| International | Cameroon Post | `cameroon-post` | ✅ | Same as above |
-| International | Mauritius Post | `mauritius-post` | ✅ | Same as above |
-| International | Qatar Post | `qatar-post` | ✅ | Same as above |
-| International | Kuwait Post | `kuwait-post` | ✅ | Same as above |
-| International | Bahrain Post | `bahrain-post` | ✅ | Same as above |
-| International | Bangladesh Post | `bangladesh-post` | ✅ | Same as above |
-| International | Nepal Post | `nepal-post` | ✅ | Same as above |
-| International | Sri Lanka Post | `sri-lanka-post` | ✅ | Same as above |
-| International | Myanmar Post | `myanmar-post` | ✅ | Same as above |
-| International | Cambodia Post | `cambodia-post` | ✅ | Same as above |
-| International | Laos Post | `laos-post` | ✅ | Same as above |
-| International | Mongolia Post | `mongolia-post` | ✅ | Same as above |
-| International | Georgian Post | `georgia-post` | ✅ | Same as above |
-| International | Azərpoçt (Azerbaijan) | `azerbaijan-post` | ✅ | Same as above |
-| International | HayPost (Armenia) | `armenia-post` | ✅ | Same as above |
-| International | Uzbekistan Post | `uzbekistan-post` | ✅ | Same as above |
-| International | Kyrgyz Post (Kyrgyzstan) | `kyrgyzstan-post` | ✅ | Same as above |
-| International | Tajikistan Post | `tajikistan-post` | ✅ | Same as above |
-| International | Turkmenistan Post | `turkmenistan-post` | ✅ | Same as above |
-| International | Afghanistan Post | `afghanistan-post` | ✅ | Same as above |
-| International | Bhutan Post | `bhutan-post` | ✅ | Same as above |
-| International | Maldives Post | `maldives-post` | ✅ | Same as above |
-| International | Brunei Post | `brunei-post` | ✅ | Same as above |
-| International | Papua New Guinea Post | `papua-post` | ✅ | Same as above |
-| International | Fiji Post | `fiji-post` | ✅ | Same as above |
-| International | Samoa Post | `samoa-post` | ✅ | Same as above |
+| Domestic | SF Express | `sf` | ✅ | ✅ |
+| Domestic | ZTO Express | `zto` | ✅ | — |
+| Domestic | YTO Express | `yto` | ✅ | — |
+| Domestic | J&T Express | `jt` | ✅ | — |
+| Domestic | Yunda Express | `yd` | ✅ | — |
+| Domestic | STO Express | `sto` | ✅ | — |
+| Domestic | JD Logistics | `jd` | ✅ | — |
+| Domestic | EMS | `ems` | ✅ | — |
+| Domestic | Best Express | `ht` | ✅ | — |
+| Domestic | Deppon | `debon` | ✅ | — |
+| Domestic | KuaYue Express | `ky` | ✅ | — |
+| Domestic | Aneng Logistics | `ane` | ✅ | — |
+| Domestic | Cainiao Express | `cainiao` | ✅ | — |
+| Domestic | China Post | `china-post` | ✅ | — |
+| Domestic | Suning Logistics | `suning` | ✅ | — |
+| Domestic | UC Express | `uc` | ✅ | — |
+| Domestic | Yimidida | `ymd` | ✅ | — |
+| Domestic | ZJS Express | `zjs` | ✅ | — |
+| Domestic | Tiantian Express | `tiantian` | ✅ | — |
+| Domestic | ZTO Freight | `zto-freight` | ✅ | — |
+| Domestic | Dainiao (Cainiao Direct) | `dainiao` | ✅ | — |
+| Domestic | CRE Express | `cre` | ✅ | — |
+| Domestic | Shunxin Jieda | `sxjd` | ✅ | — |
+| Domestic | Sure Express | `sure` | ✅ | — |
+| Domestic | Xinfeng Logistics | `xf` | ✅ | — |
+| Domestic | Lianhaotong | `lht` | ✅ | — |
+| Domestic | RRS Logistics | `rrs` | ✅ | — |
+| Domestic | Fengwang Express | `fengwang` | ✅ | — |
+| Domestic | Best Freight | `ht-freight` | ✅ | — |
+| Domestic | Yunda Freight | `yd-freight` | ✅ | — |
+| Domestic | YTO Freight | `yto-freight` | ✅ | — |
+| Domestic | Zengyi Express | `zy` | ✅ | — |
+| Domestic | CAE Express | `cae` | ✅ | — |
+| Domestic | Tiandi Huayu | `huayu` | ✅ | — |
+| Domestic | Jiaji Freight | `jiaji` | ✅ | — |
+| Domestic | Longbang Express | `longbang` | ✅ | — |
+| Domestic | Quanyi Express | `qy` | ✅ | — |
+| Domestic | Suteng Logistics | `suteng` | ✅ | — |
+| Domestic | Zhongtie Logistics | `zhongtie` | ✅ | — |
+| Domestic | Zhongyou Logistics | `zhongyou` | ✅ | — |
+| Domestic | Zengyi Express | `zengyi` | ✅ | — |
+| Domestic | Quanfeng Express | `quanfeng` | ✅ | — |
+| Domestic | Guotong Express | `guotong` | ✅ | — |
+| Domestic | Yuancheng Freight | `yuancheng` | ✅ | — |
+| Domestic | Xinbang Logistics | `xinbang` | ✅ | — |
+| International | DHL | `dhl` | ✅ (OAuth2) | — |
+| International | FedEx | `fedex` | ✅ (OAuth2) | — |
+| International | UPS | `ups` | ✅ (OAuth2) | — |
+| International | USPS | `usps` | ✅ | — |
+| International | Royal Mail | `royal-mail` | ✅ (OAuth2) | — |
+| International | Canada Post | `canada-post` | ✅ | — |
+| International | Australia Post | `australia-post` | ✅ | — |
+| International | Japan Post | `japan-post` | ✅ (no auth) | — |
+| International | Aramex | `aramex` | ✅ | — |
+| International | GLS | `gls` | ✅ | — |
+| International | DPD | `dpd` | ✅ | — |
+| International | PostNL | `postnl` | ✅ | — |
+| International | Cainiao International | `cainiao-intl` | ✅ | — |
+| International | Correios (Brazil) | `correios` | ✅ | — |
+| International | Evri | `evri` | ✅ | — |
+| International | 4PX | `fourpx` | ✅ | — |
+| International | Hong Kong Post | `hong-kong-post` | ✅ | — |
+| International | Kerry Express | `kerry` | ✅ | — |
+| International | Korea Post | `korea-post` | ✅ | — |
+| International | La Poste (France) | `la-poste` | ✅ | — |
+| International | NZ Post | `nz-post` | ✅ | — |
+| International | Poste Italiane | `poste-italiane` | ✅ | — |
+| International | Russia Post | `russia-post` | ✅ | — |
+| International | Singapore Post | `singapore-post` | ✅ | — |
+| International | Swiss Post | `swiss-post` | ✅ (OAuth2) | — |
+| International | Yodel | `yodel` | ✅ (OAuth2) | — |
+| International | YunExpress | `yunexpress` | ✅ | — |
+| International | Yanwen | `yanwen` | ✅ | — |
+| International | SF International | `sf-international` | ✅ | — |
+| International | TNT | `tnt` | ✅ | — |
+| International | OnTrac | `ontrac` | ✅ | — |
+| International | Purolator | `purolator` | ✅ | — |
+| International | bpost (Belgium) | `bpost` | ✅ | — |
+| International | Correos (Spain) | `correos` | ✅ | — |
+| International | Delhivery (India) | `delhivery` | ✅ | — |
+| International | InPost (Poland parcel lockers) | `inpost` | ✅ | — |
+| International | Omniva (Estonia) | `omniva` | ✅ | — |
+| International | Posti (Finland) | `posti` | ✅ | — |
+| International | Bring (Norway) | `bring` | ✅ | — |
+| International | Austrian Post | `austrian-post` | ✅ | — |
+| International | Thailand Post | `thailand-post` | ✅ | — |
+| International | Chunghwa Post (Taiwan) | `chunghwa-post` | ✅ | — |
+| International | PostNord (Sweden/Denmark) | `postnord` | ✅ | — |
+| International | CTT (Portugal) | `ctt` | ✅ | — |
+| International | An Post (Ireland) | `an-post` | ✅ | — |
+| International | Poczta Polska (Poland) | `poczta-polska` | ✅ | — |
+| International | India Post | `india-post` | ✅ | — |
+| International | Pos Malaysia | `pos-malaysia` | ✅ | — |
+| International | Emirates Post (UAE) | `emirates-post` | ✅ | — |
+| International | Magyar Posta (Hungary) | `magyar-posta` | ✅ | — |
+| International | Česká pošta (Czech Republic) | `ceska-posta` | ✅ | — |
+| International | ELTA (Greece) | `elta` | ✅ | — |
+| International | Viettel Post (Vietnam) | `viettel-post` | ✅ | — |
+| International | ZTO International | `zto-intl` | ✅ | — |
+| International | YTO International | `yto-intl` | ✅ | — |
+| International | J&T International | `jt-intl` | ✅ | — |
+| International | Winit | `winit` | ✅ | — |
+| International | Ukrposhta (Ukraine) | `ukrposhta` | ✅ | — |
+| International | Turkey PTT | `turkey-post` | ✅ | — |
+| International | Israel Post | `israel-post` | ✅ | — |
+| International | Egypt Post | `egypt-post` | ✅ | — |
+| International | Saudi Post | `saudi-post` | ✅ | — |
+| International | South African Post | `south-african-post` | ✅ | — |
+| International | Correos de México (Mexico) | `correos-mexico` | ✅ | — |
+| International | Correo Argentino (Argentina) | `correo-argentino` | ✅ | — |
+| International | Correos de Chile (Chile) | `correos-chile` | ✅ | — |
+| International | Pos Indonesia | `pos-indonesia` | ✅ | — |
+| International | PHLPost (Philippines) | `phl-post` | ✅ | — |
+| International | Pakistan Post | `pakistan-post` | ✅ | — |
+| International | Kazpost (Kazakhstan) | `kazpost` | ✅ | — |
+| International | Poșta Română (Romania) | `romania-post` | ✅ | — |
+| International | Hrvatska pošta (Croatia) | `croatia-post` | ✅ | — |
+| International | Slovak Post | `slovak-post` | ✅ | — |
+| International | Pošta Slovenije (Slovenia) | `slovenia-post` | ✅ | — |
+| International | Pošta Srbije (Serbia) | `serbia-post` | ✅ | — |
+| International | Bulgarian Posts | `bulgaria-post` | ✅ | — |
+| International | Lietuvos paštas (Lithuania) | `lithuania-post` | ✅ | — |
+| International | Latvijas Pasts (Latvia) | `latvia-post` | ✅ | — |
+| International | Íslandspóstur (Iceland) | `iceland-post` | ✅ | — |
+| International | MaltaPost | `malta-post` | ✅ | — |
+| International | POST Luxembourg | `luxembourg-post` | ✅ | — |
+| International | Cyprus Post | `cyprus-post` | ✅ | — |
+| International | Poșta Moldovei (Moldova) | `moldova-post` | ✅ | — |
+| International | Posta Shqiptare (Albania) | `albania-post` | ✅ | — |
+| International | Belpochta (Belarus) | `belarus-post` | ✅ | — |
+| International | Makedonska Pošta (North Macedonia) | `macedonia-post` | ✅ | — |
+| International | BH Pošta (Bosnia and Herzegovina) | `bosnia-post` | ✅ | — |
+| International | Deutsche Post (Germany) | `deutsche-post` | ✅ | — |
+| International | Montenegro Post | `montenegro-post` | ✅ | — |
+| International | Andorra Post | `andorra-post` | ✅ | — |
+| International | La Poste Monaco | `monaco-post` | ✅ | — |
+| International | Liechtenstein Post | `liechtenstein-post` | ✅ | — |
+| International | Poste San Marino | `san-marino-post` | ✅ | — |
+| International | Poste Vaticane (Vatican) | `vatican-post` | ✅ | — |
+| International | Royal Gibraltar Post | `gibraltar-post` | ✅ | — |
+| International | Jersey Post | `jersey-post` | ✅ | — |
+| International | Guernsey Post | `guernsey-post` | ✅ | — |
+| International | Isle of Man Post | `isle-of-man-post` | ✅ | — |
+| International | Posta Faroe Islands | `faroe-post` | ✅ | — |
+| International | Post Greenland | `greenland-post` | ✅ | — |
+| International | Post Åland | `aland-post` | ✅ | — |
+| International | 4-72 (Colombia) | `colombia-post` | ✅ | — |
+| International | Serpost (Peru) | `peru-post` | ✅ | — |
+| International | Correo Uruguayo (Uruguay) | `uruguay-post` | ✅ | — |
+| International | Correo Paraguayo (Paraguay) | `paraguay-post` | ✅ | — |
+| International | Correos de Bolivia (Bolivia) | `bolivia-post` | ✅ | — |
+| International | Correos del Ecuador (Ecuador) | `ecuador-post` | ✅ | — |
+| International | Ipostel (Venezuela) | `venezuela-post` | ✅ | — |
+| International | Correos de Costa Rica (Costa Rica) | `costa-rica-post` | ✅ | — |
+| International | Correos de Panamá (Panama) | `panama-post` | ✅ | — |
+| International | INPOSDOM (Dominican Republic) | `dominican-post` | ✅ | — |
+| International | Correo de Guatemala (Guatemala) | `guatemala-post` | ✅ | — |
+| International | HonduCorreo (Honduras) | `honduras-post` | ✅ | — |
+| International | Correos de El Salvador (El Salvador) | `el-salvador-post` | ✅ | — |
+| International | Correos de Nicaragua (Nicaragua) | `nicaragua-post` | ✅ | — |
+| International | Correos de Cuba (Cuba) | `cuba-post` | ✅ | — |
+| International | Jamaica Post | `jamaica-post` | ✅ | — |
+| International | TTPOST (Trinidad and Tobago) | `trinidad-post` | ✅ | — |
+| International | Barbados Post | `barbados-post` | ✅ | — |
+| International | Bahamas Post | `bahamas-post` | ✅ | — |
+| International | Suriname Post | `suriname-post` | ✅ | — |
+| International | Guyana Post | `guyana-post` | ✅ | — |
+| International | Barid Al-Maghrib (Morocco) | `morocco-post` | ✅ | — |
+| International | Algérie Poste (Algeria) | `algeria-post` | ✅ | — |
+| International | La Poste Tunisienne (Tunisia) | `tunisia-post` | ✅ | — |
+| International | Posta Kenya (Kenya) | `kenya-post` | ✅ | — |
+| International | NIPOST (Nigeria) | `nigeria-post` | ✅ | — |
+| International | Ethiopia Post | `ethiopia-post` | ✅ | — |
+| International | Ghana Post | `ghana-post` | ✅ | — |
+| International | Tanzania Post | `tanzania-post` | ✅ | — |
+| International | Uganda Post | `uganda-post` | ✅ | — |
+| International | Rwanda Post | `rwanda-post` | ✅ | — |
+| International | Zampost (Zambia) | `zambia-post` | ✅ | — |
+| International | Zimpost (Zimbabwe) | `zimbabwe-post` | ✅ | — |
+| International | Mozambique Post | `mozambique-post` | ✅ | — |
+| International | Correios de Angola (Angola) | `angola-post` | ✅ | — |
+| International | La Poste Sénégalaise (Senegal) | `senegal-post` | ✅ | — |
+| International | La Poste de Côte d'Ivoire (Ivory Coast) | `ivory-coast-post` | ✅ | — |
+| International | Cameroon Post | `cameroon-post` | ✅ | — |
+| International | Mauritius Post | `mauritius-post` | ✅ | — |
+| International | Qatar Post | `qatar-post` | ✅ | — |
+| International | Kuwait Post | `kuwait-post` | ✅ | — |
+| International | Bahrain Post | `bahrain-post` | ✅ | — |
+| International | Bangladesh Post | `bangladesh-post` | ✅ | — |
+| International | Nepal Post | `nepal-post` | ✅ | — |
+| International | Sri Lanka Post | `sri-lanka-post` | ✅ | — |
+| International | Myanmar Post | `myanmar-post` | ✅ | — |
+| International | Cambodia Post | `cambodia-post` | ✅ | — |
+| International | Laos Post | `laos-post` | ✅ | — |
+| International | Mongolia Post | `mongolia-post` | ✅ | — |
+| International | Georgian Post | `georgia-post` | ✅ | — |
+| International | Azərpoçt (Azerbaijan) | `azerbaijan-post` | ✅ | — |
+| International | HayPost (Armenia) | `armenia-post` | ✅ | — |
+| International | Uzbekistan Post | `uzbekistan-post` | ✅ | — |
+| International | Kyrgyz Post (Kyrgyzstan) | `kyrgyzstan-post` | ✅ | — |
+| International | Tajikistan Post | `tajikistan-post` | ✅ | — |
+| International | Turkmenistan Post | `turkmenistan-post` | ✅ | — |
+| International | Afghanistan Post | `afghanistan-post` | ✅ | — |
+| International | Bhutan Post | `bhutan-post` | ✅ | — |
+| International | Maldives Post | `maldives-post` | ✅ | — |
+| International | Brunei Post | `brunei-post` | ✅ | — |
+| International | Papua New Guinea Post | `papua-post` | ✅ | — |
+| International | Fiji Post | `fiji-post` | ✅ | — |
+| International | Samoa Post | `samoa-post` | ✅ | — |
 
 ### Unified status enum (`GlobalLogistics\Support\TrackStatus`)
 
@@ -330,7 +330,7 @@ Carriers use different auth methods, so field names vary. Common patterns:
 | `partner_id` + `checkword` | SF Express-style signing account & checkword | `sf`, `sf-international` |
 | `company_id` + `secret` | ZTO-style company account & secret | `zto`, `zto-freight`, `zto-intl` |
 | `app_key` + `app_secret` | Generic signing keys | `yto`, `yd`, `jt`, `debon`, `ky`, etc. |
-| `ebusiness_id` + `app_key` | Kdniao (electronic waybill) API | `lht`, `rrs`, `sure`, `xf` and freight carriers |
+| `ebusiness_id` + `app_key` | Kdniao API | `lht`, `rrs`, `sure`, `xf` and freight carriers |
 | `client_id` + `client_secret` | OAuth2 client credentials (token auto-fetch & refresh) | `dhl`, `fedex`, `ups`, `royal-mail`, `swiss-post`, `yodel` |
 | `user_id` / `api_key` / `key` | Carrier-issued account or key | `usps`, `postnl`, `gls`, `saudi-post`, etc. |
 | `endpoint` | Custom API endpoint (optional; `''` uses the built-in official URL) | where supported |
@@ -339,7 +339,7 @@ Carriers use different auth methods, so field names vary. Common patterns:
 
 #### Obtaining credentials
 
-- **Domestic carriers**: contact the carrier's business/technical contact to apply for a "tracking / electronic waybill API" account (SF Fengqiao, ZTO open platform, etc.)
+- **Domestic carriers**: contact the carrier's business/technical contact to apply for a "tracking API" account (SF Fengqiao, ZTO open platform, etc.)
 - **International carriers**: register developer accounts on the official portals of DHL / FedEx / UPS for OAuth2 credentials; apply for API keys on USPS, PostNL, etc. websites
 - **National posts**: most expose public tracking APIs that need no credentials; apply in the post's developer center when a key is required
 
@@ -435,7 +435,7 @@ global-logistics/
 │   ├── Exceptions/            # exception hierarchy (LogisticsException + 4 scenario exceptions)
 │   ├── Framework/             # framework auto-discovery (Laravel / ThinkPHP / Hyperf / Webman / Yii 2; Yii 3 lives in config/params.php)
 │   ├── Http/                  # PSR-18: OAuthTokenClient, RetryingClient, HttpClientFactory
-│   ├── Models/                # Tracking / TrackingEvent / Order / OrderRequest / Label
+│   ├── Models/                # Tracking / TrackingEvent
 │   ├── Resources/             # carrier-registry.php (209 carriers), detector-rules.php (187 rules)
 │   ├── Support/               # TrackStatus and other support classes
 │   ├── CarrierFactory.php     # registry → adapter instantiation
@@ -454,7 +454,7 @@ global-logistics/
 │   ├── images/                # architecture / design sequence diagrams
 │   └── superpowers/           # design specs and implementation plans
 ├── tests/
-│   ├── Carriers/              # 7 test cases per carrier (539 total)
+│   ├── Carriers/              # 209 carrier test suites
 │   ├── Unit/                  # detector, registry smoke tests, etc.
 │   └── fixtures/              # track / empty / error fixtures per carrier
 ├── composer.json
@@ -469,7 +469,7 @@ global-logistics/
 - **`CarrierFactory`** (`src/CarrierFactory.php` + `src/Resources/carrier-registry.php`): instantiates adapters from the "channel → code → adapter class" registry, uniformly injecting `Config` and the HTTP client
 - **Carrier adapters** (`src/Carriers/`): implement `CarrierInterface` and handle per-carrier protocol differences (signatures, OAuth2, XML/JSON, status mapping); share a common template structure (`ENDPOINT` constant + `STATUS_MAP` + `mapEvent()`) so new carriers can be added from a template
 - **HTTP layer** (`src/Http/`): `OAuthTokenClient` is a PSR-18 decorator that lazily fetches tokens, caches them in-process (expiring 60s early) and refreshes once on 401; `RetryingClient` retries failed requests per `max_retries`
-- **Model layer** (`src/Models/`): `Tracking` / `TrackingEvent` are immutable; `Order` / `OrderRequest` / `Label` reserve the ordering / label capabilities
+- **Model layer** (`src/Models/`): `Tracking` / `TrackingEvent` are immutable
 - **`Config`** (`src/Config.php`): dot-notation access (`$config->get('dhl.client_id')`)
 - **Exceptions** (`src/Exceptions/`): `LogisticsException` is the base class, with 4 scenario exceptions
 

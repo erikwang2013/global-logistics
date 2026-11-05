@@ -65,16 +65,6 @@ final class FakeCarrier implements CarrierInterface
         throw new \LogicException('not implemented');
     }
 
-    public function createOrder(\GlobalLogistics\Models\OrderRequest $request): \GlobalLogistics\Models\Order
-    {
-        throw new \LogicException('not implemented');
-    }
-
-    public function createLabel(\GlobalLogistics\Models\Order $order, array $options = []): \GlobalLogistics\Models\Label
-    {
-        throw new \LogicException('not implemented');
-    }
-
     public function subscribe(string $callbackUrl, array $options = []): void
     {
     }

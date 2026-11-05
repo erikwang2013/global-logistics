@@ -9,9 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Label;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Models\Tracking;
 use GlobalLogistics\Models\TrackingEvent;
 use GlobalLogistics\Support\TrackStatus;
@@ -111,16 +108,6 @@ final class MagyarPosta implements CarrierInterface
             rawStatus: (string) (is_array($item) ? ($item['last_event_type'] ?? '') : ''),
             raw: $result,
         );
-    }
-
-    public function createOrder(OrderRequest $request): Order
-    {
-        throw new LogisticsException('magyar-posta createOrder 待实现');
-    }
-
-    public function createLabel(Order $order, array $options = []): Label
-    {
-        throw new LogisticsException('magyar-posta createLabel 待实现');
     }
 
     public function subscribe(string $callbackUrl, array $options = []): void

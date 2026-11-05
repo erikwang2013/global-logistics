@@ -9,9 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Label;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Models\Tracking;
 use GlobalLogistics\Models\TrackingEvent;
 use GlobalLogistics\Support\TrackStatus;
@@ -99,16 +96,6 @@ final class NzPost implements CarrierInterface
             rawStatus: (string) ($entry['short_description'] ?? ''),
             raw: $result,
         );
-    }
-
-    public function createOrder(OrderRequest $request): Order
-    {
-        throw new LogisticsException('NZ-POST createOrder 待实现');
-    }
-
-    public function createLabel(Order $order, array $options = []): Label
-    {
-        throw new LogisticsException('NZ-POST createLabel 待实现');
     }
 
     public function subscribe(string $callbackUrl, array $options = []): void

@@ -9,8 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -122,20 +120,6 @@ final class AustraliaPostTest extends TestCase
             new Config(['australia-post' => ['api_key' => 'test-api-key']]),
             new FakeHttpClient(),
         );
-
-        try {
-            $adapter->createOrder(new OrderRequest(['name' => 's'], ['name' => 'r']));
-            $this->fail('createOrder should throw');
-        } catch (LogisticsException $e) {
-            $this->assertStringContainsString('australia-post createOrder 待实现', $e->getMessage());
-        }
-
-        try {
-            $adapter->createLabel(new Order('AA123456789AU'));
-            $this->fail('createLabel should throw');
-        } catch (LogisticsException $e) {
-            $this->assertStringContainsString('australia-post createLabel 待实现', $e->getMessage());
-        }
 
         try {
             $adapter->subscribe('https://example.com/hook');

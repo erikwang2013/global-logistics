@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" font-family="system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" font-family="system-ui, sans-serif">
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/>
@@ -37,7 +37,7 @@
   <text x="480" y="322" text-anchor="middle" font-size="16" font-weight="700" fill="#e65100">适配器层 · 承运商适配器（CarrierInterface）</text>
   <text x="480" y="352" text-anchor="middle" font-size="13" fill="#6d4c41">国内 45 家：顺丰 / 中通 / 圆通 / 极兔 / 韵达 / 申通 / 京东 / EMS / 菜鸟 / …</text>
   <text x="480" y="378" text-anchor="middle" font-size="13" fill="#6d4c41">国际 164 家：DHL / FedEx / UPS / USPS / 皇家邮政 / 各国邮政 S10（欧洲、拉美、非洲中东、亚太）</text>
-  <text x="480" y="406" text-anchor="middle" font-size="12" fill="#a1887f">queryTrack / createOrder / createLabel / subscribe + 验签</text>
+  <text x="480" y="406" text-anchor="middle" font-size="12" fill="#a1887f">queryTrack / subscribe + 验签</text>
 
   <!-- PSR-18 -->
   <line x1="480" y1="424" x2="480" y2="458" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr)"/>

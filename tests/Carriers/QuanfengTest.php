@@ -9,8 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -147,20 +145,6 @@ final class QuanfengTest extends TestCase
     public function testUnsupportedMethodsThrow(): void
     {
         $adapter = $this->makeAdapter(new FakeHttpClient());
-
-        try {
-            $adapter->createOrder(new OrderRequest(['name' => 's'], ['name' => 'r']));
-            $this->fail('createOrder should throw');
-        } catch (LogisticsException $e) {
-            $this->assertSame('quanfeng createOrder 待实现', $e->getMessage());
-        }
-
-        try {
-            $adapter->createLabel(new Order('123456789012'));
-            $this->fail('createLabel should throw');
-        } catch (LogisticsException $e) {
-            $this->assertSame('quanfeng createLabel 待实现', $e->getMessage());
-        }
 
         try {
             $adapter->subscribe('https://example.com/hook');

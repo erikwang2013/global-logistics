@@ -9,9 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Label;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Models\Tracking;
 use GlobalLogistics\Models\TrackingEvent;
 use GlobalLogistics\Support\TrackStatus;
@@ -102,16 +99,6 @@ final class MongoliaPost implements CarrierInterface
             rawStatus: $latest->raw['description'] ?? '',
             raw: ['html' => $html],
         );
-    }
-
-    public function createOrder(OrderRequest $request): Order
-    {
-        throw new LogisticsException('mongolia-post createOrder 待实现');
-    }
-
-    public function createLabel(Order $order, array $options = []): Label
-    {
-        throw new LogisticsException('mongolia-post createLabel 待实现');
     }
 
     public function subscribe(string $callbackUrl, array $options = []): void

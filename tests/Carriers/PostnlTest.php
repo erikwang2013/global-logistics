@@ -9,8 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -147,20 +145,6 @@ final class PostnlTest extends TestCase
             new Config(['postnl' => ['api_key' => 'test-api-key']]),
             new FakeHttpClient(),
         );
-
-        try {
-            $adapter->createOrder(new OrderRequest(['name' => 's'], ['name' => 'r']));
-            $this->fail('createOrder should throw');
-        } catch (LogisticsException $e) {
-            $this->assertStringContainsString('postnl createOrder 待实现', $e->getMessage());
-        }
-
-        try {
-            $adapter->createLabel(new Order('3SABCD1234567'));
-            $this->fail('createLabel should throw');
-        } catch (LogisticsException $e) {
-            $this->assertStringContainsString('postnl createLabel 待实现', $e->getMessage());
-        }
 
         try {
             $adapter->subscribe('https://example.com/hook');

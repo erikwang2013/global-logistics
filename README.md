@@ -14,7 +14,7 @@
 | 单号自动识别规则 | 187 条（顺序敏感，优先命中） |
 | 国际覆盖 | 四大快递（DHL / FedEx / UPS / USPS）+ 各国邮政 S10（欧洲、拉美加勒比、非洲中东、亚太四区域） |
 | 统一状态语义 | `TrackStatus` 7 种（含异常 / 退回） |
-| 测试 | 1667 个用例 / 6673 断言，全绿 |
+| 测试 | 1665 个用例 / 6267 断言，全绿 |
 | 环境 | PHP 8.2+、PSR-4 / PSR-18，无框架绑定，Laravel / ThinkPHP / Hyperf / Webman / Yii 2 / Yii 3 即装即用 |
 
 ## 项目说明
@@ -122,7 +122,7 @@ Logistics::configure([
 | `partner_id` + `checkword` | 顺丰式签名账号与校验码 | `sf`、`sf-international` |
 | `company_id` + `secret` | 中通式公司账号与密钥 | `zto`、`zto-freight`、`zto-intl` |
 | `app_key` + `app_secret` | 通用签名密钥 | `yto`、`yd`、`jt`、`debon`、`ky` 等 |
-| `ebusiness_id` + `app_key` | 快递鸟接口（电子面单） | `lht`、`rrs`、`sure`、`xf` 及各家快运 |
+| `ebusiness_id` + `app_key` | 快递鸟接口 | `lht`、`rrs`、`sure`、`xf` 及各家快运 |
 | `client_id` + `client_secret` | OAuth2 客户端凭据（token 自动获取与刷新） | `dhl`、`fedex`、`ups`、`royal-mail`、`swiss-post`、`yodel` |
 | `user_id` / `api_key` / `key` | 各家分配的账号或密钥 | `usps`、`postnl`、`gls`、`saudi-post` 等 |
 | `endpoint` | 自定义 API 端点（可选，留空 '' 使用内置官方地址） | 支持各家 |
@@ -131,7 +131,7 @@ Logistics::configure([
 
 #### 密钥获取
 
-- **国内快递**：联系承运商商务或对接人申请「轨迹查询 / 电子面单接口」账号（顺丰丰桥、中通开放平台等）
+- **国内快递**：联系承运商商务或对接人申请「轨迹查询接口」账号（顺丰丰桥、中通开放平台等）
 - **国际快递**：DHL / FedEx / UPS 等在官网开发者门户注册开发者账号获取 OAuth2 凭据；USPS、PostNL 等官网申请 API Key
 - **各国邮政**：多数提供公开轨迹查询 API 无需密钥；需要密钥的在邮政官网开发者中心申请
 
@@ -226,7 +226,7 @@ global-logistics/
 │   ├── Exceptions/            # 异常体系（LogisticsException + 4 个细分场景异常）
 │   ├── Framework/             # 框架自动发现（Laravel / ThinkPHP / Hyperf / Webman / Yii 2；Yii 3 见 config/params.php）
 │   ├── Http/                  # PSR-18：OAuthTokenClient、RetryingClient、HttpClientFactory
-│   ├── Models/                # Tracking / TrackingEvent / Order / OrderRequest / Label
+│   ├── Models/                # Tracking / TrackingEvent
 │   ├── Resources/             # carrier-registry.php（209 家注册表）、detector-rules.php（187 条规则）
 │   ├── Support/               # TrackStatus 等支持类
 │   ├── CarrierFactory.php     # 注册表 → 适配器实例化
@@ -245,7 +245,7 @@ global-logistics/
 │   ├── images/                # 架构图 / 设计时序图
 │   └── superpowers/           # 设计规格与实施计划
 ├── tests/
-│   ├── Carriers/              # 每承运商 7 个用例（共 539 个）
+│   ├── Carriers/              # 209 家承运商测试套件
 │   ├── Unit/                  # 检测器、注册表冒烟等
 │   └── fixtures/              # 每家 track / empty / error 夹具
 ├── composer.json
@@ -259,7 +259,7 @@ global-logistics/
 - **`CarrierFactory`**（`src/CarrierFactory.php` + `src/Resources/carrier-registry.php`）：按「通道 → 代码 → 适配器类」注册表实例化适配器，统一注入 `Config` 与 HTTP 客户端
 - **承运商适配器**（`src/Carriers/`）：实现 `CarrierInterface`，负责各家协议差异（签名、OAuth2、XML/JSON、状态映射）；同一模板结构（`ENDPOINT` 常量 + `STATUS_MAP` + `mapEvent()`），便于按模板新增承运商
 - **HTTP 层**（`src/Http/`）：`OAuthTokenClient` 为 PSR-18 装饰器，懒获取 token、进程内缓存（提前 60s 过期）、401 时刷新重试一次；`RetryingClient` 按 `max_retries` 重试失败请求
-- **模型层**（`src/Models/`）：`Tracking` / `TrackingEvent` 为不可变对象；`Order` / `OrderRequest` / `Label` 为下单、面单能力预留
+- **模型层**（`src/Models/`）：`Tracking` / `TrackingEvent` 为不可变对象
 - **`Config`**（`src/Config.php`）：点号键取值（`$config->get('dhl.client_id')`）
 - **异常体系**（`src/Exceptions/`）：`LogisticsException` 为基类，细分 4 个场景异常
 

@@ -9,8 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -174,20 +172,6 @@ final class WinitTest extends TestCase
     public function testUnsupportedMethodsThrow(): void
     {
         $adapter = $this->makeAdapter(new FakeHttpClient());
-
-        try {
-            $adapter->createOrder(new OrderRequest(['name' => 's'], ['name' => 'r']));
-            $this->fail('createOrder should throw');
-        } catch (LogisticsException $e) {
-            $this->assertSame('winit createOrder 待实现', $e->getMessage());
-        }
-
-        try {
-            $adapter->createLabel(new Order('0B044518500034109567A'));
-            $this->fail('createLabel should throw');
-        } catch (LogisticsException $e) {
-            $this->assertSame('winit createLabel 待实现', $e->getMessage());
-        }
 
         try {
             $adapter->subscribe('https://example.com/hook');

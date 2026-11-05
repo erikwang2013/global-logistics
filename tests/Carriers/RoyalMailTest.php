@@ -9,8 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Request;
@@ -169,20 +167,6 @@ final class RoyalMailTest extends TestCase
             new Config(['royal-mail' => ['client_id' => 'test-client-id', 'client_secret' => 'test-client-secret']]),
             new FakeHttpClient(),
         );
-
-        try {
-            $adapter->createOrder(new OrderRequest(['name' => 's'], ['name' => 'r']));
-            $this->fail('createOrder should throw');
-        } catch (LogisticsException $e) {
-            $this->assertStringContainsString('royal-mail createOrder 待实现', $e->getMessage());
-        }
-
-        try {
-            $adapter->createLabel(new Order('XX000000000GB'));
-            $this->fail('createLabel should throw');
-        } catch (LogisticsException $e) {
-            $this->assertStringContainsString('royal-mail createLabel 待实现', $e->getMessage());
-        }
 
         try {
             $adapter->subscribe('https://example.com/hook');

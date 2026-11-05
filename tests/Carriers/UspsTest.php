@@ -9,8 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Support\TrackStatus;
 use GlobalLogistics\Tests\Support\FakeHttpClient;
 use GuzzleHttp\Psr7\Query;
@@ -160,20 +158,6 @@ final class UspsTest extends TestCase
             new Config(['usps' => ['user_id' => 'test-user']]),
             new FakeHttpClient(),
         );
-
-        try {
-            $adapter->createOrder(new OrderRequest(['name' => 's'], ['name' => 'r']));
-            $this->fail('createOrder should throw');
-        } catch (LogisticsException $e) {
-            $this->assertStringContainsString('待实现', $e->getMessage());
-        }
-
-        try {
-            $adapter->createLabel(new Order('9400111899223197448523'));
-            $this->fail('createLabel should throw');
-        } catch (LogisticsException $e) {
-            $this->assertStringContainsString('待实现', $e->getMessage());
-        }
 
         try {
             $adapter->subscribe('https://example.com/hook');

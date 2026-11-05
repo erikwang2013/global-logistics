@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace GlobalLogistics\Tests\Unit;
 
-use GlobalLogistics\Models\Label;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Models\Tracking;
 use GlobalLogistics\Models\TrackingEvent;
 use GlobalLogistics\Support\TrackStatus;
@@ -52,25 +49,4 @@ final class ModelsTest extends TestCase
         $this->assertSame('运输中', $tracking->rawStatus);
     }
 
-    public function testOrderRequestAndOrder(): void
-    {
-        $request = new OrderRequest(
-            ['name' => '张三', 'phone' => '13800138000', 'address' => '深圳市南山区'],
-            ['name' => '李四', 'phone' => '13900139000', 'address' => '北京市朝阳区'],
-            ['weight' => 1.5, 'items' => [['name' => '书', 'qty' => 1]]],
-        );
-        $order = new Order('SF1234567890', 'TMS_LABEL', ['raw' => true]);
-
-        $this->assertSame('张三', $request->sender['name']);
-        $this->assertSame('SF1234567890', $order->trackingNo);
-        $this->assertSame('TMS_LABEL', $order->labelContent);
-        $this->assertSame(['raw' => true], $order->raw);
-    }
-
-    public function testLabel(): void
-    {
-        $label = new Label('pdf', 'JVBERi0xLjQ=', []);
-        $this->assertSame('pdf', $label->format);
-        $this->assertSame('JVBERi0xLjQ=', $label->content);
-    }
 }

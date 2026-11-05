@@ -9,9 +9,6 @@ use GlobalLogistics\Config;
 use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
-use GlobalLogistics\Models\Label;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Models\Tracking;
 use GlobalLogistics\Models\TrackingEvent;
 use GlobalLogistics\Support\TrackStatus;
@@ -81,7 +78,7 @@ final class Rrs implements CarrierInterface
             throw new LogisticsException(sprintf('[RRS %d] 接口错误', $statusCode));
         }
 
-        $xml = @simplexml_load_string((string) $response->getBody());
+        $xml = @simplexml_load_string((string) $response->getBody(), options: LIBXML_NONET);
         if ($xml === false) {
             throw new LogisticsException('[RRS] 响应解析失败');
         }
@@ -121,16 +118,6 @@ final class Rrs implements CarrierInterface
             rawStatus: trim((string) $nodes[count($nodes) - 1]->nodemes),
             raw: iterator_to_array($xml->response->Realtime),
         );
-    }
-
-    public function createOrder(OrderRequest $request): Order
-    {
-        throw new LogisticsException('RRS createOrder 待实现');
-    }
-
-    public function createLabel(Order $order, array $options = []): Label
-    {
-        throw new LogisticsException('RRS createLabel 待实现');
     }
 
     public function subscribe(string $callbackUrl, array $options = []): void

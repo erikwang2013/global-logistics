@@ -10,9 +10,6 @@ use GlobalLogistics\Exceptions\AuthException;
 use GlobalLogistics\Exceptions\LogisticsException;
 use GlobalLogistics\Exceptions\TrackingNotFoundException;
 use GlobalLogistics\Http\OAuthTokenClient;
-use GlobalLogistics\Models\Label;
-use GlobalLogistics\Models\Order;
-use GlobalLogistics\Models\OrderRequest;
 use GlobalLogistics\Models\Tracking;
 use GlobalLogistics\Models\TrackingEvent;
 use GlobalLogistics\Support\TrackStatus;
@@ -117,16 +114,6 @@ final class FedEx implements CarrierInterface
             rawStatus: (string) ($track['statusByTrack']['state'] ?? ''),
             raw: $result,
         );
-    }
-
-    public function createOrder(OrderRequest $request): Order
-    {
-        throw new LogisticsException('FEDEX createOrder 待实现');
-    }
-
-    public function createLabel(Order $order, array $options = []): Label
-    {
-        throw new LogisticsException('FEDEX createLabel 待实现');
     }
 
     public function subscribe(string $callbackUrl, array $options = []): void
